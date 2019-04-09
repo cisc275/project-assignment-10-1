@@ -1,5 +1,17 @@
 package mainpkg;
 
-public class Player {
+public class Player extends GameObject{
+	public void flap(){
+		
+	}
+	
+	public void jump(){
+		
+	}
+	
+	public void dive(){
+		
+	}
+	
 
 }

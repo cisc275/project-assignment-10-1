@@ -1,5 +1,5 @@
 package mainpkg;
 
-public class Objective {
-
+public class Objective extends GameObject{
+	public int superPower;
 }
