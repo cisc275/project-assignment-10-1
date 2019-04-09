@@ -2,11 +2,12 @@ package mainpkg;
 
 import java.util.*;
 public class Model {
-	int frameWidth;
-	int frameHeight;
-	int score;
-	List<Obstacle> obstacles;
-	List<Objective> objectives;
+	private int frameWidth;
+	private int frameHeight;
+	private int score;
+	private Enum Scenes;
+	private List<Obstacle> obstacles;
+	private List<Objective> objectives;
 	
 	
 	public void Collision(GameObject g1, GameObject g2){

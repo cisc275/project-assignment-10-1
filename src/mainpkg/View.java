@@ -9,7 +9,7 @@ public class View {
 	private int frameCount;
 	
 	private int picNum;
-	private List<GameObject> gameobjects;
+	private List<GameObject> gameObjects;
 	
 	
 	public void loadImages(){
