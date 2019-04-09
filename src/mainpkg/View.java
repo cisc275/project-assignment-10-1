@@ -3,7 +3,7 @@ package mainpkg;
 
 import java.util.*;
 
-public class view {
+public class View {
 	private int frameWidth;
 	private int frameHeight;
 	private int frameCount;

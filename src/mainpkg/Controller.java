@@ -1,8 +1,8 @@
 package mainpkg;
 
-public class controller {
-	private model model;
-	private view view;
+public class Controller {
+	private Model Model;
+	private View View;
 	
 	private void start(){
 		
