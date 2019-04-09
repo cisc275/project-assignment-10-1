@@ -1,5 +1,5 @@
 package mainpkg;
 
-public class Obstacle {
+public class Obstacle extends GameObject{
 
 }
