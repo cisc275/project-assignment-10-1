@@ -3,13 +3,13 @@ package mainpkg;
 
 import java.util.*;
 
-public class view {
+public class View {
 	private int frameWidth;
 	private int frameHeight;
 	private int frameCount;
 	
 	private int picNum;
-	private List<GameObjects> gameobjects;
+	private List<GameObject> gameobjects;
 	
 	
 	public void loadImages(){

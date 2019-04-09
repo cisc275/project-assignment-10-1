@@ -1,7 +1,7 @@
 package mainpkg;
 
 import java.util.*;
-public class model {
+public class Model {
 	int frameWidth;
 	int frameHeight;
 	int score;
