@@ -6,8 +6,8 @@ public class Model {
 	private int frameHeight;
 	private int score;
 	private Enum Scenes;
-	private List<Obstacle> obstacles;
-	private List<Objective> objectives;
+	private ArrayList<Obstacle> obstacles;
+	private ArrayList<Objective> objectives;
 	public Player player;
 	private boolean playLeft=false;
 	private boolean playRight=false;
@@ -68,6 +68,16 @@ public class Model {
 		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
 		
 		
+	}
+	
+	public Player getPlayer(){
+		return player;
+	}
+	public ArrayList<Objective> getObjectives(){
+		return objectives;
+	}
+	public ArrayList<Obstacle> getObstacles(){
+		return obstacles;
 	}
 
 }

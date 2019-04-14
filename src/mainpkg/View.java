@@ -68,7 +68,7 @@ public class View extends JPanel{
     	frame.setFocusable(false);
     	requestFocus();
 	}
-	public void startFoodGame(){
+	public void startFoodGame(Player player, ArrayList<Objective> objectives){
 		
 	}
 }

@@ -125,7 +125,7 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	public void startFoodGame(){
 		model.startFoodGame();
-		view.startFoodGame();
+		view.startFoodGame(model.getPlayer(), model.getObjectives());
 	}
 	
 }
