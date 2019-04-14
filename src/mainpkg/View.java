@@ -28,6 +28,7 @@ public class View extends JPanel{
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameWidth, frameHeight);
     	frame.setVisible(true);
+    	frame.setFocusable(true);
 	}
 	
 	public void loadImages(){
@@ -57,6 +58,7 @@ public class View extends JPanel{
 	}
 
 	public void birdSelection() {
+	//	frame.requestFocus();
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
 	}

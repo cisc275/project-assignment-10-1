@@ -27,16 +27,20 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	
 	public void start(){
+		view.addKeyListener(this);
+		view.requestFocus();
 		//BirdSelection - START
+		System.out.println("start bird selection");
 		model.needInput = true;
 		view.birdSelection();
 		while(model.needInput) {
 			//update model and view
 			//wait for user to select bird
 			view.update();
-			if(Key.enter.isDown)
+			if(Key.enter.isDown) //move this to model or have it call a method
 				model.needInput = false;
 		}
+		System.out.println("end of bird selection");
 		//BirdSelection - END
 		
 		for (int i = 0; i<5000; i++){
@@ -51,6 +55,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	
 	public void keyPressed(KeyEvent e){
+		System.out.println("pressed");
 		other[e.getExtendedKeyCode()] = true;
 		keyBindings.get(e.getKeyCode()).isDown = true;
 //		
