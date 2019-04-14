@@ -57,7 +57,7 @@ public class View extends JPanel{
 	}
 
 	public void birdSelection() {
-		JTextArea title = new JTextArea("Select a bird");
+		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
 	}
 }

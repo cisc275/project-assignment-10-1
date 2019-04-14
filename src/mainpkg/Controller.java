@@ -20,6 +20,10 @@ public class Controller implements KeyListener,ActionListener {
 		model = new Model(view.getframeWidth(), view.getframeHeight(), 0);
 		
 		bind(KeyEvent.VK_ENTER, Key.enter);
+		bind(KeyEvent.VK_UP, Key.up);
+		bind(KeyEvent.VK_LEFT, Key.left);
+		bind(KeyEvent.VK_RIGHT, Key.right);
+		bind(KeyEvent.VK_DOWN, Key.down);
 	}
 	
 	public void start(){
