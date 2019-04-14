@@ -19,7 +19,10 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	
 	public void start(){
-		
+		for (int i = 0; i<5000; i++){
+			Model.updateGameState();
+			View.update();
+		}
 	}
 	public void main(String[] args){
 		
