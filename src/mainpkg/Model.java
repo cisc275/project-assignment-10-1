@@ -8,7 +8,11 @@ public class Model {
 	private Enum Scenes;
 	private List<Obstacle> obstacles;
 	private List<Objective> objectives;
-	public boolean needInput = false;
+	private boolean playLeft=false;
+	private boolean playRight=false;
+	private boolean playUp=false;
+	private boolean playDown=false;
+  public boolean needInput = false;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;
@@ -33,6 +37,18 @@ public class Model {
 	
 	public void main(String[] args){
 		
+	}
+	public void changeplayLeft(){
+		playLeft^=true;
+	}
+	public void changeplayRight(){
+		playRight^=true;
+	}
+	public void changeplayUp(){
+		playUp^=true;
+	}
+	public void changeplayDown(){
+		playDown^=true;
 	}
 
 }

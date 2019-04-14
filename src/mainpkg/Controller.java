@@ -43,11 +43,49 @@ public class Controller implements KeyListener,ActionListener {
 	}
 
 	public void keyPressed(KeyEvent e){
-		
+		if (e.getKeyCode()==39){//Right arrow key pressed
+			model.changeplayRight();
+			model.updateLocation();
+			view.update();
+		}
+		else if(e.getKeyCode()==37){//Left arrow key pressed
+			model.changeplayLeft();
+			model.updateLocation();
+			view.update();
+		}
+		else if(e.getKeyCode()==38){//Up arrow key pressed
+			model.changeplayUp();
+			model.updateLocation();
+			view.update();
+		}
+		else if(e.getKeyCode()==40){//Down arrow key pressed
+			model.changeplayDown();
+			model.updateLocation();
+			view.update();
+		}
 	}
 	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+		if(arg0.getKeyCode()==39){//Right arrow key is released
+			model.updateLocation();
+			view.update();
+		}
+		else if(arg0.getKeyCode()==37){//left arrow key is released
+			model.changeplayLeft();
+			model.updateLocation();
+			view.update();
+		}
+		else if(arg0.getKeyCode()==38){//up arrow key is released
+			model.changeplayUp();
+			model.updateLocation();
+			view.update();
+		}
+		else if(arg0.getKeyCode()==40){//down arrow key is released
+			model.changeplayDown();
+			model.updateLocation();
+			view.update();
+		}
 		
+				
 	}
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
