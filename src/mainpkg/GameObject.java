@@ -8,12 +8,21 @@ public abstract class GameObject {
 	private int xvel;
 	private int yvel;
 	
-	public void move() {
-		
+	public GameObject(int width, int height, int xloc, int yloc, int xvel, int yvel) {
+		this.width = width;
+		this.height = height;
+		this.xloc = xloc;
+		this.yloc = yloc;
+		this.xvel = xvel;
+		this.yvel = yvel;
 	}
 	
-	void updateScore() {
-		
+	//updates loc based on vel
+	public void move() {
+		xloc += xvel;
+		yloc += yvel;
 	}
+	
+	public abstract int getPoints();
 
 }
