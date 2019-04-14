@@ -6,13 +6,15 @@ public class Model {
 	private int frameHeight;
 	private int score;
 	private Enum Scenes;
-	private List<Obstacle> obstacles;
-	private List<Objective> objectives;
-	private boolean playLeft=false;
-	private boolean playRight=false;
-	private boolean playUp=false;
-	private boolean playDown=false;
-  public boolean needInput = false;
+	private ArrayList<Obstacle> obstacles;
+	private ArrayList<Objective> objectives;
+	private Player player;
+//	private boolean playLeft=false;
+//	private boolean playRight=false;
+//	private boolean playUp=false;
+//	private boolean playDown=false;
+	public boolean isPlaying = false;
+	public boolean needInput = false;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;
@@ -35,20 +37,28 @@ public class Model {
 		
 	}
 	
-	public void main(String[] args){
+	public void startFrogger(int width, int height) {
+		isPlaying = true;
+		int buffer = 10;
+		int collums = 5;
+		int rows = 5;
+		int pWidth = width/collums - buffer*2;
+		int pHeight = height/rows - buffer*2;
+		
+		player = new Player(pWidth, pHeight, buffer, height-(buffer+pHeight), 0, 0, 0);
 		
 	}
-	public void changeplayLeft(){
-		playLeft^=true;
+	
+	public Player getPlayer() {
+		return player;
 	}
-	public void changeplayRight(){
-		playRight^=true;
+	
+	public ArrayList<Obstacle> getObstacles() {
+		return obstacles;
 	}
-	public void changeplayUp(){
-		playUp^=true;
-	}
-	public void changeplayDown(){
-		playDown^=true;
+	
+	public ArrayList<Objective> getObjectives() {
+		return objectives;
 	}
 
 }

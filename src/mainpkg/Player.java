@@ -1,5 +1,7 @@
 package mainpkg;
 
+import java.awt.Color;
+
 public class Player extends GameObject{
 	private int totalPoints;
 	
@@ -46,6 +48,11 @@ public class Player extends GameObject{
 	
 	public void addPoints(int p) {
 		totalPoints += p;
+	}
+	
+	//Alpha only
+	public Color getColor() {
+		return Color.blue;
 	}
 
 }

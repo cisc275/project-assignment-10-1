@@ -3,6 +3,7 @@ package mainpkg;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.*;
 
 import javax.swing.JPanel;
@@ -17,9 +18,8 @@ public class View extends JPanel{
 	private int frameHeight = 325;
 	private int frameCount;
 	static JFrame frame;
-	
 	private int picNum;
-	private List<GameObject> gameObjects;
+	private ArrayList<GameObject> gameObjects;
 	
 	public View(){
 		resetFrame();
@@ -39,8 +39,13 @@ public class View extends JPanel{
 		}
 	}
 	
-	public void paint(){
-		
+	public void paint(Graphics g){
+		if (!gameObjects.isEmpty()) {
+			for (GameObject o : gameObjects) {
+				g.setColor(o.getColor());
+				g.drawRect(o.xloc, o.yloc, o.width, o.height);
+			}
+		}
 	}
 	
 	public int getframeWidth(){
@@ -67,4 +72,15 @@ public class View extends JPanel{
     	frame.setFocusable(false);
     	requestFocus();
 	}
+
+	public void startFrogger(Player player, ArrayList<Obstacle> obsticles) {
+		gameObjects.removeAll(gameObjects);
+		gameObjects.add(player);
+		for(Obstacle o : obsticles) {
+			gameObjects.add(o);
+		}
+		
+	}
+	
+	
 }

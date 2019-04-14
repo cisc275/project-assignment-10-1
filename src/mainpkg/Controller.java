@@ -46,6 +46,12 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("end of bird selection");
 		//BirdSelection - END
 		
+		//Frogger - START
+		startFrogger();
+		while(model.isPlaying) {
+			view.update();
+		}
+		
 		for (int i = 0; i<5000; i++){
 			model.updateGameState();
 			view.update();
@@ -123,4 +129,8 @@ public class Controller implements KeyListener,ActionListener {
 		keyBindings.put(keyCode, key);
 	}
 	
+	public void startFrogger() {
+		model.startFrogger(view.getWidth(), view.getHeight());
+		view.startFrogger(model.getPlayer(), model.getObstacles());
+	}
 }
