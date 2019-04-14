@@ -9,7 +9,11 @@ public class Model {
 	private List<Obstacle> obstacles;
 	private List<Objective> objectives;
 	
-	
+	public Model(int fw, int fh, int s){
+		frameWidth=fw;
+		frameHeight=fh;
+		score=s;
+	}
 	public void Collision(GameObject g1, GameObject g2){
 		
 	}
