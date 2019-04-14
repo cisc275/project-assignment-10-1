@@ -20,7 +20,7 @@ public class View extends JPanel{
 	static JFrame frame;
 	
 	private int picNum;
-	private List<GameObject> gameObjects;
+	private ArrayList<GameObject> gameObjects;
 	
 	public View(){
 		resetFrame();
@@ -73,6 +73,9 @@ public class View extends JPanel{
     	requestFocus();
 	}
 	public void startFoodGame(Player player, ArrayList<Objective> objectives){
-		
+		gameObjects.add(player);
+		for(Objective o: objectives){
+			gameObjects.add(o);
+		}
 	}
 }
