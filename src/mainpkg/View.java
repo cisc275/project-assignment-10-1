@@ -28,7 +28,7 @@ public class View extends JPanel{
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameWidth, frameHeight);
     	frame.setVisible(true);
-    	frame.setFocusable(true);
+    	frame.setFocusable(false);
 	}
 	
 	public void loadImages(){
