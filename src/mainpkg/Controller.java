@@ -45,6 +45,8 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("end of bird selection");
 		//BirdSelection - END
 		
+		
+		
 		for (int i = 0; i<5000; i++){
 			model.updateGameState();
 			view.update();

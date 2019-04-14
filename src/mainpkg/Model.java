@@ -8,6 +8,7 @@ public class Model {
 	private Enum Scenes;
 	private List<Obstacle> obstacles;
 	private List<Objective> objectives;
+	public Player player;
 	private boolean playLeft=false;
 	private boolean playRight=false;
 	private boolean playUp=false;
@@ -62,6 +63,10 @@ public class Model {
 		playDown^=true;
 	}
 	public void startFoodGame(){
+		isPlaying = true;
+		player = new Player(100,100,250,50,0,0,0);
+		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
+		
 		
 	}
 
