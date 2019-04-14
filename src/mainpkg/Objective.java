@@ -1,5 +1,7 @@
 package mainpkg;
 
+import java.awt.Color;
+
 public class Objective extends GameObject{
 	private boolean superPower;
 	private int points; //points gained when hit
@@ -23,5 +25,9 @@ public class Objective extends GameObject{
 	}
 	public void toggleSuper() {
 		superPower = superPower ^ true;
+	}
+	
+	public Color getColor(){
+		return Color.green;
 	}
 }
