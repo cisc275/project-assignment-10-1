@@ -1,5 +1,7 @@
 package mainpkg;
 
+import java.awt.Color;
+
 public abstract class GameObject {
 	protected int width;
 	protected int height;
@@ -24,5 +26,6 @@ public abstract class GameObject {
 	}
 	
 	public abstract int getPoints();
+	public abstract Color getColor();
 
 }

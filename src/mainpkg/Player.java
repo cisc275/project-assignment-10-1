@@ -63,7 +63,7 @@ public class Player extends GameObject{
 		catch(InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+		yvel=0;
 		
 		//TODO: figure out. Probably use a series of move() methods
 	}

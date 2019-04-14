@@ -3,6 +3,7 @@ package mainpkg;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.*;
 
 import javax.swing.JPanel;
@@ -39,8 +40,11 @@ public class View extends JPanel{
 		}
 	}
 	
-	public void paint(){
-		
+	public void paint(Graphics g){
+		for(GameObject o: gameObjects){
+			g.setColor(o.getColor());
+			g.drawRect(o.xloc, o.yloc, o.width, o.height);
+		}
 	}
 	
 	public int getframeWidth(){

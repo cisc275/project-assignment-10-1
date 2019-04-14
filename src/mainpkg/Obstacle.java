@@ -1,5 +1,7 @@
 package mainpkg;
 
+import java.awt.Color;
+
 public class Obstacle extends GameObject{
 	private int lostPoints; //points lost when hit
 	
@@ -12,5 +14,7 @@ public class Obstacle extends GameObject{
 	public int getPoints() {
 		return -1 * lostPoints;
 	}
-	
+	public Color getColor(){
+		return Color.red;
+	}
 }

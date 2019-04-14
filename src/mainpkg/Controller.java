@@ -44,7 +44,11 @@ public class Controller implements KeyListener,ActionListener {
 		view.resetFrame();
 		System.out.println("end of bird selection");
 		//BirdSelection - END
-		
+		startFoodGame();
+		while(model.isPlaying){
+			model.updateGameState();
+			view.update();
+		}
 		
 		
 		for (int i = 0; i<5000; i++){
