@@ -10,18 +10,18 @@ import java.util.*;
 
 public class Controller implements KeyListener,ActionListener {
 
-	private Model Model;
-	private View View;
+	private Model model;
+	private View view;
 	
 	public Controller(){
-		View = new View();
-		Model = new Model(View.getframeWidth(), View.getframeHeight(), 0);
+		view = new View();
+		model = new Model(view.getframeWidth(), view.getframeHeight(), 0);
 	}
 	
 	public void start(){
 		for (int i = 0; i<5000; i++){
-			Model.updateGameState();
-			View.update();
+			model.updateGameState();
+			view.update();
 		}
 	}
 	public void main(String[] args){
@@ -29,7 +29,13 @@ public class Controller implements KeyListener,ActionListener {
 	}
 
 	public void keyPressed(KeyEvent e){
-		
+		if (e.getKeyCode()==39){//Right arrow key pressed
+			
+		}
+		else if(e.getKeyCode()==37){//Left arrow key pressed
+			
+		}
+		view.repaint();
 	}
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
