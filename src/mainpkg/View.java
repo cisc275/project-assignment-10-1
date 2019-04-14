@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.util.*;
 
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 import javax.swing.JFrame;
 
