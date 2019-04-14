@@ -19,13 +19,27 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	
 	public void start(){
+		//BirdSelection - START
+		model.needInput = true;
+		view.birdSelection();
+		while(model.needInput) {
+			//update model and view
+			//wait for user to select bird
+			for(int i = 0; i <10; i++) {
+				view.update();
+			}
+			model.needInput = false;
+		}
+		//BirdSelection - END
+		
 		for (int i = 0; i<5000; i++){
 			model.updateGameState();
 			view.update();
 		}
 	}
-	public void main(String[] args){
-		
+	public static void main(String[] args){
+		Controller c = new Controller();
+		c.start();
 	}
 
 	public void keyPressed(KeyEvent e){

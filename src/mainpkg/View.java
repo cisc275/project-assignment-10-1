@@ -1,16 +1,20 @@
 package mainpkg;
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.*;
 
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.JTextArea;
 import javax.swing.JFrame;
 
 
+@SuppressWarnings("serial")
 public class View extends JPanel{
-	private int frameWidth;
-	private int frameHeight;
+	private int frameWidth = 500; //TODO: have this adjust per display
+	private int frameHeight = 325;
 	private int frameCount;
 	static JFrame frame;
 	
@@ -31,7 +35,13 @@ public class View extends JPanel{
 	}
 	
 	public void update(){
-		
+		try {
+			frame.repaint();
+			Thread.sleep(100);
+		}
+		catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void paint(){
@@ -46,4 +56,8 @@ public class View extends JPanel{
 		return frameHeight;
 	}
 
+	public void birdSelection() {
+		JTextArea title = new JTextArea("Select a bird");
+		frame.add(title, BorderLayout.PAGE_START);
+	}
 }

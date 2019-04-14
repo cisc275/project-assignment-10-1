@@ -12,6 +12,7 @@ public class Model {
 	private boolean playRight=false;
 	private boolean playUp=false;
 	private boolean playDown=false;
+  public boolean needInput = false;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;
