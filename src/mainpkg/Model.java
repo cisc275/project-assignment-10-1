@@ -8,6 +8,7 @@ public class Model {
 	private Enum Scenes;
 	private List<Obstacle> obstacles;
 	private List<Objective> objectives;
+	public boolean needInput = false;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;

@@ -10,22 +10,36 @@ import java.util.*;
 
 public class Controller implements KeyListener,ActionListener {
 
-	private Model Model;
-	private View View;
+	private Model model;
+	private View view;
 	
 	public Controller(){
-		View = new View();
-		Model = new Model(View.getframeWidth(), View.getframeHeight(), 0);
+		view = new View();
+		model = new Model(view.getframeWidth(), view.getframeHeight(), 0);
 	}
 	
 	public void start(){
+		//BirdSelection - START
+		model.needInput = true;
+		view.birdSelection();
+		while(model.needInput) {
+			//update model and view
+			//wait for user to select bird
+			for(int i = 0; i <10; i++) {
+				view.update();
+			}
+			model.needInput = false;
+		}
+		//BirdSelection - END
+		
 		for (int i = 0; i<5000; i++){
-			Model.updateGameState();
-			View.update();
+			model.updateGameState();
+			view.update();
 		}
 	}
-	public void main(String[] args){
-		
+	public static void main(String[] args){
+		Controller c = new Controller();
+		c.start();
 	}
 
 	public void keyPressed(KeyEvent e){
