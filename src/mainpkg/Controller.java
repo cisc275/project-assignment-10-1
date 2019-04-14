@@ -28,11 +28,12 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public void start(){
 		view.addKeyListener(this);
-		view.requestFocus();
+		
 		//BirdSelection - START
+		
 		System.out.println("start bird selection");
 		model.needInput = true;
-		view.birdSelection();
+		view.startBirdSelection();
 		while(model.needInput) {
 			//update model and view
 			//wait for user to select bird
@@ -40,6 +41,7 @@ public class Controller implements KeyListener,ActionListener {
 			if(Key.enter.isDown) //move this to model or have it call a method
 				model.needInput = false;
 		}
+		view.resetFrame();
 		System.out.println("end of bird selection");
 		//BirdSelection - END
 		

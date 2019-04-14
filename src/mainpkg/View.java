@@ -22,13 +22,7 @@ public class View extends JPanel{
 	private List<GameObject> gameObjects;
 	
 	public View(){
-		frame = new JFrame();
-    	frame.getContentPane().add(this);
-    	frame.setBackground(Color.gray);
-    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    	frame.setSize(frameWidth, frameHeight);
-    	frame.setVisible(true);
-    	frame.setFocusable(false);
+		resetFrame();
 	}
 	
 	public void loadImages(){
@@ -57,9 +51,22 @@ public class View extends JPanel{
 		return frameHeight;
 	}
 
-	public void birdSelection() {
+	public void startBirdSelection() {
 	//	frame.requestFocus();
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
+	}
+	public void endBirdSelection() {
+		resetFrame();
+	}
+	public void resetFrame() {
+		frame = new JFrame();
+    	frame.getContentPane().add(this);
+    	frame.setBackground(Color.gray);
+    	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    	frame.setSize(frameWidth, frameHeight);
+    	frame.setVisible(true);
+    	frame.setFocusable(false);
+    	requestFocus();
 	}
 }
