@@ -13,10 +13,15 @@ public class Controller implements KeyListener,ActionListener {
 	private Model Model;
 	private View View;
 	
-	private void start(){
+	public Controller(){
+		View = new View();
+		Model = new Model(View.getframeWidth(), View.getframeHeight(), 0);
+	}
+	
+	public void start(){
 		
 	}
-	private void main(String[] args){
+	public void main(String[] args){
 		
 	}
 

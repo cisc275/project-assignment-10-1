@@ -37,5 +37,13 @@ public class View extends JPanel{
 	public void paint(){
 		
 	}
+	
+	public int getframeWidth(){
+		return frameWidth;
+	}
+	
+	public int getframeHeight(){
+		return frameHeight;
+	}
 
 }
