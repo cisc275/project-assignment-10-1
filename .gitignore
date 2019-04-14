@@ -1,2 +1,5 @@
-/mainpkg/
-/bin/mainpkg/*
+#eclipse junk
+bin/**
+tmp/**
+tmp/**/*
+
