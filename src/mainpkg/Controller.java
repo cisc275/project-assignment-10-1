@@ -46,8 +46,26 @@ public class Controller implements KeyListener,ActionListener {
 		//BirdSelection - END
 		startFoodGame();
 		while(model.isPlaying){
-			model.updateGameState();
-			view.update();
+			if(Key.space.isDown){
+				model.player.dive(model.player.height,250);
+				model.updateGameState();
+				view.update();
+			}
+			else if(Key.right.isDown){
+				model.player.xJump();
+				model.updateGameState();
+				view.update();
+			}
+			else if(Key.left.isDown){
+				model.player.xJump();
+				model.updateGameState();
+				view.update();
+			}
+			else{
+				model.updateGameState();
+				view.update();
+			}
+			
 		}
 		
 		
