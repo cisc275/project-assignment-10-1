@@ -56,9 +56,7 @@ public class View extends JPanel{
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
 	}
-	public void endBirdSelection() {
-		resetFrame();
-	}
+	
 	public void resetFrame() {
 		frame = new JFrame();
     	frame.getContentPane().add(this);

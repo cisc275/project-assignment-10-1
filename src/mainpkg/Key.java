@@ -8,6 +8,7 @@ public class Key {
 	public static Key left = new Key();
 	public static Key right = new Key();
 	public static Key down = new Key();
+	public static Key space = new Key();
 	
 	public void toggle() {
 		isDown = !isDown;
