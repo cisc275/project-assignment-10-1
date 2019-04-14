@@ -121,5 +121,9 @@ public class Controller implements KeyListener,ActionListener {
 	public void bind(Integer keyCode, Key key) {
 		keyBindings.put(keyCode, key);
 	}
+	public void startFoodGame(){
+		model.startFoodGame();
+		view.startFoodGame();
+	}
 	
 }

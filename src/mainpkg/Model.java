@@ -13,14 +13,25 @@ public class Model {
 	private boolean playUp=false;
 	private boolean playDown=false;
   public boolean needInput = false;
+  public boolean isPlaying = false;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;
 		frameHeight=fh;
 		score=s;
 	}
-	public void Collision(GameObject g1, GameObject g2){
-		
+	public boolean Collision(GameObject g1, GameObject g2){
+		if(g1.xloc+g1.width==g2.xloc||g1.xloc==g2.xloc-g2.width){
+			if(g1.yloc-g1.height==g2.yloc||g1.yloc==g2.yloc-g2.height){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
 	}
 	
 	public void updateGameState(){
@@ -49,6 +60,9 @@ public class Model {
 	}
 	public void changeplayDown(){
 		playDown^=true;
+	}
+	public void startFoodGame(){
+		
 	}
 
 }
