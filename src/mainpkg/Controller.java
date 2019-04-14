@@ -24,6 +24,7 @@ public class Controller implements KeyListener,ActionListener {
 		bind(KeyEvent.VK_LEFT, Key.left);
 		bind(KeyEvent.VK_RIGHT, Key.right);
 		bind(KeyEvent.VK_DOWN, Key.down);
+		bind(KeyEvent.VK_SPACE, Key.space);
 	}
 	
 	public void start(){
