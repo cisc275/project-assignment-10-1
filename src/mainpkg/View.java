@@ -53,6 +53,7 @@ public class View extends JPanel{
 
 	public void startBirdSelection() {
 	//	frame.requestFocus();
+		frame.setVisible(true);
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
 	}
@@ -66,5 +67,8 @@ public class View extends JPanel{
     	frame.setVisible(true);
     	frame.setFocusable(false);
     	requestFocus();
+	}
+	public void startFoodGame(){
+		
 	}
 }
