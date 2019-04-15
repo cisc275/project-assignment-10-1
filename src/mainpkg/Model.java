@@ -141,6 +141,16 @@ public class Model {
 		if(Key.left.isDown) player.xJump(false);
 		if(Key.right.isDown) player.xJump(true);
 	}
+	public void startFlappyBird() {
+		isPlaying = true;
+		player = new Player(100, 100, 50, 50, 0, 0, 0);
+	}
+	
+	public void updateFlappyBirdGameState() {
+		if(Key.space.isDown) player.yvel+=10;
+		player.yloc-=2;
+		
+	}
 	
 	public Player getPlayer(){
 		return player;
