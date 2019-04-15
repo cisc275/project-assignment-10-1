@@ -20,11 +20,14 @@ public class ModelTest {
 		GameObject myObj5 = new Objective(100,100,500,200,0,0,false,0);
 		GameObject player = new Player(100,100,250,200,0,0,0);
 		assertFalse("shouldn't collide with anything", myModel.wallCollision(myObj1));
-		assertTrue("Should collide with wall",myModel.wallCollision(myObj2));
-		assertTrue("Should collide with wall", myModel.wallCollision(myObj3));
-		assertTrue("Should collide with wall", myModel.wallCollision(myObj4));
-		assertTrue("Should collide with wall", myModel.wallCollision(myObj5));
-		assertTrue("Collision should occur",myModel.collision(player, myObj1));
+		assertTrue("Should collide with top wall",myModel.wallCollision(myObj2));
+		assertTrue("Should collide with bottom wall", myModel.wallCollision(myObj3));
+		assertTrue("Should collide with left wall", myModel.wallCollision(myObj4));
+		assertTrue("Should collide with right wall", myModel.wallCollision(myObj5));
+		assertTrue("Collision between player and obstacle",myModel.collision(player, myObj1));
+		player.xloc =100;
+		assertTrue("Collision between player and objective",myModel.collision(player, myObj4));
+		
 		
 	}
 
