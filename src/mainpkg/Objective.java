@@ -26,8 +26,7 @@ public class Objective extends GameObject{
 	public void toggleSuper() {
 		superPower = superPower ^ true;
 	}
-	
-	public Color getColor(){
+	public Color getColor() {
 		return Color.green;
 	}
 }

@@ -14,7 +14,9 @@ public class Obstacle extends GameObject{
 	public int getPoints() {
 		return -1 * lostPoints;
 	}
-	public Color getColor(){
+  
+	//ALPHA only
+	public Color getColor() {
 		return Color.red;
 	}
 }

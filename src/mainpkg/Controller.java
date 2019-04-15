@@ -23,6 +23,7 @@ public class Controller implements KeyListener,ActionListener {
 		bind(KeyEvent.VK_LEFT, Key.left);
 		bind(KeyEvent.VK_RIGHT, Key.right);
 		bind(KeyEvent.VK_DOWN, Key.down);
+		bind(KeyEvent.VK_SPACE, Key.space);
 	}
 	
 	public void start() throws InterruptedException{
@@ -50,6 +51,13 @@ public class Controller implements KeyListener,ActionListener {
 			
 		}
 		
+		
+		//Frogger - START
+		startFrogger();
+		while(model.isPlaying) {
+			model.updateFroggerState();
+			view.update();
+		}
 		
 		for (int i = 0; i<5000; i++){
 			model.updateGameState();
@@ -132,4 +140,8 @@ public class Controller implements KeyListener,ActionListener {
 		view.startFoodGame(model.getPlayer(), model.getObjectives());
 	}
 	
+	public void startFrogger() {
+		model.startFrogger(view.getWidth(), view.getHeight());
+		view.startFrogger(model.getPlayer(), model.getObstacles());
+	}
 }

@@ -18,9 +18,10 @@ public class View extends JPanel{
 	private int frameHeight = 325;
 	private int frameCount;
 	static JFrame frame;
-	
 	private int picNum;
-	private ArrayList<GameObject> gameObjects;
+
+	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+
 	
 	public View(){
 		resetFrame();
@@ -41,9 +42,11 @@ public class View extends JPanel{
 	}
 	
 	public void paint(Graphics g){
-		for(GameObject o: gameObjects){
-			g.setColor(o.getColor());
-			g.drawRect(o.xloc, o.yloc, o.width, o.height);
+		if (!gameObjects.isEmpty()) {
+			for (GameObject o : gameObjects) {
+				g.setColor(o.getColor());
+				g.fillRect(o.xloc, o.yloc, o.width, o.height);
+			}
 		}
 	}
 	
@@ -72,10 +75,20 @@ public class View extends JPanel{
     	frame.setFocusable(false);
     	requestFocus();
 	}
-	public void startFoodGame(Player player, ArrayList<Objective> objectives){
+
+	public void startFrogger(Player player, ArrayList<Obstacle> obsticles) {
+		gameObjects = new ArrayList<GameObject>();
+		gameObjects.add(player);
+		for(Obstacle o : obsticles) {
+			gameObjects.add(o);
+		}
+		
+	}
+  public void startFoodGame(Player player, ArrayList<Objective> objectives){
 		gameObjects.add(player);
 		for(Objective o: objectives){
 			gameObjects.add(o);
 		}
 	}
+	
 }

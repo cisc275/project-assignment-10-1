@@ -8,31 +8,54 @@ public class Model {
 	private Enum Scenes;
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Objective> objectives;
-	public Player player;
-	private boolean playLeft=false;
-	private boolean playRight=false;
-	private boolean playUp=false;
-	private boolean playDown=false;
-  public boolean needInput = false;
-  public boolean isPlaying = false;
+
+	private Player player;
+//	private boolean playLeft=false;
+//	private boolean playRight=false;
+//	private boolean playUp=false;
+//	private boolean playDown=false;
+	public boolean isPlaying = false;
+	public boolean needInput = false;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;
 		frameHeight=fh;
 		score=s;
 	}
-	public boolean Collision(GameObject g1, GameObject g2){
-		if(g1.xloc+g1.width==g2.xloc||g1.xloc==g2.xloc-g2.width){
-			if(g1.yloc-g1.height==g2.yloc||g1.yloc==g2.yloc-g2.height){
-				return true;
-			}
-			else{
-				return false;
-			}
+
+	public boolean wallCollision(GameObject o) {
+		if(o.xloc < 0
+				|| o.xloc > (frameWidth - o.width)
+				|| o.yloc < 0
+				|| o.yloc > (frameHeight - o.height)) {
+			System.out.println("Collided");
+			return true;
 		}
-		else{
-			return false;
+		return false;
+	}
+	public boolean playerAndObsticleCollision() {
+		for(Obstacle o : obstacles) {
+			if(collision(player, o))
+					return true;
 		}
+		return false;
+	}
+	public boolean collision(GameObject g1, GameObject g2){
+		int x1Low = g1.xloc;
+		int x2Low = g2.xloc;
+		int x1High = g1.xloc + g1.width;
+		int x2High = g2.xloc + g2.width;
+		int y1Low = g1.yloc;
+		int y2Low = g2.yloc;
+		int y1High = g1.yloc + g1.height;
+		int y2High = g2.yloc + g2.height;
+
+		if((x1Low <= x2High && x1High >= x2Low) 
+				&& (y1Low <= y2High && y2High >= y2Low)) {
+			System.out.println("collision");
+			return true;
+		}
+		return false;
 	}
 	
 	public void updateGameState(){
@@ -47,20 +70,43 @@ public class Model {
 		
 	}
 	
-	public void main(String[] args){
+	public void startFrogger(int width, int height) {
+		isPlaying = true;
+		int buffer = 10;
+		int collums = 5;
+		int rows = 5;
+		int pWidth = width/collums - buffer*2;
+		int pHeight = height/rows - buffer*2;
+		obstacles = new ArrayList<Obstacle>();
+		
+		player = new Player(pWidth, pHeight, buffer, height-(buffer+pHeight), 0, 0, 0);
 		
 	}
-	public void changeplayLeft(){
-		playLeft^=true;
+	
+	public Player getPlayer() {
+		return player;
 	}
-	public void changeplayRight(){
-		playRight^=true;
+	
+	public ArrayList<Obstacle> getObstacles() {
+		return obstacles;
 	}
-	public void changeplayUp(){
-		playUp^=true;
+	
+	public ArrayList<Objective> getObjectives() {
+		return objectives;
 	}
-	public void changeplayDown(){
-		playDown^=true;
+	public void updateFroggerState() {
+		int oldX = player.xloc;
+		int oldY = player.yloc;
+		
+		if(Key.up.isDown) player.yJump(true);
+		if(Key.left.isDown) player.xJump(false);
+		if(Key.right.isDown) player.xJump(true);
+		if(Key.down.isDown) player.yJump(false);
+		
+		if(wallCollision(player) || playerAndObsticleCollision()) {
+			player.xloc = oldX;
+			player.yloc = oldY;
+		}
 	}
 	public void startFoodGame(){
 		isPlaying = true;
@@ -82,5 +128,6 @@ public class Model {
 	public ArrayList<Obstacle> getObstacles(){
 		return obstacles;
 	}
+
 
 }
