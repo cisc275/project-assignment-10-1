@@ -73,7 +73,7 @@ public class Controller implements KeyListener,ActionListener {
 		//FlappyBird - START
 		//-------------------------------------------------------------
 		System.out.println("Start flappy");
-//		startFlappyBird();
+		startFlappyBird();
 		while(model.isPlaying){
 			model.updateFlappyBirdGameState();
 			view.update();
