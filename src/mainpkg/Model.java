@@ -72,11 +72,19 @@ public class Model {
 		return objectives;
 	}
 	public void updateFroggerState() {
+		int oldX = player.xloc;
+		int oldY = player.yloc;
+		
 		if(Key.up.isDown) player.yJump(true);
 		if(Key.left.isDown) player.xJump(false);
 		if(Key.right.isDown) player.xJump(true);
 		if(Key.down.isDown) player.yJump(false);
-		wallCollision(player);
+		
+		if(wallCollision(player)) {
+			player.xloc = oldX;
+			player.yloc = oldY;
+		}
 	}
+	
 
 }
