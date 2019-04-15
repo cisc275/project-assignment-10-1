@@ -84,8 +84,14 @@ public class Model {
 		int oWidth = width/2 - pWidth/2 - buffer*3;
 		obstacles.add(new Obstacle(oWidth, pHeight, 0, yLoc, 0, 0));
 		obstacles.add(new Obstacle(oWidth, pHeight, width - oWidth, yLoc, 0, 0));
-		
-		
+		// row 3
+		yLoc -= (pHeight + buffer)*2;
+		oWidth = pWidth;
+		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 10, 0));
+		//row 4
+		yLoc -= (pHeight + buffer);
+		oWidth = pWidth*2;
+		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0));
 	}
 	
 	public Player getPlayer() {
@@ -108,6 +114,8 @@ public class Model {
 		if(Key.right.isDown) player.xJump(true);
 		if(Key.down.isDown) player.yJump(false);
 		
+		updateFroggerObsticles();
+		
 		if(wallCollision(player) || playerAndObsticleCollision()) {
 			player.xloc = oldX;
 			player.yloc = oldY;
@@ -121,6 +129,14 @@ public class Model {
 		if(player.yloc < player.height)
 			return true;
 		return false;
+	}
+	
+	public void updateFroggerObsticles() {
+		boolean collide;
+		for(Obstacle o : obstacles) {
+			o.move();
+			if(wallCollision(o)) o.xvel *= -1;
+		}
 	}
 	
 	

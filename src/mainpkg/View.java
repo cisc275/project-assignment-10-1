@@ -44,7 +44,6 @@ public class View extends JPanel{
 			for (GameObject o : gameObjects) {
 				g.setColor(o.getColor());
 				g.fillRect(o.xloc, o.yloc, o.width, o.height);
-				System.out.println(gameObjects.indexOf(o) + " " + o.xloc + " " + o.yloc);
 			}
 		}
 	}
@@ -78,7 +77,6 @@ public class View extends JPanel{
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Obstacle o : obsticles) {
-			System.out.println("added thing");
 			gameObjects.add(o);
 		}
 		
