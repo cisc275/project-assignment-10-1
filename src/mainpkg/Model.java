@@ -145,6 +145,8 @@ public class Model {
 	}
 	public void startFlappyBird() {
 		isPlaying = true;
+		obstacles = null;
+		objectives = null;
 		player = new Player(100, 100, 50, 50, 0, 0, 0);
 	}
 	

@@ -92,6 +92,7 @@ public class View extends JPanel{
 		}
 	}
   public void startFlappyBird(Player player) { // we can add obstacles after alpha
+	  gameObjects = new ArrayList<GameObject>();
 	  gameObjects.add(player);
   }
 	
