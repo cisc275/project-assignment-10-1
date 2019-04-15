@@ -72,7 +72,11 @@ public class Controller implements KeyListener,ActionListener {
 		//FlappyBird - START
 		//-------------------------------------------------------------
 		System.out.println("Start flappy");
-		//Stuff
+		startFlappyBird();
+		while(model.isPlaying){
+			model.updateFoodGameState();
+			view.update();
+		}
 		System.out.println("end flappy");
 		
 		System.out.println("END OF GAME");
@@ -156,5 +160,10 @@ public class Controller implements KeyListener,ActionListener {
 	public void startFrogger() {
 		model.startFrogger(view.getWidth(), view.getHeight());
 		view.startFrogger(model.getPlayer(), model.getObstacles());
+	}
+	
+	public void startFlappyBird() {
+		model.startFlappyBird();
+		view.startFlappyBird(model.getPlayer());
 	}
 }
