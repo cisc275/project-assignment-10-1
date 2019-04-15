@@ -11,6 +11,12 @@ public class Controller implements KeyListener,ActionListener {
 
 	private Model model;
 	private View view;
+	private FroggerView vFrogger;
+	private FoodGameView vFood;
+	private FlappyBirdView vFlappy;
+	private FroggerModel mFrogger;
+	private FoodGameModel mFood;
+	private FlappyBirdModel mFlappy;
 	public HashMap<Integer, Key> keyBindings = new HashMap<Integer, Key>();
 	public static boolean other[] = new boolean[256];
 	
@@ -51,32 +57,38 @@ public class Controller implements KeyListener,ActionListener {
 		//------------------------------------------------------------
 		
 		System.out.println("start of frogger");
+		vFrogger = new FroggerView();
+		mFrogger = new FroggerModel(vFrogger.getframeWidth(), vFrogger.getframeHeight(), 0);
 		startFrogger();
-		while(model.isPlaying) {
-			model.updateFroggerState();
-			view.update();
+		while(mFrogger.isPlaying) {
+			mFrogger.updateFroggerState();
+			vFrogger.update();
 		}
-		view.resetFrame();
+		vFrogger.resetFrame();
 		System.out.println("end of frogger");
 		
 		//FoodGame - START
 		//------------------------------------------------------------
 		System.out.println("start foodGame");
+		vFood = new FoodGameView();
+		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
 		startFoodGame();
-		while(model.isPlaying){
-			model.updateFoodGameState();
-			view.foodGame(model.getPlayer(), model.getObjectives());
-			view.update();
+		while(mFood.isPlaying){
+			mFood.updateFoodGameState();
+			vFood.foodGame(model.getPlayer(), model.getObjectives());
+			vFood.update();
 		}
 		System.out.println("end foodGame");
 		
 		//FlappyBird - START
 		//-------------------------------------------------------------
 		System.out.println("Start flappy");
+		vFlappy = new FlappyBirdView();
+		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
 		startFlappyBird();
-		while(model.isPlaying){
-			model.updateFlappyBirdGameState();
-			view.update();
+		while(mFlappy.isPlaying){
+			mFlappy.updateFlappyBirdGameState();
+			vFlappy.update();
 		}
 		System.out.println("end flappy");
 		
@@ -113,17 +125,17 @@ public class Controller implements KeyListener,ActionListener {
 		keyBindings.put(keyCode, key);
 	}
 	public void startFoodGame(){
-		model.startFoodGame();
-		view.foodGame(model.getPlayer(), model.getObjectives());
+		mFood.startFoodGame();
+		vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 	}
 	
 	public void startFrogger() {
-		model.startFrogger(view.getWidth(), view.getHeight());
-		view.startFrogger(model.getPlayer(), model.getObstacles());
+		mFrogger.startFrogger(vFrogger.getWidth(), vFrogger.getHeight());
+		vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 	}
 	
 	public void startFlappyBird() {
-		model.startFlappyBird();
-		view.startFlappyBird(model.getPlayer(), model.getObjectives());
+		mFlappy.startFlappyBird();
+		vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
 	}
 }
