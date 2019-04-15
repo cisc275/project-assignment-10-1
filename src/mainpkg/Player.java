@@ -35,24 +35,10 @@ public class Player extends GameObject{
 		yvel = 0;
 	}
 	
-	public void dive(int flyheight, int fishheight) {
-		yvel=(flyheight-fishheight)/2;
+	public void dive(int targetHeight) {
+		yvel= (yloc - targetHeight)/2;
 		move();
-		try{
-			Thread.sleep(10);
-		}
-		catch(InterruptedException e) {
-			e.printStackTrace();
-		}
-		move();
-		try{
-			Thread.sleep(10);
-		}
-		catch(InterruptedException e) {
-			e.printStackTrace();
-		}
-		yvel=-yvel;
-		try{
+		try {
 			Thread.sleep(10);
 		}
 		catch(InterruptedException e) {
@@ -65,9 +51,8 @@ public class Player extends GameObject{
 		catch(InterruptedException e) {
 			e.printStackTrace();
 		}
-		yvel=0;
 		
-		//TODO: figure out. Probably use a series of move() methods
+		yvel = 0;
 	}
 
 	@Override

@@ -138,25 +138,39 @@ public class Model {
 		player = new Player(100,100,250,50,0,0,0);
 		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
 	}
-	public void updateFoodGameState() throws InterruptedException{
-		if(Key.space.isDown) player.dive(player.height, 250);
+	public void updateFoodGameState(){
+		int flyHeight = player.height;
+		int foodHeight = 250;
+		if(Key.space.isDown) {
+			player.dive(foodHeight);
+			eatFood();
+			player.dive(flyHeight);
+		}
 		if(Key.left.isDown) player.xJump(false);
 		if(Key.right.isDown) player.xJump(true);
+		if(player.getPoints() > 0) {
+			isPlaying = false;
+		}
+	}
+	public void eatFood() {
+		Iterator<Objective> objIt = objectives.iterator();
+		Objective o;
+		while(objIt.hasNext()) {
+			o = objIt.next();
+			if(collision(o, player)) {
+				player.addPoints(1);
+				objectives.remove(o); 
+			}
+		}
 	}
 	public void startFlappyBird() {
 		isPlaying = true;
-		obstacles = null;
-		objectives = null;
-		player = new Player(100, 100, 50, 10, 0, 0, 0);
+		player = new Player(100, 100, 50, 50, 0, 0, 0);
 	}
 	
 	public void updateFlappyBirdGameState() {
-		int flyHeight = 10;
-		int fishHeight = frameHeight - 50;
-		if(Key.space.isDown) {
-			player.dive(flyHeight, fishHeight);
-		}
-		
+		if(Key.space.isDown) player.yloc-=40;
+		player.yloc+=8;
 		
 	}
 	
