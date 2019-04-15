@@ -79,6 +79,8 @@ public class Model {
 		
 		player = new Player(pWidth, pHeight, buffer, height-(buffer+pHeight), 0, 0, 0);
 		
+		
+		
 	}
 	
 	public Player getPlayer() {
@@ -105,7 +107,17 @@ public class Model {
 			player.xloc = oldX;
 			player.yloc = oldY;
 		}
+		
+		if(froggerEnd()) {
+			isPlaying = false;
+		}
 	}
+	private boolean froggerEnd() {
+		if(player.yloc < player.height)
+			return true;
+		return false;
+	}
+	
 	
 
 }
