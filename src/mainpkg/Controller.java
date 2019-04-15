@@ -45,7 +45,7 @@ public class Controller implements KeyListener,ActionListener {
 		//BirdSelection - END
 		startFoodGame();
 		while(model.isPlaying){
-			model.updateFoodGameState()
+			model.updateFoodGameState();
 			view.update();
 			
 		}
