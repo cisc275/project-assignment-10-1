@@ -31,6 +31,7 @@ public class Controller implements KeyListener,ActionListener {
 		view.addKeyListener(this);
 		
 		//BirdSelection - START
+		//---------------------------------------------------------
 		
 		System.out.println("start bird selection");
 		model.needInput = true;
@@ -47,16 +48,16 @@ public class Controller implements KeyListener,ActionListener {
 		//BirdSelection - END
 		
 		//Frogger - START
+		//------------------------------------------------------------
+		
+		System.out.println("start of frogger");
 		startFrogger();
 		while(model.isPlaying) {
 			model.updateFroggerState();
 			view.update();
 		}
+		System.out.println("end of frogger");
 		
-		for (int i = 0; i<5000; i++){
-			model.updateGameState();
-			view.update();
-		}
 	}
 	public static void main(String[] args){
 		Controller c = new Controller();
