@@ -107,6 +107,9 @@ public class Model {
 		if(Key.left.isDown) player.xJump(false);
 		if(Key.right.isDown) player.xJump(true);
 	}
+	public void startFlappyBird() {
+		
+	}
 	
 	public Player getPlayer(){
 		return player;
