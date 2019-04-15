@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import java.util.*;
 
 
@@ -26,7 +25,7 @@ public class Controller implements KeyListener,ActionListener {
 		bind(KeyEvent.VK_DOWN, Key.down);
 	}
 	
-	public void start(){
+	public void start() throws InterruptedException{
 		view.addKeyListener(this);
 		
 		//BirdSelection - START
@@ -46,25 +45,8 @@ public class Controller implements KeyListener,ActionListener {
 		//BirdSelection - END
 		startFoodGame();
 		while(model.isPlaying){
-			if(Key.space.isDown){
-				model.player.dive(model.player.height,250);
-				model.updateGameState();
-				view.update();
-			}
-			else if(Key.right.isDown){
-				model.player.xJump();
-				model.updateGameState();
-				view.update();
-			}
-			else if(Key.left.isDown){
-				model.player.xJump();
-				model.updateGameState();
-				view.update();
-			}
-			else{
-				model.updateGameState();
-				view.update();
-			}
+			model.updateFoodGameState()
+			view.update();
 			
 		}
 		
@@ -74,7 +56,7 @@ public class Controller implements KeyListener,ActionListener {
 			view.update();
 		}
 	}
-	public static void main(String[] args){
+	public static void main(String[] args) throws InterruptedException{
 		Controller c = new Controller();
 		c.start();
 	}

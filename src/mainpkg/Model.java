@@ -66,8 +66,11 @@ public class Model {
 		isPlaying = true;
 		player = new Player(100,100,250,50,0,0,0);
 		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
-		
-		
+	}
+	public void updateFoodGameState() throws InterruptedException{
+		if(Key.space.isDown) player.dive(player.height, 250);
+		if(Key.left.isDown) player.xJump(false);
+		if(Key.right.isDown) player.xJump(true);
 	}
 	
 	public Player getPlayer(){
