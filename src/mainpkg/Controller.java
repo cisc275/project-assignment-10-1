@@ -45,12 +45,6 @@ public class Controller implements KeyListener,ActionListener {
 		view.resetFrame();
 		System.out.println("end of bird selection");
 		//BirdSelection - END
-		startFoodGame();
-		while(model.isPlaying){
-			model.updateFoodGameState();
-			view.update();
-			
-		}
 		
 		
 		//Frogger - START
@@ -64,6 +58,23 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		System.out.println("end of frogger");
 		
+		//FoodGame - START
+		//------------------------------------------------------------
+		System.out.println("start foodGame");
+//		startFoodGame();
+//		while(model.isPlaying){
+//			model.updateFoodGameState();
+//			view.update();
+//		}
+		System.out.println("end foodGame");
+		
+		//FlappyBird - START
+		//-------------------------------------------------------------
+		System.out.println("Start flappy");
+		//Stuff
+		System.out.println("end flappy");
+		
+		System.out.println("END OF GAME");
 	}
 	public static void main(String[] args) throws InterruptedException{
 		Controller c = new Controller();
