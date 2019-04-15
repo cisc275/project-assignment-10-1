@@ -31,8 +31,29 @@ public class Model {
 		}
 		return false;
 	}
-	public void collision(GameObject g1, GameObject g2){
-		
+	public boolean playerAndObsticleCollision() {
+		for(Obstacle o : obstacles) {
+			if(collision(player, o))
+					return true;
+		}
+		return false;
+	}
+	public boolean collision(GameObject g1, GameObject g2){
+		int x1Low = g1.xloc;
+		int x2Low = g2.xloc;
+		int x1High = g1.xloc + g1.width;
+		int x2High = g2.xloc + g2.width;
+		int y1Low = g1.yloc;
+		int y2Low = g2.yloc;
+		int y1High = g1.yloc + g1.height;
+		int y2High = g2.yloc + g2.height;
+
+		if((x1Low <= x2High && x1High >= x2Low) 
+				&& (y1Low <= y2High && y2High >= y2Low)) {
+			System.out.println("collision");
+			return true;
+		}
+		return false;
 	}
 	
 	public void updateGameState(){
@@ -80,7 +101,7 @@ public class Model {
 		if(Key.right.isDown) player.xJump(true);
 		if(Key.down.isDown) player.yJump(false);
 		
-		if(wallCollision(player)) {
+		if(wallCollision(player) || playerAndObsticleCollision()) {
 			player.xloc = oldX;
 			player.yloc = oldY;
 		}
