@@ -49,7 +49,7 @@ public class Model {
 		int y2High = g2.yloc + g2.height;
 
 		if((x1Low <= x2High && x1High >= x2Low) 
-				&& (y1Low <= y2High && y2High >= y2Low)) {
+				&& (y1Low <= y2High && y1High >= y2Low)) {
 			System.out.println("collision");
 			return true;
 		}
