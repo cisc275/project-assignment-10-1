@@ -77,10 +77,23 @@ public class Model {
 		int rows = 5;
 		int pWidth = width/collums - buffer*2;
 		int pHeight = height/rows - buffer*2;
+		int yLoc = height - (buffer+pHeight);
 		obstacles = new ArrayList<Obstacle>();
-		
-		player = new Player(pWidth, pHeight, buffer, height-(buffer+pHeight), 0, 0, 0);
-		
+		//row 0
+		player = new Player(pWidth, pHeight, buffer, yLoc, 0, 0, 0);
+		// row 1
+		yLoc -= pHeight + buffer;
+		int oWidth = width/2 - pWidth/2 - buffer*3;
+		obstacles.add(new Obstacle(oWidth, pHeight, 0, yLoc, 0, 0));
+		obstacles.add(new Obstacle(oWidth, pHeight, width - oWidth, yLoc, 0, 0));
+		// row 3
+		yLoc -= (pHeight + buffer)*2;
+		oWidth = pWidth;
+		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 10, 0));
+		//row 4
+		yLoc -= (pHeight + buffer);
+		oWidth = pWidth*2;
+		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0));
 	}
 	
 	public void updateFroggerState() {
@@ -92,11 +105,32 @@ public class Model {
 		if(Key.right.isDown) player.xJump(true);
 		if(Key.down.isDown) player.yJump(false);
 		
+		updateFroggerObsticles();
+		
 		if(wallCollision(player) || playerAndObsticleCollision()) {
 			player.xloc = oldX;
 			player.yloc = oldY;
 		}
+		
+		if(froggerEnd()) {
+			isPlaying = false;
+		}
 	}
+
+	private boolean froggerEnd() {
+		if(player.yloc < player.height)
+			return true;
+		return false;
+	}
+	
+	public void updateFroggerObsticles() {
+		boolean collide;
+		for(Obstacle o : obstacles) {
+			o.move();
+			if(wallCollision(o)) o.xvel *= -1;
+		}
+	}
+	
 	public void startFoodGame(){
 		isPlaying = true;
 		player = new Player(100,100,250,50,0,0,0);
