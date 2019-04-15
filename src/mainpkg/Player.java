@@ -35,7 +35,7 @@ public class Player extends GameObject{
 		yvel = 0;
 	}
 	
-	public void dive(int flyheight, int fishheight) throws InterruptedException{
+	public void dive(int flyheight, int fishheight) {
 		yvel=(flyheight-fishheight)/2;
 		move();
 		try{

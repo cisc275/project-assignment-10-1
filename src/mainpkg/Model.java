@@ -147,12 +147,16 @@ public class Model {
 		isPlaying = true;
 		obstacles = null;
 		objectives = null;
-		player = new Player(100, 100, 50, 50, 0, 0, 0);
+		player = new Player(100, 100, 50, 10, 0, 0, 0);
 	}
 	
 	public void updateFlappyBirdGameState() {
-		if(Key.space.isDown) player.yloc-=40;
-		player.yloc+=8;
+		int flyHeight = 10;
+		int fishHeight = frameHeight - 50;
+		if(Key.space.isDown) {
+			player.dive(flyHeight, fishHeight);
+		}
+		
 		
 	}
 	
