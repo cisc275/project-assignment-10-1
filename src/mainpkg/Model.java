@@ -132,6 +132,8 @@ public class Model {
 	}
 	
 	public void startFoodGame(){
+		obstacles = null;
+		objectives = new ArrayList<Objective>();
 		isPlaying = true;
 		player = new Player(100,100,250,50,0,0,0);
 		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));

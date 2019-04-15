@@ -56,16 +56,17 @@ public class Controller implements KeyListener,ActionListener {
 			model.updateFroggerState();
 			view.update();
 		}
+		view.resetFrame();
 		System.out.println("end of frogger");
 		
 		//FoodGame - START
 		//------------------------------------------------------------
 		System.out.println("start foodGame");
-//		startFoodGame();
-//		while(model.isPlaying){
-//			model.updateFoodGameState();
-//			view.update();
-//		}
+		startFoodGame();
+		while(model.isPlaying){
+			model.updateFoodGameState();
+			view.update();
+		}
 		System.out.println("end foodGame");
 		
 		//FlappyBird - START
