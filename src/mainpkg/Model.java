@@ -44,6 +44,7 @@ public class Model {
 		int rows = 5;
 		int pWidth = width/collums - buffer*2;
 		int pHeight = height/rows - buffer*2;
+		obstacles = new ArrayList<Obstacle>();
 		
 		player = new Player(pWidth, pHeight, buffer, height-(buffer+pHeight), 0, 0, 0);
 		

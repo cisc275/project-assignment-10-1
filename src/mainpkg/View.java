@@ -19,7 +19,7 @@ public class View extends JPanel{
 	private int frameCount;
 	static JFrame frame;
 	private int picNum;
-	private ArrayList<GameObject> gameObjects;
+	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 	
 	public View(){
 		resetFrame();
@@ -74,7 +74,7 @@ public class View extends JPanel{
 	}
 
 	public void startFrogger(Player player, ArrayList<Obstacle> obsticles) {
-		gameObjects.removeAll(gameObjects);
+		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Obstacle o : obsticles) {
 			gameObjects.add(o);
