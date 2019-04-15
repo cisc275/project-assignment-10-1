@@ -83,17 +83,6 @@ public class Model {
 		
 	}
 	
-	public Player getPlayer() {
-		return player;
-	}
-	
-	public ArrayList<Obstacle> getObstacles() {
-		return obstacles;
-	}
-	
-	public ArrayList<Objective> getObjectives() {
-		return objectives;
-	}
 	public void updateFroggerState() {
 		int oldX = player.xloc;
 		int oldY = player.yloc;
