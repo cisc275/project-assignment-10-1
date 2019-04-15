@@ -90,5 +90,8 @@ public class View extends JPanel{
 			gameObjects.add(o);
 		}
 	}
+  public void startFlappyBird(Player player) { // we can add obstacles after alpha
+	  gameObjects.add(player);
+  }
 	
 }
