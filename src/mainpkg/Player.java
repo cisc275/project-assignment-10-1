@@ -36,23 +36,7 @@ public class Player extends GameObject{
 	}
 	
 	public void dive(int targetHeight) {
-		yvel= (yloc - targetHeight)/2;
-		move();
-		try {
-			Thread.sleep(10);
-		}
-		catch(InterruptedException e) {
-			e.printStackTrace();
-		}
-		move();
-		try{
-			Thread.sleep(10);
-		}
-		catch(InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		yvel = 0;
+		yloc = targetHeight;
 	}
 
 	@Override

@@ -84,13 +84,14 @@ public class View extends JPanel{
 		}
 		
 	}
-  public void startFoodGame(Player player, ArrayList<Objective> objectives){
+  public void foodGame(Player player, ArrayList<Objective> objectives){
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Objective o: objectives){
 			gameObjects.add(o);
 		}
 	}
+  
   public void startFlappyBird(Player player) { // we can add obstacles after alpha
 	  gameObjects = new ArrayList<GameObject>();
 	  gameObjects.add(player);

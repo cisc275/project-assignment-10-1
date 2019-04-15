@@ -65,6 +65,7 @@ public class Controller implements KeyListener,ActionListener {
 		startFoodGame();
 		while(model.isPlaying){
 			model.updateFoodGameState();
+			view.foodGame(model.getPlayer(), model.getObjectives());
 			view.update();
 		}
 		System.out.println("end foodGame");
@@ -91,53 +92,11 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("pressed");
 		other[e.getExtendedKeyCode()] = true;
 		keyBindings.get(e.getKeyCode()).isDown = true;
-//		
-//		if (e.getKeyCode()==39){//Right arrow key pressed
-//			model.changeplayRight();
-//			model.updateLocation();
-//			view.update();
-//		}
-//		else if(e.getKeyCode()==37){//Left arrow key pressed
-//			model.changeplayLeft();
-//			model.updateLocation();
-//			view.update();
-//		}
-//		else if(e.getKeyCode()==38){//Up arrow key pressed
-//			model.changeplayUp();
-//			model.updateLocation();
-//			view.update();
-//		}
-//		else if(e.getKeyCode()==40){//Down arrow key pressed
-//			model.changeplayDown();
-//			model.updateLocation();
-//			view.update();
-//		}
 	}
 	public void keyReleased(KeyEvent e) {
 		
 		other[e.getExtendedKeyCode()] = false;
 	    keyBindings.get(e.getKeyCode()).isDown = false;
-	    
-//		if(e.getKeyCode()==39){//Right arrow key is released
-//			model.updateLocation();
-//			view.update();
-//		}
-//		else if(e.getKeyCode()==37){//left arrow key is released
-//			model.changeplayLeft();
-//			model.updateLocation();
-//			view.update();
-//		}
-//		else if(e.getKeyCode()==38){//up arrow key is released
-//			model.changeplayUp();
-//			model.updateLocation();
-//			view.update();
-//		}
-//		else if(e.getKeyCode()==40){//down arrow key is released
-//			model.changeplayDown();
-//			model.updateLocation();
-//			view.update();
-//		}
-		
 				
 	}
 	public void keyTyped(KeyEvent e) {
@@ -154,7 +113,7 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	public void startFoodGame(){
 		model.startFoodGame();
-		view.startFoodGame(model.getPlayer(), model.getObjectives());
+		view.foodGame(model.getPlayer(), model.getObjectives());
 	}
 	
 	public void startFrogger() {
