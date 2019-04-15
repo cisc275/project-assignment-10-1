@@ -43,7 +43,7 @@ public class View extends JPanel{
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
 				g.setColor(o.getColor());
-				g.drawRect(o.xloc, o.yloc, o.width, o.height);
+				g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
 	}

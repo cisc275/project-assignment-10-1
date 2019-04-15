@@ -49,6 +49,7 @@ public class Controller implements KeyListener,ActionListener {
 		//Frogger - START
 		startFrogger();
 		while(model.isPlaying) {
+			model.updateFroggerState();
 			view.update();
 		}
 		

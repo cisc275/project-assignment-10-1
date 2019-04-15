@@ -61,5 +61,13 @@ public class Model {
 	public ArrayList<Objective> getObjectives() {
 		return objectives;
 	}
+	public void updateFroggerState() {
+		if(Key.up.isDown) player.yJump(true);
+		if(Key.left.isDown) player.xJump(false);
+		if(Key.right.isDown) player.xJump(true);
+		if(Key.down.isDown) player.yJump(false);
+		
+		
+	}
 
 }

@@ -16,19 +16,21 @@ public class Player extends GameObject{
 		yvel = 0;
 	}
 	
-	public void xJump(){
+	public void xJump(boolean isRight){
 		int buffer = 10; //placeholder
 		//Difference of the player's heigh/width to the frogger grid
 		//This will be changed and can be separated. 
 		xvel = width + buffer; 
+		if(!isRight) xvel *= -1;
 		move();
 		xvel = 0;
 	}
-	public void yJump(){
+	public void yJump(boolean isUp){
 		int buffer = 10; //placeholder
 		//Difference of the player's heigh/width to the frogger grid
 		//This will be changed and can be separated. 
 		yvel = height + buffer; 
+		if(isUp) yvel *= -1;
 		move();
 		yvel = 0;
 	}
@@ -49,6 +51,8 @@ public class Player extends GameObject{
 	public void addPoints(int p) {
 		totalPoints += p;
 	}
+	
+	
 	
 	//Alpha only
 	public Color getColor() {
