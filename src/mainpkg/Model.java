@@ -181,7 +181,7 @@ public class Model {
 		if(Key.space.isDown) player.yloc-=40;
 		player.yloc+=8;
 		if(!wallCollision(player)) {
-			player.xloc+=3;
+			player.xloc+=6;
 		}
 		if(collision(player, objectives.get(0))) {
 			isPlaying = false;
