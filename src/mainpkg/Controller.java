@@ -80,6 +80,7 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		System.out.println("end flappy");
 		
+		
 		System.out.println("END OF GAME");
 	}
 	public static void main(String[] args) throws InterruptedException{
@@ -123,6 +124,6 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public void startFlappyBird() {
 		model.startFlappyBird();
-		view.startFlappyBird(model.getPlayer());
+		view.startFlappyBird(model.getPlayer(), model.getObjectives());
 	}
 }

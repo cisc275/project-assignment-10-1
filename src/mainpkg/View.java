@@ -92,9 +92,13 @@ public class View extends JPanel{
 		}
 	}
   
-  public void startFlappyBird(Player player) { // we can add obstacles after alpha
+  public void startFlappyBird(Player player, ArrayList<Objective> objectives) { // we can add obstacles after alpha
 	  gameObjects = new ArrayList<GameObject>();
 	  gameObjects.add(player);
+	  for(Objective o: objectives){
+		  System.out.println("added");
+			gameObjects.add(o);
+		}
   }
 	
 }
