@@ -21,7 +21,17 @@ public class Model {
 		frameHeight=fh;
 		score=s;
 	}
-	public void Collision(GameObject g1, GameObject g2){
+	public boolean wallCollision(GameObject o) {
+		if(o.xloc < 0
+				|| o.xloc > (frameWidth - o.width)
+				|| o.yloc < 0
+				|| o.yloc > (frameHeight - o.height)) {
+			System.out.println("Collided");
+			return true;
+		}
+		return false;
+	}
+	public void collision(GameObject g1, GameObject g2){
 		
 	}
 	
@@ -66,8 +76,7 @@ public class Model {
 		if(Key.left.isDown) player.xJump(false);
 		if(Key.right.isDown) player.xJump(true);
 		if(Key.down.isDown) player.yJump(false);
-		
-		
+		wallCollision(player);
 	}
 
 }
