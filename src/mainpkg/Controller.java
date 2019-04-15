@@ -62,7 +62,7 @@ public class Controller implements KeyListener,ActionListener {
 		//FoodGame - START
 		//------------------------------------------------------------
 		System.out.println("start foodGame");
-		startFoodGame();
+		//startFoodGame();
 		while(model.isPlaying){
 			model.updateFoodGameState();
 			view.update();
@@ -74,7 +74,7 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("Start flappy");
 		startFlappyBird();
 		while(model.isPlaying){
-			model.updateFoodGameState();
+			model.updateFlappyBirdGameState();
 			view.update();
 		}
 		System.out.println("end flappy");

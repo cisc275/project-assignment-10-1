@@ -149,8 +149,8 @@ public class Model {
 	}
 	
 	public void updateFlappyBirdGameState() {
-		if(Key.space.isDown) player.yvel+=10;
-		player.yloc-=2;
+		if(Key.space.isDown) player.yloc-=40;
+		player.yloc+=8;
 		
 	}
 	
