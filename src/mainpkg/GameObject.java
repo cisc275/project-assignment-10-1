@@ -25,6 +25,7 @@ public abstract class GameObject {
 		yloc += yvel;
 	}
 	
+	
 	public abstract int getPoints();
 	public abstract Color getColor();
 

@@ -8,6 +8,7 @@ public class Model {
 	private Enum Scenes;
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Objective> objectives;
+
 	private Player player;
 //	private boolean playLeft=false;
 //	private boolean playRight=false;
@@ -21,6 +22,7 @@ public class Model {
 		frameHeight=fh;
 		score=s;
 	}
+
 	public boolean wallCollision(GameObject o) {
 		if(o.xloc < 0
 				|| o.xloc > (frameWidth - o.width)
@@ -94,17 +96,6 @@ public class Model {
 		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0));
 	}
 	
-	public Player getPlayer() {
-		return player;
-	}
-	
-	public ArrayList<Obstacle> getObstacles() {
-		return obstacles;
-	}
-	
-	public ArrayList<Objective> getObjectives() {
-		return objectives;
-	}
 	public void updateFroggerState() {
 		int oldX = player.xloc;
 		int oldY = player.yloc;
@@ -125,6 +116,7 @@ public class Model {
 			isPlaying = false;
 		}
 	}
+
 	private boolean froggerEnd() {
 		if(player.yloc < player.height)
 			return true;
@@ -139,6 +131,26 @@ public class Model {
 		}
 	}
 	
+	public void startFoodGame(){
+		isPlaying = true;
+		player = new Player(100,100,250,50,0,0,0);
+		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
+	}
+	public void updateFoodGameState() throws InterruptedException{
+		if(Key.space.isDown) player.dive(player.height, 250);
+		if(Key.left.isDown) player.xJump(false);
+		if(Key.right.isDown) player.xJump(true);
+	}
 	
+	public Player getPlayer(){
+		return player;
+	}
+	public ArrayList<Objective> getObjectives(){
+		return objectives;
+	}
+	public ArrayList<Obstacle> getObstacles(){
+		return obstacles;
+	}
+
 
 }

@@ -19,7 +19,9 @@ public class View extends JPanel{
 	private int frameCount;
 	static JFrame frame;
 	private int picNum;
+
 	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+
 	
 	public View(){
 		resetFrame();
@@ -58,6 +60,7 @@ public class View extends JPanel{
 
 	public void startBirdSelection() {
 	//	frame.requestFocus();
+		frame.setVisible(true);
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
 	}
@@ -81,6 +84,11 @@ public class View extends JPanel{
 		}
 		
 	}
-	
+  public void startFoodGame(Player player, ArrayList<Objective> objectives){
+		gameObjects.add(player);
+		for(Objective o: objectives){
+			gameObjects.add(o);
+		}
+	}
 	
 }
