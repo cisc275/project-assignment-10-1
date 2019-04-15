@@ -75,10 +75,15 @@ public class Model {
 		int rows = 5;
 		int pWidth = width/collums - buffer*2;
 		int pHeight = height/rows - buffer*2;
+		int yLoc = height - (buffer+pHeight);
 		obstacles = new ArrayList<Obstacle>();
-		
-		player = new Player(pWidth, pHeight, buffer, height-(buffer+pHeight), 0, 0, 0);
-		
+		//row 0
+		player = new Player(pWidth, pHeight, buffer, yLoc, 0, 0, 0);
+		// row 1
+		yLoc -= pHeight + buffer;
+		int oWidth = width/2 - pWidth/2 - buffer*3;
+		obstacles.add(new Obstacle(oWidth, pHeight, 0, yLoc, 0, 0));
+		obstacles.add(new Obstacle(oWidth, pHeight, width - oWidth, yLoc, 0, 0));
 		
 		
 	}
