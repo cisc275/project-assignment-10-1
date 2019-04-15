@@ -24,9 +24,9 @@ public class Model {
 	}
 
 	public boolean wallCollision(GameObject o) {
-		if(o.xloc < 0
+		if(o.xloc <= 0
 				|| o.xloc > (frameWidth - o.width)
-				|| o.yloc < 0
+				|| o.yloc <= 0
 				|| o.yloc > (frameHeight - o.height)) {
 			System.out.println("Collided");
 			return true;
