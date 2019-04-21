@@ -60,8 +60,27 @@ public class ModelTest {
 		myModel.updateFoodGameState();
 		assertEquals("Point value should be 1 after collection food", 1, myModel.getPlayer().getPoints());
 		
+		player.yloc = 200;
+		myModel.setPlayer(player);
+		myModel.updateFoodGameState();
+		assertFalse("isPlaying should now be false again.", myModel.isPlaying);
 		
 		
+		//FlappyBird Testing
+		myModel.startFlappyBird();
+		assertTrue("isPlaying back to true.", myModel.isPlaying);
+		assertEquals("Check player width value", 50, myModel.getPlayer().width);
+		assertEquals("Check player height value", 50, myModel.getPlayer().height);
+		
+		myModel.updateFlappyBirdGameState();
+		assertEquals("yloc after one iteration when nothing is pressed", 58, myModel.getPlayer().yloc);
+		
+		player = myModel.getPlayer();
+		player.xloc = fw-20;
+		player.yloc = fh/2;
+		myModel.setPlayer(player);
+		myModel.updateFlappyBirdGameState();
+		assertFalse("Collision should occur, thus isPlaying returns to false", myModel.isPlaying);
 	}
 
 }
