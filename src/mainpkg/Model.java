@@ -94,6 +94,7 @@ public class Model {
 		yLoc -= (pHeight + buffer);
 		oWidth = pWidth*2;
 		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0));
+		
 	}
 	
 	public void updateFroggerState() {
@@ -192,12 +193,18 @@ public class Model {
 	public Player getPlayer(){
 		return player;
 	}
+	
+	public void setPlayer(GameObject go) {
+		this.player=(Player)go;
+	}
 	public ArrayList<Objective> getObjectives(){
 		return objectives;
 	}
 	public ArrayList<Obstacle> getObstacles(){
 		return obstacles;
 	}
+	
+
 
 
 }
