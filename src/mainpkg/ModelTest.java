@@ -52,7 +52,13 @@ public class ModelTest {
 		assertTrue("back to isPlaying", myModel.isPlaying);
 		assertEquals("player should have new player values. Just checking height (70)", 70, myModel.getPlayer().height);
 		
-		//Testing 
+		//Testing updateFoodGameState
+		myModel.updateFoodGameState();
+		player = myModel.getPlayer();
+		player.yloc = 250;
+		myModel.setPlayer(player);
+		myModel.updateFoodGameState();
+		assertEquals("Point value should be 1 after collection food", 1, myModel.getPlayer().getPoints());
 		
 		
 		
