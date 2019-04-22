@@ -52,12 +52,24 @@ public class ModelTest {
 		assertTrue("back to isPlaying", myModel.isPlaying);
 		assertEquals("player should have new player values. Just checking height (70)", 70, myModel.getPlayer().height);
 		
+		//Keytesting
+		Key.space.isDown = true;
+		myModel.updateFoodGameState();
+		Key.space.isDown = false;
+		
+		myModel.updateFoodGameState();
+		
+		Key.left.isDown = true;
+		myModel.updateFoodGameState();
+		Key.left.isDown = false;
+		
+		Key.right.isDown = true;
+		myModel.updateFoodGameState();
+		Key.right.isDown = false;
+		
 		//Testing updateFoodGameState
 		myModel.updateFoodGameState();
 		player = myModel.getPlayer();
-		player.yloc = 250;
-		myModel.setPlayer(player);
-		myModel.updateFoodGameState();
 		assertEquals("Point value should be 1 after collection food", 1, myModel.getPlayer().getPoints());
 		
 		player.yloc = 200;
@@ -81,6 +93,9 @@ public class ModelTest {
 		myModel.setPlayer(player);
 		myModel.updateFlappyBirdGameState();
 		assertFalse("Collision should occur, thus isPlaying returns to false", myModel.isPlaying);
+		
+		
 	}
+	
 
 }
