@@ -35,10 +35,8 @@ public class FroggerModel extends Model {
 		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0, 10));
 	}
 	
-	public void updateFroggerState() {
-		int oldX = player.xloc;
-		int oldY = player.yloc;
-		
+	public void updateFroggerState(int startingX, int startingY) {
+	
 		if(Key.up.isDown) player.yJump(true);
 		if(Key.left.isDown) player.xJump(false);
 		if(Key.right.isDown) player.xJump(true);
@@ -46,9 +44,9 @@ public class FroggerModel extends Model {
 		
 		updateFroggerObstacles();
 		
-		if(wallCollision(player) || playerAndObsticleCollision()) {
-			player.xloc = oldX;
-			player.yloc = oldY;
+		if(wallCollision(player) || playerAndObstacleCollision()) {
+			player.xloc = startingX;
+			player.yloc = startingY;
 		}
 		
 		if(froggerEnd()) {

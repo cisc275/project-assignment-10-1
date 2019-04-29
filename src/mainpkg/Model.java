@@ -33,7 +33,7 @@ public class Model {
 		}
 		return false;
 	}
-	public boolean playerAndObsticleCollision() {
+	public boolean playerAndObstacleCollision() {
 		for(Obstacle o : obstacles) {
 			if(collision(player, o))
 					return true;

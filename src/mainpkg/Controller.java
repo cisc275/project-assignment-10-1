@@ -61,8 +61,10 @@ public class Controller implements KeyListener,ActionListener {
 		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getframeWidth(), vFrogger.getframeHeight(), 0);
 		startFrogger();
+		int startingX = mFrogger.player.xloc;
+		int startingY = mFrogger.player.yloc;
 		while(mFrogger.isPlaying) {
-			mFrogger.updateFroggerState();
+			mFrogger.updateFroggerState(startingX, startingY);
 			vFrogger.update();
 		}
 		vFrogger.resetFrame();
@@ -89,8 +91,10 @@ public class Controller implements KeyListener,ActionListener {
 		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
 		startFlappyBird();
+		startingX = mFlappy.player.xloc;
+		startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
-			mFlappy.updateFlappyBirdGameState();
+			mFlappy.updateFlappyBirdGameState(startingX, startingY);
 			vFlappy.update();
 		}
 		System.out.println("end flappy");

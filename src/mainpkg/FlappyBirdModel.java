@@ -16,14 +16,19 @@ public class FlappyBirdModel extends Model {
 		objectives.add(new Objective(20, 20, frameWidth-20, frameHeight/2, 0, 0, false, 0));
 		obstacles = new ArrayList<Obstacle>();
 		//obstacle 1
-		obstacles.add(new Obstacle(20, 100, player.xloc+50, player.yloc+50, 0, 0, 10));
+		obstacles.add(new Obstacle(30, 100, player.xloc+100, 0, 0, 0, 10));
+		obstacles.add(new Obstacle(30, 100, player.xloc+100, frameHeight-100, 0, 0, 10));
 	}
 	
-	public void updateFlappyBirdGameState() {
+	public void updateFlappyBirdGameState(int startingX, int startingY) {
 		if(Key.space.isDown) player.yloc-=40;
 		player.yloc+=8;
 		if(!wallCollision(player)) {
 			player.xloc+=6;
+		}
+		if(playerAndObstacleCollision()) {
+			player.xloc = startingX;
+			player.yloc = startingY;
 		}
 		if(collision(player, objectives.get(0))) {
 			isPlaying = false;
