@@ -60,9 +60,9 @@ public class View extends JPanel{
 
 	public void startBirdSelection() {
 	//	frame.requestFocus();
-		frame.setVisible(true);
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
+		frame.setVisible(true);
 	}
 	
 	public void resetFrame() {
