@@ -4,10 +4,14 @@ import java.awt.Color;
 
 public class Player extends GameObject{
 	private int totalPoints;
+	public int froggerStartX;
+	public int froggerStartY;
 	
 	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel, int totalPoints) {
 		super(width, height, xloc, yloc, xvel, yvel);
 		this.totalPoints = totalPoints;
+		froggerStartX = xloc;
+		froggerStartY = yloc;
 	}
 
 	public void flap(){

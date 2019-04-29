@@ -28,7 +28,9 @@ public class Model {
 				|| o.xloc > (frameWidth - o.width)
 				|| o.yloc <= 0
 				|| o.yloc > (frameHeight - o.height)) {
-			System.out.println("Collided");
+			if (o instanceof Player) {
+				System.out.println("pWallCollide");
+			}
 			return true;
 		}
 		return false;
@@ -108,9 +110,14 @@ public class Model {
 		
 		updateFroggerObsticles();
 		
-		if(wallCollision(player) || playerAndObsticleCollision()) {
+		if(wallCollision(player)) {
 			player.xloc = oldX;
 			player.yloc = oldY;
+		}
+		
+		else if (playerAndObsticleCollision()) {
+			player.xloc = player.froggerStartX;
+			player.yloc = player.froggerStartY;
 		}
 		
 		if(froggerEnd()) {
