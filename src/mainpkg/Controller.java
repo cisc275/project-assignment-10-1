@@ -58,6 +58,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
+		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getframeWidth(), vFrogger.getframeHeight(), 0);
 		startFrogger();
 		while(mFrogger.isPlaying) {
@@ -71,11 +72,12 @@ public class Controller implements KeyListener,ActionListener {
 		//------------------------------------------------------------
 		System.out.println("start foodGame");
 		vFood = new FoodGameView();
+		vFood.addKeyListener(this);
 		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
 		startFoodGame();
 		while(mFood.isPlaying){
 			mFood.updateFoodGameState();
-			vFood.foodGame(model.getPlayer(), model.getObjectives());
+			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 			vFood.update();
 		}
 		System.out.println("end foodGame");
@@ -84,6 +86,7 @@ public class Controller implements KeyListener,ActionListener {
 		//-------------------------------------------------------------
 		System.out.println("Start flappy");
 		vFlappy = new FlappyBirdView();
+		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
 		startFlappyBird();
 		while(mFlappy.isPlaying){

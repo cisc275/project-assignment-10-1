@@ -5,6 +5,9 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class FoodGameView extends View {
 
+	public FoodGameView() {
+		super();
+	}
 	public void foodGame(Player player, ArrayList<Objective> objectives){
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);

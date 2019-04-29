@@ -14,6 +14,9 @@ public class FlappyBirdModel extends Model {
 		player = new Player(50, 50, 50, 50, 0, 0, 0);
 		objectives = new ArrayList<Objective>();
 		objectives.add(new Objective(20, 20, frameWidth-20, frameHeight/2, 0, 0, false, 0));
+		obstacles = new ArrayList<Obstacle>();
+		//obstacle 1
+		obstacles.add(new Obstacle(20, 100, player.xloc+50, player.yloc+50, 0, 0, 10));
 	}
 	
 	public void updateFlappyBirdGameState() {
