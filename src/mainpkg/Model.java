@@ -23,7 +23,7 @@ public class Model {
 		score=s;
 	}
 
-	public boolean wallCollision(GameObject o) {
+	public boolean wallCollision(GameObject o) { //Returns true if a game object collides with the wall
 		if(o.xloc <= 0
 				|| o.xloc > (frameWidth - o.width)
 				|| o.yloc <= 0
@@ -35,14 +35,14 @@ public class Model {
 		}
 		return false;
 	}
-	public boolean playerAndObsticleCollision() {
+	public boolean playerAndObsticleCollision() { //Returns true if a player object collides with an obstacle object
 		for(Obstacle o : obstacles) {
 			if(collision(player, o))
 					return true;
 		}
 		return false;
 	}
-	public boolean collision(GameObject g1, GameObject g2){
+	public boolean collision(GameObject g1, GameObject g2){ //General collision function between two game objects
 		int x1Low = g1.xloc;
 		int x2Low = g2.xloc;
 		int x1High = g1.xloc + g1.width;
@@ -68,11 +68,15 @@ public class Model {
 		
 	}
 	
-	public void superPower(){
-		
+	public void superPower(){ //detects if the player has collided with an objective object and responds accordingly
+		for(Objective o: objectives){
+			if(collision(player, o)){
+				
+			}
+		}
 	}
 	
-	public void startFrogger(int width, int height) {
+	public void startFrogger(int width, int height) { //Begins the logic for the first game, frogger 
 		isPlaying = true;
 		int buffer = 10;
 		int collums = 5;
@@ -99,7 +103,7 @@ public class Model {
 		
 	}
 	
-	public void updateFroggerState() {
+	public void updateFroggerState() { //Updates the logical state of the frogger game
 		int oldX = player.xloc;
 		int oldY = player.yloc;
 		
@@ -110,17 +114,17 @@ public class Model {
 		
 		updateFroggerObsticles();
 		
-		if(wallCollision(player)) {
+		if(wallCollision(player)) { //If the player collides with a wall, they appear not to move
 			player.xloc = oldX;
 			player.yloc = oldY;
 		}
 		
-		else if (playerAndObsticleCollision()) {
+		else if (playerAndObsticleCollision()) { //If the player collides with an obstacle, they return to start
 			player.xloc = player.froggerStartX;
 			player.yloc = player.froggerStartY;
 		}
 		
-		if(froggerEnd()) {
+		if(froggerEnd()) { //When the player reaches the end, the game stops
 			isPlaying = false;
 		}
 	}
@@ -131,7 +135,7 @@ public class Model {
 		return false;
 	}
 	
-	public void updateFroggerObsticles() {
+	public void updateFroggerObsticles() { //Updates the logical locations of the frogger obstacles
 		boolean collide;
 		for(Obstacle o : obstacles) {
 			o.move();
@@ -139,14 +143,14 @@ public class Model {
 		}
 	}
 	
-	public void startFoodGame(){
+	public void startFoodGame(){ //Begins the logic necessary for the food diving game
 		obstacles = null;
 		objectives = new ArrayList<Objective>();
 		isPlaying = true;
 		player = new Player(70,70,250,50,0,0,0);
 		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
 	}
-	public void updateFoodGameState(){
+	public void updateFoodGameState(){ //Updates the logical state of the food diving game
 		int flyHeight = 50;
 		int foodHeight = 250;
 		if(player.yloc == foodHeight) {
@@ -167,7 +171,7 @@ public class Model {
 		}
 		System.out.println(player.xloc + ", " + player.yloc);
 	}
-	public void eatFood() {
+	public void eatFood() { //Detects to see if player has collided with objective and takes appropriate action
 		Iterator<Objective> objIt = objectives.iterator();
 		Objective o;
 		while(objIt.hasNext()) {
@@ -178,14 +182,14 @@ public class Model {
 			}
 		}
 	}
-	public void startFlappyBird() {
+	public void startFlappyBird() { //Begins logic for flappy bird game
 		isPlaying = true;
 		player = new Player(50, 50, 50, 50, 0, 0, 0);
 		objectives = new ArrayList<Objective>();
 		objectives.add(new Objective(20, 20, frameWidth-20, frameHeight/2, 0, 0, false, 0));
 	}
 	
-	public void updateFlappyBirdGameState() {
+	public void updateFlappyBirdGameState() { //Updates logic for flappy bird game
 		if(Key.space.isDown) player.yloc-=40;
 		player.yloc+=8;
 		if(!wallCollision(player)) {

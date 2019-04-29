@@ -42,7 +42,7 @@ public class View extends JPanel{
 		
 	}
 	
-	public void update(){
+	public void update(){ //updates the visual state of the game
 		try {
 			frame.repaint();
 			Thread.sleep(100);
@@ -52,7 +52,7 @@ public class View extends JPanel{
 		}
 	}
 	
-	public void paint(Graphics g){
+	public void paint(Graphics g){ //paints the current state of the game
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
 				g.setColor(o.getColor());
@@ -69,7 +69,7 @@ public class View extends JPanel{
 		return frameHeight;
 	}
 
-	public void startBirdSelection() {
+	public void startBirdSelection() { //begins the visuals for the bird selection portion of the game
 	//	frame.requestFocus();
 		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
 		frame.add(title, BorderLayout.PAGE_START);
