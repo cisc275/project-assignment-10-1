@@ -11,9 +11,11 @@ public class Controller implements KeyListener,ActionListener {
 
 	private Model model;
 	private View view;
+	private BirdSelectorView vBird;
 	private FroggerView vFrogger;
 	private FoodGameView vFood;
 	private FlappyBirdView vFlappy;
+	private BirdSelectorModel mBird;
 	private FroggerModel mFrogger;
 	private FoodGameModel mFood;
 	private FlappyBirdModel mFlappy;
@@ -39,16 +41,19 @@ public class Controller implements KeyListener,ActionListener {
 		//---------------------------------------------------------
 		
 		System.out.println("start bird selection");
-		model.needInput = true;
-		view.startBirdSelection();
-		while(model.needInput) {
+		vBird = new BirdSelectorView();
+		mBird = new BirdSelectorModel(vBird.getframeWidth(), vBird.getframeHeight(), 0);
+		mBird.needInput = true;
+		view.addKeyListener(this);
+		vBird.startBirdSelection();
+		while(mBird.needInput) {
 			//update model and view
 			//wait for user to select bird
-			view.update();
+			vBird.update();
 			if(Key.enter.isDown) //move this to model or have it call a method
-				model.needInput = false;
+				mBird.needInput = false;
 		}
-		view.resetFrame();
+		vBird.resetFrame();
 		System.out.println("end of bird selection");
 		//BirdSelection - END
 		

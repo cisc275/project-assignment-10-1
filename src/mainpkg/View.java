@@ -57,13 +57,6 @@ public class View extends JPanel{
 	public int getframeHeight(){
 		return frameHeight;
 	}
-
-	public void startBirdSelection() {
-	//	frame.requestFocus();
-		frame.setVisible(true);
-		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
-		frame.add(title, BorderLayout.PAGE_START);
-	}
 	
 	public void resetFrame() {
 		frame = new JFrame();
