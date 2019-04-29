@@ -3,7 +3,9 @@ package mainpkg;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Toolkit;
 import java.util.*;
 
 import javax.swing.JPanel;
@@ -14,8 +16,10 @@ import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
 public class View extends JPanel{
-	private int frameWidth = 500; //TODO: have this adjust per display
-	private int frameHeight = 325;
+	
+	private Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
+	private int frameWidth = screensize.width; //TODO: have this adjust per display
+	private int frameHeight = screensize.height;
 	private int frameCount;
 	static JFrame frame;
 	private int picNum;
