@@ -78,7 +78,7 @@ public class View extends JPanel{
 	
 	public void resetFrame() {
 	//frame = new JFrame();
-	frame.getContentPane().removeAll();
+		frame.getContentPane().removeAll();
     	frame.getContentPane().add(this);
     	frame.setBackground(Color.gray);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

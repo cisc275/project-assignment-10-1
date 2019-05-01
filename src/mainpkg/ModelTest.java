@@ -15,9 +15,9 @@ public class ModelTest {
 		int fh = 325;
 		
 		Model myModel = new Model(fw, fh, 0);
-		GameObject myObj1 = new Obstacle(100, 100, 250, 200, 0, 0);
-		GameObject myObj2 = new Obstacle(100,100,250,0,0,0);
-		GameObject myObj3 = new Obstacle(100,100,250,325,0,0);
+		GameObject myObj1 = new Obstacle(100, 100, 250, 200, 0, 0,10);
+		GameObject myObj2 = new Obstacle(100,100,250,0,0,0,10);
+		GameObject myObj3 = new Obstacle(100,100,250,325,0,0,10);
 		
 		GameObject myObj4 = new Objective(100,100,0,200,0,0,false,0);
 		GameObject myObj5 = new Objective(100,100,500,200,0,0,false,0);

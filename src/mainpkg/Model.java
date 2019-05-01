@@ -36,7 +36,7 @@ public class Model {
 		return false;
 	}
 
-	public boolean playerAndObsticleCollision() { //Returns true if a player object collides with an obstacle object
+	public boolean playerAndObstacleCollision() { //Returns true if a player object collides with an obstacle object
 		for(Obstacle o : obstacles) {
 			if(collision(player, o))
 					return true;
@@ -91,16 +91,16 @@ public class Model {
 		// row 1
 		yLoc -= pHeight + buffer;
 		int oWidth = width/2 - pWidth/2 - buffer*3;
-		obstacles.add(new Obstacle(oWidth, pHeight, 0, yLoc, 0, 0));
-		obstacles.add(new Obstacle(oWidth, pHeight, width - oWidth, yLoc, 0, 0));
+		obstacles.add(new Obstacle(oWidth, pHeight, 0, yLoc, 0, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, width - oWidth, yLoc, 0, 0, 10));
 		// row 3
 		yLoc -= (pHeight + buffer)*2;
 		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 10, 0));
+		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 10, 0, 10));
 		//row 4
 		yLoc -= (pHeight + buffer);
 		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0));
+		obstacles.add(new Obstacle(oWidth, pHeight, buffer, yLoc, 20, 0, 10));
 		
 	}
 	
@@ -120,7 +120,7 @@ public class Model {
 			player.yloc = oldY;
 		}
 		
-		else if (playerAndObsticleCollision()) { //If the player collides with an obstacle, they return to start
+		else if (playerAndObstacleCollision()) { //If the player collides with an obstacle, they return to start
 			player.xloc = player.froggerStartX;
 			player.yloc = player.froggerStartY;
 		}

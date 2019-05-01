@@ -44,7 +44,7 @@ public class Controller implements KeyListener,ActionListener {
 		vBird = new BirdSelectorView();
 		mBird = new BirdSelectorModel(vBird.getframeWidth(), vBird.getframeHeight(), 0);
 		mBird.needInput = true;
-		view.addKeyListener(this);
+		vBird.addKeyListener(this);
 		vBird.startBirdSelection();
 		while(mBird.needInput) {
 			//update model and view
