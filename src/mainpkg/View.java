@@ -24,7 +24,7 @@ public class View extends JPanel{
 	static JFrame frame;
 	private int picNum;
 
-	private ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+	protected ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 	
 	public View(){
@@ -88,29 +88,9 @@ public class View extends JPanel{
     	requestFocus();
 	}
 
-	public void startFrogger(Player player, ArrayList<Obstacle> obsticles) {
-		gameObjects = new ArrayList<GameObject>();
-		gameObjects.add(player);
-		for(Obstacle o : obsticles) {
-			gameObjects.add(o);
-		}
-		
-	}
-  public void foodGame(Player player, ArrayList<Objective> objectives){
-		gameObjects = new ArrayList<GameObject>();
-		gameObjects.add(player);
-		for(Objective o: objectives){
-			gameObjects.add(o);
-		}
-	}
+	
+	
   
-  public void startFlappyBird(Player player, ArrayList<Objective> objectives) { // we can add obstacles after alpha
-	  gameObjects = new ArrayList<GameObject>();
-	  gameObjects.add(player);
-	  for(Objective o: objectives){
-		  System.out.println("added");
-			gameObjects.add(o);
-		}
-  }
+  
 	
 }

@@ -2,14 +2,14 @@ package mainpkg;
 
 import java.util.*;
 public class Model {
-	private int frameWidth;
-	private int frameHeight;
-	private int score;
-	private Enum Scenes;
-	private ArrayList<Obstacle> obstacles;
-	private ArrayList<Objective> objectives;
+	protected int frameWidth;
+	protected int frameHeight;
+	protected int score;
+	protected Enum Scenes;
+	protected ArrayList<Obstacle> obstacles;
+	protected ArrayList<Objective> objectives;
 
-	private Player player;
+	protected Player player;
 //	private boolean playLeft=false;
 //	private boolean playRight=false;
 //	private boolean playUp=false;
@@ -35,6 +35,7 @@ public class Model {
 		}
 		return false;
 	}
+
 	public boolean playerAndObsticleCollision() { //Returns true if a player object collides with an obstacle object
 		for(Obstacle o : obstacles) {
 			if(collision(player, o))
