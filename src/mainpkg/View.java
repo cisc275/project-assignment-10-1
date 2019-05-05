@@ -29,11 +29,14 @@ public class View extends JPanel{
 	private int picNum;
 	BufferedImage[] playerRight;
 	BufferedImage[] playerLeft;
-	BufferedImage mountain;
+	BufferedImage mountainLeft;
+	BufferedImage mountainRight;
 	BufferedImage drone;
+	BufferedImage powerLine;
 	BufferedImage planeRight;
 	BufferedImage planeLeft;
-	BufferedImage crow;
+	BufferedImage crowLeft;
+	BufferedImage crowRight;
 	BufferedImage[] mouseLeft;
 	BufferedImage[] mouseRight;
 	BufferedImage NHSelection;
@@ -45,7 +48,19 @@ public class View extends JPanel{
 
 	
 	public View(){
+		playerRight= new BufferedImage[10];
+		playerLeft= new BufferedImage[10];
+		mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
+		mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
+		drone = createImage("GamePictures/Obstacles/Drone.jpg");
+		powerLine = createImage("GamePictures/Obstacles/PowerLine.png");
+		planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
+		planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
+		crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png");
+		crowRight = createImage("GamePictures/Obstacles/CrowRight.png");
 		NHSelection = createImage("GamePictures/BirdSelect/NortherHarrier.jpg");
+		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
+		
 		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
