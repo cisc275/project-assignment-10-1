@@ -63,7 +63,6 @@ public class Controller implements KeyListener,ActionListener {
 
 
 		while(mBird.needInput) {
-			
 			//update model and view
 			//wait for user to select bird
 			vBird.update();
