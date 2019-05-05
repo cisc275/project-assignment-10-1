@@ -69,7 +69,7 @@ public class FroggerModel extends Model {
 		
 		updateFroggerObstacles();
 		
-		if(wallCollision(player) || playerAndObsticleCollision()) {
+		if(wallCollision(player) || playerAndObstacleCollision()) {
 			player.xloc = startingX;
 			player.yloc = startingY;
 		}
