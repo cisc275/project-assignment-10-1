@@ -7,8 +7,11 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
@@ -42,6 +45,8 @@ public class View extends JPanel{
 
 	
 	public View(){
+		NHSelection = createImage("GamePictures/BirdSelect/NortherHarrier.jpg");
+		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
 		frame.setBackground(Color.gray);
@@ -95,7 +100,16 @@ public class View extends JPanel{
     	requestFocus();
 	}
 
-	
+	private BufferedImage createImage(String file){
+    	BufferedImage bufferedImage;
+    	try {
+    		bufferedImage = ImageIO.read(new File(file));
+    		return bufferedImage;
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	return null;
+    	}
 	
   
   
