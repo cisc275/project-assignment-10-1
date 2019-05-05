@@ -73,12 +73,12 @@ public class View extends JPanel{
 		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
 		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
 		FroggerBackgroundO = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
-		FroggerBackgroundNH = createImage("GamePictures/Backgrounds/Frogger/NHBackground.jpg");
+		FroggerBackgroundNH = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png");
 		BackgroundO = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
 		BackgroundNH = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
 		mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
 		mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
-		drone = createImage("GamePictures/Obstacles/Drone.jpg");
+		drone = createImage("GamePictures/Obstacles/Drone.png");
 		powerLine = createImage("GamePictures/Obstacles/PowerLine.png");
 		planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
 		planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
@@ -88,7 +88,7 @@ public class View extends JPanel{
 		fishRight = createImage("GamePictures/Objectives/FishRight.png");
 		nest = createImage("GamePictures/Objectives/Nest.png");
 		twig = createImage("GamePictures/Objectives/Twig.png");
-		NHSelection = createImage("GamePictures/BirdSelect/NortherHarrier.jpg");
+		NHSelection = createImage("GamePictures/BirdSelect/NorthernHarrier.jpg");
 		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
 		for(int i=0; i<10; i++){
 			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
@@ -109,7 +109,13 @@ public class View extends JPanel{
 		requestFocus();
 	}
 	
-	public void loadImages(){
+	public void loadImages(Objective o){
+		
+	}
+	public void loadImages(Obstacle o){
+		
+	}
+	public void loadImages(Player p){
 		
 	}
 	
@@ -126,8 +132,9 @@ public class View extends JPanel{
 	public void paint(Graphics g){ //paints the current state of the game
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
-				g.setColor(o.getColor());
-				g.fillRect(o.xloc, o.yloc, o.width, o.height);
+				loadImages(o);
+				//g.setColor(o.getColor());
+				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
 	}
