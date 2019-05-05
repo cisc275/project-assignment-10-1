@@ -35,6 +35,10 @@ public class View extends JPanel{
 	BufferedImage DelawareMap1;
 	BufferedImage DelawareMap2;
 	BufferedImage DelawareMap3;
+	BufferedImage FroggerBackgroundO;
+	BufferedImage FroggerBackgroundNH;
+	BufferedImage BackgroundO;
+	BufferedImage BackgroundNH;
 	BufferedImage mountainLeft;
 	BufferedImage mountainRight;
 	BufferedImage drone;
@@ -60,12 +64,18 @@ public class View extends JPanel{
 	public View(){
 		playerRight= new BufferedImage[10];
 		playerLeft= new BufferedImage[10];
+		mouseLeft = new BufferedImage[10];
+		mouseRight = new BufferedImage[10];
 		AmericaMap1 = createImage("GamePictures/Maps/America/Blank.jpg");
 		AmericaMap2 = createImage("GamePictures/Maps/America/AfterGame1.jpg");
 		AmericaMap3 = createImage("GamePictures/Maps/America/AfterGame2.jpg");
 		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
 		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
 		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
+		FroggerBackgroundO = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
+		FroggerBackgroundNH = createImage("GamePictures/Backgrounds/Frogger/NHBackground.jpg");
+		BackgroundO = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
+		BackgroundNH = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
 		mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
 		mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
 		drone = createImage("GamePictures/Obstacles/Drone.jpg");
@@ -74,6 +84,10 @@ public class View extends JPanel{
 		planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
 		crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png");
 		crowRight = createImage("GamePictures/Obstacles/CrowRight.png");
+		fishLeft = createImage("GamePictures/Objectives/FishLeft.png");
+		fishRight = createImage("GamePictures/Objectives/FishRight.png");
+		nest = createImage("GamePictures/Objectives/Nest.png");
+		twig = createImage("GamePictures/Objectives/Twig.png");
 		NHSelection = createImage("GamePictures/BirdSelect/NortherHarrier.jpg");
 		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
 		
