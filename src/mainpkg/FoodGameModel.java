@@ -30,9 +30,9 @@ public class FoodGameModel extends Model {
 				player.dive(foodHeight);
 			}
 			if (Key.left.isDown)
-				player.xJump(false);
+				player.xJump(false,frameWidth);
 			if (Key.right.isDown)
-				player.xJump(true);
+				player.xJump(true,frameWidth);
 			if (player.getPoints() > 0) {
 				isPlaying = false;
 			}

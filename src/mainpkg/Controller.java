@@ -24,7 +24,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public Controller(){
 		view = new View();
-		model = new Model(view.getframeWidth(), view.getframeHeight(), 0);
+		model = new Model(view.getWidth(), view.getWidth(), 0);
 		
 		bind(KeyEvent.VK_ENTER, Key.enter);
 		bind(KeyEvent.VK_UP, Key.up);
@@ -42,7 +42,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		System.out.println("start bird selection");
 		vBird = new BirdSelectorView();
-		mBird = new BirdSelectorModel(vBird.getframeWidth(), vBird.getframeHeight(), 0);
+		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
 		mBird.needInput = true;
 		vBird.addKeyListener(this);
 		vBird.startBirdSelection();
@@ -64,7 +64,7 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
-		mFrogger = new FroggerModel(vFrogger.getframeWidth(), vFrogger.getframeHeight(), 0);
+		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
 		startFrogger();
 		int startingX = mFrogger.player.xloc;
 		int startingY = mFrogger.player.yloc;
@@ -142,7 +142,7 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	
 	public void startFrogger() {
-		mFrogger.startFrogger(vFrogger.getWidth(), vFrogger.getHeight());
+		mFrogger.startFrogger(view.getWidth(), view.getHeight());
 		vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 	}
 	

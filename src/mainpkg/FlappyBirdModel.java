@@ -21,8 +21,8 @@ public class FlappyBirdModel extends Model {
 	}
 	
 	public void updateFlappyBirdGameState(int startingX, int startingY) {
-		if(Key.space.isDown) player.yloc-=40;
-		player.yloc+=8;
+		if(Key.space.isDown) player.yloc-=80;
+		player.yloc+=20;
 		if(!wallCollision(player)) {
 			player.xloc+=6;
 		}
