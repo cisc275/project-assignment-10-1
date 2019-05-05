@@ -12,10 +12,12 @@ public class Controller implements KeyListener,ActionListener {
 	private Model model;
 	private View view;
 	private BirdSelectorView vBird;
+	private MapView vMap;
 	private FroggerView vFrogger;
 	private FoodGameView vFood;
 	private FlappyBirdView vFlappy;
 	private BirdSelectorModel mBird;
+	private MapModel mMap;
 	private FroggerModel mFrogger;
 	private FoodGameModel mFood;
 	private FlappyBirdModel mFlappy;
@@ -56,6 +58,15 @@ public class Controller implements KeyListener,ActionListener {
 		vBird.resetFrame();
 		System.out.println("end of bird selection");
 		//BirdSelection - END
+		
+		//Go to Map - START
+		//------------------------------------------------------------
+		
+		System.out.println("map is showing");
+		vMap = new MapView();
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		vMap.addKeyListener(this);
+		vMap.showMap();
 		
 		
 		//Frogger - START
