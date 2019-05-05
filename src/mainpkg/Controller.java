@@ -12,10 +12,12 @@ public class Controller implements KeyListener,ActionListener {
 	private Model model;
 	private View view;
 	private BirdSelectorView vBird;
+	private MapView vMap;
 	private FroggerView vFrogger;
 	private FoodGameView vFood;
 	private FlappyBirdView vFlappy;
 	private BirdSelectorModel mBird;
+	private MapModel mMap;
 	private FroggerModel mFrogger;
 	private FoodGameModel mFood;
 	private FlappyBirdModel mFlappy;
@@ -24,7 +26,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public Controller(){
 		view = new View();
-		model = new Model(view.getframeWidth(), view.getframeHeight(), 0);
+		model = new Model(view.getWidth(), view.getWidth(), 0);
 		
 		bind(KeyEvent.VK_ENTER, Key.enter);
 		bind(KeyEvent.VK_UP, Key.up);
@@ -41,7 +43,7 @@ public class Controller implements KeyListener,ActionListener {
 		//---------------------------------------------------------
 		System.out.println("start bird selection");
 		vBird = new BirdSelectorView();
-		mBird = new BirdSelectorModel(vBird.getframeWidth(), vBird.getframeHeight(), 0);
+		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
 		mBird.needInput = true;
 
 		vBird.startBirdSelection();
@@ -73,6 +75,15 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("end of bird selection");
 		//BirdSelection - END
 		
+		//Go to Map - START
+		//------------------------------------------------------------
+				
+		System.out.println("map is showing");
+		vMap = new MapView();
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		vMap.addKeyListener(this);
+		vMap.showMap();
+		vMap.resetFrame();
 		
 		//Frogger - START
 		//------------------------------------------------------------
@@ -80,7 +91,7 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
-		mFrogger = new FroggerModel(vFrogger.getframeWidth(), vFrogger.getframeHeight(), 0);
+		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
 		startFrogger();
 		int startingX = mFrogger.player.xloc;
 		int startingY = mFrogger.player.yloc;
@@ -158,7 +169,7 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	
 	public void startFrogger() {
-		mFrogger.startFrogger(vFrogger.getWidth(), vFrogger.getHeight());
+		mFrogger.startFrogger(view.getWidth(), view.getHeight());
 		vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 	}
 	

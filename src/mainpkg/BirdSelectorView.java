@@ -28,7 +28,6 @@ public class BirdSelectorView extends View {
 			panel.add(rightbutton);
 			frame.add(panel);
 			frame.add(title, BorderLayout.PAGE_START);
-			
 			frame.setVisible(true);
 		}
 }

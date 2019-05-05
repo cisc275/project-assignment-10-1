@@ -68,13 +68,6 @@ public class View extends JPanel{
 	public int getframeHeight(){
 		return frameHeight;
 	}
-
-	public void startBirdSelection() { //begins the visuals for the bird selection portion of the game
-	//	frame.requestFocus();
-		JTextArea title = new JTextArea("Select a bird. Press enter to proceed");
-		frame.add(title, BorderLayout.PAGE_START);
-		frame.setVisible(true);
-	}
 	
 	public void resetFrame() {
 	//frame = new JFrame();

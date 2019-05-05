@@ -20,20 +20,20 @@ public class Player extends GameObject{
 		yvel = 0;
 	}
 	
-	public void xJump(boolean isRight){
-		int buffer = 10; //placeholder
+	public void xJump(boolean isRight, int fwidth){
+		int buffer = fwidth/100; //placeholder
 		//Difference of the player's heigh/width to the frogger grid
 		//This will be changed and can be separated. 
-		xvel = width + buffer; 
+		xvel = width + 2*buffer;
 		if(!isRight) xvel *= -1;
 		move();
 		xvel = 0;
 	}
-	public void yJump(boolean isUp){
-		int buffer = 10; //placeholder
+	public void yJump(boolean isUp, int fheight){
+		int buffer = fheight/100; //placeholder
 		//Difference of the player's heigh/width to the frogger grid
 		//This will be changed and can be separated. 
-		yvel = height + buffer; 
+		yvel = height + 2*buffer; 
 		if(isUp) yvel *= -1;
 		move();
 		yvel = 0;
