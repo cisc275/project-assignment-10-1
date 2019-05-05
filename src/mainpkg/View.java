@@ -29,6 +29,12 @@ public class View extends JPanel{
 	private int picNum;
 	BufferedImage[] playerRight;
 	BufferedImage[] playerLeft;
+	BufferedImage AmericaMap1;
+	BufferedImage AmericaMap2;
+	BufferedImage AmericaMap3;
+	BufferedImage DelawareMap1;
+	BufferedImage DelawareMap2;
+	BufferedImage DelawareMap3;
 	BufferedImage mountainLeft;
 	BufferedImage mountainRight;
 	BufferedImage drone;
@@ -39,6 +45,10 @@ public class View extends JPanel{
 	BufferedImage crowRight;
 	BufferedImage[] mouseLeft;
 	BufferedImage[] mouseRight;
+	BufferedImage fishLeft;
+	BufferedImage fishRight;
+	BufferedImage nest;
+	BufferedImage twig;
 	BufferedImage NHSelection;
 	BufferedImage OspreySelection;
 	
@@ -50,6 +60,12 @@ public class View extends JPanel{
 	public View(){
 		playerRight= new BufferedImage[10];
 		playerLeft= new BufferedImage[10];
+		AmericaMap1 = createImage("GamePictures/Maps/America/Blank.jpg");
+		AmericaMap2 = createImage("GamePictures/Maps/America/AfterGame1.jpg");
+		AmericaMap3 = createImage("GamePictures/Maps/America/AfterGame2.jpg");
+		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
+		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
+		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
 		mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
 		mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
 		drone = createImage("GamePictures/Obstacles/Drone.jpg");
