@@ -90,7 +90,14 @@ public class View extends JPanel{
 		twig = createImage("GamePictures/Objectives/Twig.png");
 		NHSelection = createImage("GamePictures/BirdSelect/NortherHarrier.jpg");
 		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
-		
+		for(int i=0; i<10; i++){
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+		}
+		for(int i=0;i<5;i++){
+			mouseRight[i] = createImage("GamePictures/Objectives/MouseRight/Frame"+Integer.toString(i)+".png");
+			mouseLeft[i] = createImage("GamePictures/Objectives/MouseLeft/Frame"+Integer.toString(i)+".png");
+		}
 		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
