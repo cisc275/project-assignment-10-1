@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.util.*;
 
 import javax.swing.JPanel;
@@ -23,6 +24,19 @@ public class View extends JPanel{
 	private int frameCount;
 	static JFrame frame;
 	private int picNum;
+	BufferedImage[] playerRight;
+	BufferedImage[] playerLeft;
+	BufferedImage mountain;
+	BufferedImage drone;
+	BufferedImage planeRight;
+	BufferedImage planeLeft;
+	BufferedImage crow;
+	BufferedImage[] mouseLeft;
+	BufferedImage[] mouseRight;
+	BufferedImage NHSelection;
+	BufferedImage OspreySelection;
+	
+	
 
 	protected ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
