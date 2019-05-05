@@ -26,7 +26,7 @@ public class FlappyBirdModel extends Model {
 		if(!wallCollision(player)) {
 			player.xloc+=6;
 		}
-		if(playerAndObsticleCollision()) {
+		if(playerAndObstacleCollision()) {
 			player.xloc = startingX;
 			player.yloc = startingY;
 		}
