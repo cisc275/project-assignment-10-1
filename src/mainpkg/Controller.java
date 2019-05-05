@@ -67,6 +67,7 @@ public class Controller implements KeyListener,ActionListener {
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
 		vMap.showMap();
+		vMap.resetFrame();
 		
 		
 		//Frogger - START
