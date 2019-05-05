@@ -27,6 +27,7 @@ public class View extends JPanel{
 	private int frameCount;
 	static JFrame frame;
 	private int picNum;
+	protected boolean isOsprey;
 	BufferedImage[] playerRight;
 	BufferedImage[] playerLeft;
 	BufferedImage AmericaMap1;
@@ -64,41 +65,26 @@ public class View extends JPanel{
 	public View(){
 		playerRight= new BufferedImage[10];
 		playerLeft= new BufferedImage[10];
-		mouseLeft = new BufferedImage[10];
-		mouseRight = new BufferedImage[10];
+		//mouseLeft = new BufferedImage[10];
+		//mouseRight = new BufferedImage[10];
 		AmericaMap1 = createImage("GamePictures/Maps/America/Blank.jpg");
 		AmericaMap2 = createImage("GamePictures/Maps/America/AfterGame1.jpg");
 		AmericaMap3 = createImage("GamePictures/Maps/America/AfterGame2.jpg");
 		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
 		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
 		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
-		FroggerBackgroundO = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
-		FroggerBackgroundNH = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png");
-		BackgroundO = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
-		BackgroundNH = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
-		mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
-		mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
-		drone = createImage("GamePictures/Obstacles/Drone.png");
-		powerLine = createImage("GamePictures/Obstacles/PowerLine.png");
-		planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
-		planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
-		crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png");
-		crowRight = createImage("GamePictures/Obstacles/CrowRight.png");
-		fishLeft = createImage("GamePictures/Objectives/FishLeft.png");
-		fishRight = createImage("GamePictures/Objectives/FishRight.png");
-		nest = createImage("GamePictures/Objectives/Nest.png");
-		twig = createImage("GamePictures/Objectives/Twig.png");
-		NHSelection = createImage("GamePictures/BirdSelect/NorthernHarrier.jpg");
-		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
-		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
-		}
-		for(int i=0;i<5;i++){
-			mouseRight[i] = createImage("GamePictures/Objectives/MouseRight/Frame"+Integer.toString(i)+".png");
-			mouseLeft[i] = createImage("GamePictures/Objectives/MouseLeft/Frame"+Integer.toString(i)+".png");
-		}
 		
+		
+		
+//		for(int i=0; i<10; i++){
+//			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
+//			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+//		}
+//		for(int i=0;i<5;i++){
+//			mouseRight[i] = createImage("GamePictures/Objectives/MouseRight/Frame"+Integer.toString(i)+".png");
+//			mouseLeft[i] = createImage("GamePictures/Objectives/MouseLeft/Frame"+Integer.toString(i)+".png");
+//		}
+//		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
 		frame.setBackground(Color.gray);
@@ -132,9 +118,9 @@ public class View extends JPanel{
 	public void paint(Graphics g){ //paints the current state of the game
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
-				loadImages(o);
-				//g.setColor(o.getColor());
-				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
+				//loadImages(o);
+				g.setColor(o.getColor());
+				g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
 	}
@@ -159,7 +145,7 @@ public class View extends JPanel{
     	requestFocus();
 	}
 
-	private BufferedImage createImage(String file){
+	protected BufferedImage createImage(String file){
     	BufferedImage bufferedImage;
     	try {
     		bufferedImage = ImageIO.read(new File(file));
