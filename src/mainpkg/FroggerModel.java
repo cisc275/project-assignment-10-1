@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class FroggerModel extends Model {
 
+	private final int lostPoints = 5;
+	
 	public FroggerModel(int fw, int fh, int s) {
 		super(fw, fh, s);
 		// TODO Auto-generated constructor stub
@@ -18,46 +20,45 @@ public class FroggerModel extends Model {
 		int pWidth = width/collums - xbuffer*2;
 		int pHeight = height/rows - ybuffer*2;
 		int yLoc = height - (ybuffer+pHeight);
+		int oWidth = pWidth + 2*(width/collums);
 		obstacles = new ArrayList<Obstacle>();
 		//row 0
 		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0, 0);
+		
 		// row 1
-		//yLoc -= pHeight + ybuffer;
 		yLoc -= pHeight + 2*ybuffer;
-		//int oWidth = width/2 - pWidth/2 - xbuffer*3;
-		int oWidth = pWidth + 2*(width/collums);
-		obstacles.add(new Obstacle(oWidth, pHeight, 0+xbuffer, yLoc, 0, 0, 10));
-		obstacles.add(new Obstacle(oWidth, pHeight, (width - oWidth) - xbuffer, yLoc, 0, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, (width - oWidth) - xbuffer, yLoc, 0, 0, lostPoints));
+		
 		// row 2
-		//yLoc -= (pHeight + ybuffer)*2;
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/100, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/100, 0, lostPoints));
+		
 		//row 3
-		//yLoc -= (pHeight + ybuffer);
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/50, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/50, 0, lostPoints));
+		
 		//row 4
-		//yLoc -= (pHeight + ybuffer);
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*4;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/200, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/200, 0, lostPoints));
+		
 		//row 5
-		//yLoc -= (pHeight + ybuffer);
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/15, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/15, 0, lostPoints));
+		
 		//row 6
-		//yLoc -= (pHeight + ybuffer);
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*3;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/30, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/30, 0, lostPoints));
+		
 		//row 7
-		//yLoc -= (pHeight + ybuffer);
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/75, 0, 10));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/75, 0, lostPoints));
 	}
 	
 	public void updateFroggerState(int startingX, int startingY) {
