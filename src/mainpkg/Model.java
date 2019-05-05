@@ -16,6 +16,7 @@ public class Model {
 //	private boolean playDown=false;
 	public boolean isPlaying = false;
 	public boolean needInput = false;
+	public boolean isOsprey;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;

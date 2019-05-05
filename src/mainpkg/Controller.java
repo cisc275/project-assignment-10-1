@@ -41,19 +41,35 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//BirdSelection - START
 		//---------------------------------------------------------
-		
 		System.out.println("start bird selection");
 		vBird = new BirdSelectorView();
 		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
 		mBird.needInput = true;
-		vBird.addKeyListener(this);
+
 		vBird.startBirdSelection();
+		vBird.leftbutton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				model.isOsprey = true;
+				mBird.needInput = false;
+			}
+		});
+
+		vBird.rightbutton.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				model.isOsprey = false;
+				mBird.needInput = false;
+			}
+		});
+
+
 		while(mBird.needInput) {
 			//update model and view
 			//wait for user to select bird
 			vBird.update();
-			if(Key.enter.isDown) //move this to model or have it call a method
-				mBird.needInput = false;
+			//if(Key.enter.isDown) //move this to model or have it call a method
+				//mBird.needInput = false;
 		}
 		vBird.resetFrame();
 		System.out.println("end of bird selection");
