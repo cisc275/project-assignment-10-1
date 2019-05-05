@@ -16,11 +16,13 @@ public class Controller implements KeyListener,ActionListener {
 	private FroggerView vFrogger;
 	private FoodGameView vFood;
 	private FlappyBirdView vFlappy;
+	private QuizView vQuiz;
 	private BirdSelectorModel mBird;
 	private MapModel mMap;
 	private FroggerModel mFrogger;
 	private FoodGameModel mFood;
 	private FlappyBirdModel mFlappy;
+	private QuizModel mQuiz;
 	public HashMap<Integer, Key> keyBindings = new HashMap<Integer, Key>();
 	public static boolean other[] = new boolean[256];
 	
@@ -102,6 +104,27 @@ public class Controller implements KeyListener,ActionListener {
 		vFrogger.resetFrame();
 		System.out.println("end of frogger");
 		
+		
+		
+		//Quiz 1 - START
+		//-----------------------------------------------------------
+		
+		
+		System.out.println("Quiz 1");
+		vQuiz = new QuizView();
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+		
+		vQuiz.startQuiz(1); //First quiz!
+		
+		while(!vQuiz.Answer.equals("A")) { // Answer is A. Will expand this so that it's more obvious when you answer incorrectly
+			vQuiz.update();
+		}
+		
+		vQuiz.resetFrame();
+		System.out.println("end of quiz");
+		
+		
+		
 		//Go to Map 
 		//------------------------------------------------------------
 						
@@ -122,6 +145,28 @@ public class Controller implements KeyListener,ActionListener {
 			vFood.update();
 		}
 		System.out.println("end foodGame");
+		
+		
+		
+		//Quiz 2 - START
+		//-----------------------------------------------------------
+		
+		
+		System.out.println("Quiz 2");
+		vQuiz = new QuizView();
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+		
+		vQuiz.startQuiz(2); //Second quiz!
+		
+		while(!vQuiz.Answer.equals("B")) { // Answer is B. Will expand this so that it's more obvious when you answer incorrectly
+			vQuiz.update();
+		}
+		
+		vQuiz.resetFrame();
+		System.out.println("end of quiz");
+		
+
+		
 		
 		//Go to Map 
 		//------------------------------------------------------------
@@ -144,6 +189,27 @@ public class Controller implements KeyListener,ActionListener {
 			vFlappy.update();
 		}
 		System.out.println("end flappy");
+		
+		
+		//Quiz 3 - START
+		//-----------------------------------------------------------
+		
+		
+		System.out.println("Quiz 3");
+		vQuiz = new QuizView();
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+		
+		vQuiz.startQuiz(3); //Last quiz!
+		
+		while(!vQuiz.Answer.equals("C")) { // Answer is C. Will expand this so that it's more obvious when you answer incorrectly
+			vQuiz.update();
+		}
+		
+		vQuiz.resetFrame();
+		System.out.println("end of quiz");
+		
+		
+		
 		
 		//Go to Map 
 		//------------------------------------------------------------
