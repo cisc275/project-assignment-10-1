@@ -7,6 +7,10 @@ public class FlappyBirdView extends View {
 	
 	public FlappyBirdView(){
 		super();
+		for(int i=0; i<10; i++){
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+		}
 		if(isOsprey){
 			BackgroundO = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
 			

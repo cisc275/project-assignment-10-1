@@ -8,6 +8,10 @@ public class FroggerView extends View {
 	
 	public FroggerView(){
 		super();
+		for(int i=0; i<10; i++){
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+		}
 		if(isOsprey){
 			FroggerBackgroundO = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
 			planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
