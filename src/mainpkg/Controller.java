@@ -39,88 +39,86 @@ public class Controller implements KeyListener,ActionListener {
 	public void start() throws InterruptedException{
 		view.addKeyListener(this);
 		
-//		//BirdSelection - START
-//		//---------------------------------------------------------
-//		System.out.println("start bird selection");
-//		vBird = new BirdSelectorView();
-//		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
-//		mBird.needInput = true;
-//		vBird.startBirdSelection();
-//		vBird.leftbutton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				model.isOsprey = true;
-//				mBird.needInput = false;
-//			}
-//		});
-//
-//		vBird.rightbutton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				model.isOsprey = false;
-//				mBird.needInput = false;
-//			}
-//		});
-//		while(mBird.needInput) {
-//			//update model and view
-//			//wait for user to select bird
-//			vBird.update();
-//			//if(Key.enter.isDown) //move this to model or have it call a method
-//				//mBird.needInput = false;
-//		}
-//		vBird.resetFrame();
-//		System.out.println("end of bird selection");
-//		
-//		//Go to Map 
-//		//------------------------------------------------------------	
-//		System.out.println("map is showing");
-//		vMap = new MapView();
-//		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
-//		vMap.addKeyListener(this);
-//		vMap.showMap(false);
-//		vMap.resetFrame();
-//		
-//		//Frogger - START
-//		//------------------------------------------------------------
-//		System.out.println("start of frogger");
-//		vFrogger = new FroggerView();
-//		vFrogger.addKeyListener(this);
-//		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
-//		startFrogger();
-//		int startingX = mFrogger.player.xloc;
-//		int startingY = mFrogger.player.yloc;
-//		while(mFrogger.isPlaying) {
-//			mFrogger.updateFroggerState(startingX, startingY);
-//			vFrogger.update();
-//		}
-//		vFrogger.resetFrame();
-//		System.out.println("end of frogger");
-//		
-//		//Go to Map 
-//		//------------------------------------------------------------
-//						
-//		System.out.println("map is showing");
-//		vMap.showMap(false);
-//		vMap.resetFrame();
-//		
-//		//FoodGame - START
-//		//------------------------------------------------------------
-//		System.out.println("start foodGame");
-//		vFood = new FoodGameView();
-//		vFood.addKeyListener(this);
-//		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
-//		startFoodGame();
-//		while(mFood.isPlaying){
-//			mFood.updateFoodGameState();
-//			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
-//			vFood.update();
-//		}
-//		System.out.println("end foodGame");
-//		
-//		//Go to Map 
-//		//------------------------------------------------------------
-//						
-//		System.out.println("map is showing");
-//		vMap.showMap(false);
-//		vMap.resetFrame();
+		//BirdSelection - START
+		//---------------------------------------------------------
+		System.out.println("start bird selection");
+		vBird = new BirdSelectorView();
+		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
+		mBird.needInput = true;
+		vBird.startBirdSelection();
+		vBird.leftbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				model.isOsprey = true;
+				mBird.needInput = false;
+			}
+		});
+
+		vBird.rightbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				model.isOsprey = false;
+				mBird.needInput = false;
+			}
+		});
+		while(mBird.needInput) {
+			//update model and view
+			//wait for user to select bird
+			vBird.update();
+			//if(Key.enter.isDown) //move this to model or have it call a method
+				//mBird.needInput = false;
+		}
+		vBird.resetFrame();
+		System.out.println("end of bird selection");
+		
+		//Go to Map 
+		//------------------------------------------------------------	
+		System.out.println("map is showing");
+		vMap = new MapView();
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		vMap.addKeyListener(this);
+		vMap.showMap(false);
+		vMap.resetFrame();
+		
+		//Frogger - START
+		//------------------------------------------------------------
+		System.out.println("start of frogger");
+		vFrogger = new FroggerView();
+		vFrogger.addKeyListener(this);
+		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
+		startFrogger();
+		int startingX = mFrogger.player.xloc;
+		int startingY = mFrogger.player.yloc;
+		while(mFrogger.isPlaying) {
+			mFrogger.updateFroggerState(startingX, startingY);
+			vFrogger.update();
+		}
+		vFrogger.resetFrame();
+		System.out.println("end of frogger");
+		
+		//Go to Map 
+		//------------------------------------------------------------			
+		System.out.println("map is showing");
+		vMap.showMap(false);
+		vMap.resetFrame();
+		
+		//FoodGame - START
+		//------------------------------------------------------------
+		System.out.println("start foodGame");
+		vFood = new FoodGameView();
+		vFood.addKeyListener(this);
+		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
+		startFoodGame();
+		while(mFood.isPlaying){
+			mFood.updateFoodGameState();
+			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
+			vFood.update();
+		}
+		System.out.println("end foodGame");
+		
+		//Go to Map 
+		//------------------------------------------------------------			
+		System.out.println("map is showing");
+		vMap.showMap(false);
+		vMap.resetFrame();
 		
 		//FlappyBird - START
 		//-------------------------------------------------------------
@@ -129,8 +127,8 @@ public class Controller implements KeyListener,ActionListener {
 		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
 		startFlappyBird();
-		int startingX = mFlappy.player.xloc;
-		int startingY = mFlappy.player.yloc;
+		startingX = mFlappy.player.xloc;
+		startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
 			mFlappy.updateFlappyBirdGameState(startingX, startingY);
 			vFlappy.update();
@@ -139,7 +137,6 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//Go to Map 
 		//------------------------------------------------------------
-						
 		System.out.println("map is showing");
 		vMap.showMap(true);
 		vMap.resetFrame();
