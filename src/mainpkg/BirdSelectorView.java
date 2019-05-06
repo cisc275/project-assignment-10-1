@@ -10,9 +10,16 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class BirdSelectorView extends View {
-	public JButton leftbutton;
-	public JButton rightbutton;
+
+public JButton leftbutton;
+public JButton rightbutton;
+
+public BirdSelectorView(){
+		super();
+		NHSelection = createImage("GamePictures/BirdSelect/NorthernHarrier.jpg");
+		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
+}
+	
 	
 	public void startBirdSelection() {
 		//	frame.requestFocus();
