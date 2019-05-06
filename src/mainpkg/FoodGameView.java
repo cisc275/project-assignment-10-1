@@ -13,12 +13,12 @@ public class FoodGameView extends View {
 			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
 		}
 		if(isOsprey){
-			BackgroundO = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
 			fishLeft = createImage("GamePictures/Objectives/FishLeft.png");
 			fishRight = createImage("GamePictures/Objectives/FishRight.png");
 		}
 		else{
-			BackgroundNH = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
 			mouseLeft = new BufferedImage[10];
 			mouseRight = new BufferedImage[10];
 			for(int j=0;j<5;j++){

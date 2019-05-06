@@ -13,14 +13,15 @@ public class FroggerView extends View {
 			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
 		}
 		if(isOsprey){
-			FroggerBackgroundO = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
+			Background = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
 			planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
 			planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
 			mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
 			mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
+			
 		}
 		else{
-			FroggerBackgroundNH = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png");
+			Background = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png");
 			drone = createImage("GamePictures/Obstacles/Drone.png");
 			crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png");
 			crowRight = createImage("GamePictures/Obstacles/CrowRight.png");

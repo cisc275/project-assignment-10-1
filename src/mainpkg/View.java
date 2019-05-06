@@ -36,10 +36,7 @@ public class View extends JPanel{
 	BufferedImage DelawareMap1;
 	BufferedImage DelawareMap2;
 	BufferedImage DelawareMap3;
-	BufferedImage FroggerBackgroundO;
-	BufferedImage FroggerBackgroundNH;
-	BufferedImage BackgroundO;
-	BufferedImage BackgroundNH;
+	BufferedImage Background;
 	BufferedImage mountainLeft;
 	BufferedImage mountainRight;
 	BufferedImage drone;
@@ -89,16 +86,16 @@ public class View extends JPanel{
 		requestFocus();
 	}
 	
-	public void loadImages(Objective o){
-		
-	}
-	public void loadImages(Obstacle o){
-		
-	}
-	public void loadImages(Player p){
-		
-	}
-	
+//	public void loadImages(Objective o){
+//		
+//	}
+//	public void loadImages(Obstacle o){
+//		
+//	}
+//	public void loadImages(Player p){
+//		
+//	}
+//	
 	public void update(){ //updates the visual state of the game
 		try {
 			frame.repaint();
@@ -112,7 +109,7 @@ public class View extends JPanel{
 	public void paint(Graphics g){ //paints the current state of the game
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
-				//loadImages(o);
+				
 				g.setColor(o.getColor());
 				g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
@@ -151,6 +148,11 @@ public class View extends JPanel{
     	}
 	
   
-  
+  protected void deletePlayer(){
+	  for(int i=0;i<10;i++){
+		  playerRight[i]=null;
+		  playerLeft[i]=null;
+	  }
+  }
 	
 }

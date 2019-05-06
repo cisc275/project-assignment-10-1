@@ -12,11 +12,11 @@ public class FlappyBirdView extends View {
 			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
 		}
 		if(isOsprey){
-			BackgroundO = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
 			
 		}
 		else{
-			BackgroundNH = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
 			powerLine = createImage("GamePictures/Obstacles/PowerLine.png");
 		}
 		nest = createImage("GamePictures/Objectives/Nest.png");

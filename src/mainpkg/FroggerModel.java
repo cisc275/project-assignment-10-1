@@ -80,8 +80,9 @@ public class FroggerModel extends Model {
 	}
 	
 	private boolean froggerEnd() {
-		if(player.yloc < player.height)
+		if(player.yloc < player.height){
 			return true;
+		}
 		return false;
 	}
 	
