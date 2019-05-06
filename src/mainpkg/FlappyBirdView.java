@@ -40,9 +40,9 @@ public class FlappyBirdView extends View {
 	
 	public void paint(Graphics g){ //paints the current state of the game
 		picNum=(picNum+1)%10;
+		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
-				g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
 				if(o instanceof Player){
 					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this);
 				}
