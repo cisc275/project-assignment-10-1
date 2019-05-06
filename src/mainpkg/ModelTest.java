@@ -84,7 +84,7 @@ public class ModelTest {
 		
 		//FlappyBird Testing
 		FlappyBirdModel bModel = new FlappyBirdModel(fw, fh, 0);
-		bModel.startFlappyBird();
+		//bModel.startFlappyBird();
 		assertTrue("isPlaying back to true.", bModel.isPlaying);
 		assertEquals("Check player width value", 50, bModel.getPlayer().width);
 		assertEquals("Check player height value", 50, bModel.getPlayer().height);
