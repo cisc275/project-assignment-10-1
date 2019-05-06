@@ -2,9 +2,13 @@ package mainpkg;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class FoodGameModel extends Model {
 
+	private int flyHeight;
+	private int foodHeight; 
+	
 	public FoodGameModel(int fw, int fh, int s) {
 		super(fw, fh, s);
 		// TODO Auto-generated constructor stub
@@ -14,13 +18,20 @@ public class FoodGameModel extends Model {
 		obstacles = null;
 		objectives = new ArrayList<Objective>();
 		isPlaying = true;
-		player = new Player(70,70,250,50,0,0,0);
-		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
-	}
+		int rows = 9;
+		int columns = 9;
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
+		int pHeight = frameHeight/rows - 2*ybuffer;
+		int pWidth = frameWidth/columns - 2*xbuffer;
+		int oXLoc = (frameWidth/columns) * ThreadLocalRandom.current().nextInt(1, columns-2);
+		foodHeight = (frameHeight/rows)*7;
+		flyHeight = ybuffer;
+		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0,0);
+		objectives.add(new Objective(50, 50, oXLoc, foodHeight, 0,0,false, 0));
+			}
 	
 	public void updateFoodGameState(){
-		int flyHeight = 50;
-		int foodHeight = 250;
 		if(player.yloc == foodHeight) {
 			eatFood();
 			player.dive(flyHeight);

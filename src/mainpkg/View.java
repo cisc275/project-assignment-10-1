@@ -140,6 +140,7 @@ public class View extends JPanel{
     	frame.setSize(frameWidth, frameHeight);
     	frame.setVisible(true);
     	frame.setFocusable(false);
+    	frame.dispose();
     	requestFocus();
 	}
 
