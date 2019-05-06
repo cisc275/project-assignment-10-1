@@ -121,6 +121,9 @@ public class Controller implements KeyListener,ActionListener {
 		//Go to Map 
 		//------------------------------------------------------------			
 		System.out.println("map is showing");
+		vMap = new MapView();
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		vMap.addKeyListener(this);
 		vMap.showMap(false);
 		vMap.resetFrame();
 		
@@ -164,6 +167,9 @@ public class Controller implements KeyListener,ActionListener {
 		//Go to Map 
 		//------------------------------------------------------------			
 		System.out.println("map is showing");
+		vMap = new MapView();
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		vMap.addKeyListener(this);
 		vMap.showMap(false);
 		vMap.resetFrame();
 		

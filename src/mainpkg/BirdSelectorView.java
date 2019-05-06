@@ -3,8 +3,6 @@ package mainpkg;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
-
-
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPanel;

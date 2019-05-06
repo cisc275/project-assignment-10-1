@@ -2,6 +2,7 @@ package mainpkg;
 
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -132,16 +133,23 @@ public class View extends JPanel{
 	}
 	
 	public void resetFrame() {
-	//frame = new JFrame();
+		frame = new JFrame();
 		frame.getContentPane().removeAll();
     	frame.getContentPane().add(this);
     	frame.setBackground(Color.gray);
+    	//frame.getContentPane().setBackground(Color.gray);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameWidth, frameHeight);
     	frame.setVisible(true);
     	frame.setFocusable(false);
     	frame.dispose();
     	requestFocus();
+//		CardLayout layout = new CardLayout();
+//		this.setLayout(layout);
+//		this.add(new JPanel(), " ");
+//		layout.next(this);
+//		requestFocus();
+    	//setOpaque(false);
 	}
 
 	protected BufferedImage createImage(String file){
