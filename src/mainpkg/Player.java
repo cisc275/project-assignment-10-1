@@ -13,12 +13,6 @@ public class Player extends GameObject{
 		froggerStartX = xloc;
 		froggerStartY = yloc;
 	}
-
-	public void flap(){
-		yvel = height*2; //placeholder
-		move();
-		yvel = 0;
-	}
 	
 	public void xJump(boolean isRight, int fwidth){
 		int buffer = fwidth/100; //placeholder
