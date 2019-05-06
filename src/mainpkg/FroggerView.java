@@ -37,6 +37,7 @@ public class FroggerView extends View {
 	}
 	public void paint(Graphics g){
 		picNum=(picNum+1)%10;
+		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){

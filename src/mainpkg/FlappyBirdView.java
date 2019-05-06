@@ -14,6 +14,7 @@ public class FlappyBirdView extends View {
 		}
 		if(isOsprey){
 			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
+			tree = createImage("GamePictures/Obstacles/Tree.png");
 			
 		}
 		else{
@@ -37,14 +38,20 @@ public class FlappyBirdView extends View {
 		  }
 	  }
 	public void paint(Graphics g){ //paints the current state of the game
+		picNum=(picNum+1)%10;
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
-				
+				g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
 				if(o instanceof Player){
-					
+					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this);
 				}
 				else if(o instanceof Obstacle){
-					
+					if(isOsprey){
+						g.drawImage(tree, o.xloc, o.yloc, o.width, o.height, this);
+					}
+					else{
+						g.drawImage(powerLine, o.xloc, o.yloc, o.width, o.height, this);
+					}
 				}
 				else{
 					g.drawImage(nest, o.xloc, o.yloc,o.width,o.height, this);

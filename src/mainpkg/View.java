@@ -22,8 +22,8 @@ import javax.swing.JFrame;
 public class View extends JPanel{
 	
 	private Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
-	private int frameWidth = screensize.width; //TODO: have this adjust per display
-	private int frameHeight = screensize.height;
+	protected int frameWidth = screensize.width; //TODO: have this adjust per display
+	protected int frameHeight = screensize.height;
 	private int frameCount;
 	static JFrame frame;
 	protected int picNum;
@@ -43,6 +43,7 @@ public class View extends JPanel{
 	BufferedImage powerLine;
 	BufferedImage planeRight;
 	BufferedImage planeLeft;
+	BufferedImage tree;
 	BufferedImage crowLeft;
 	BufferedImage crowRight;
 	BufferedImage[] mouseLeft;

@@ -41,6 +41,7 @@ public class FoodGameView extends View {
 		picNum= (picNum+1) % 10;
 		picNum2 = (picNum2+1)%5;
 		if (!gameObjects.isEmpty()) {
+			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
 			for (GameObject o : gameObjects) {
 				
 				if(o instanceof Player){
