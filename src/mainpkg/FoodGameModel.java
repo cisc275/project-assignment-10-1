@@ -14,7 +14,13 @@ public class FoodGameModel extends Model {
 		obstacles = null;
 		objectives = new ArrayList<Objective>();
 		isPlaying = true;
-		player = new Player(70,70,250,50,0,0,0);
+		int rows = 9;
+		int columns = 9;
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
+		int pHeight = frameHeight/9 - 2*ybuffer;
+		int pWidth = frameWidth/9 - 2*xbuffer;
+		player = new Player(pWidth,pHeight,4*pWidth,0+ybuffer,0,0,0);
 		objectives.add(new Objective(50, 50, 300, 250, 0,0,false, 0));
 	}
 	
