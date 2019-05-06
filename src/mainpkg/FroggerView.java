@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 @SuppressWarnings("serial")
@@ -34,6 +35,35 @@ public class FroggerView extends View {
 		for(Obstacle o : obstacles) {
 			gameObjects.add(o);
 		}
-		
+	}
+	public void paint(Graphics g){
+		if (!gameObjects.isEmpty()) {
+			for (GameObject o : gameObjects) {
+				if(o instanceof Player){
+					
+				}
+				else if(o instanceof Obstacle){
+					if(isOsprey){
+						if(o.xvel==0){
+							g.drawImage(mountainLeft,o.xloc,o.yloc,this);
+						}
+						else{
+							if(o.xvel<0){
+								g.drawImage(planeLeft,o.xloc,o.yloc,this);
+							}
+							else{
+								g.drawImage(planeRight,o.xloc,o.yloc,this);
+							}
+						}
+					}
+					else{
+						g.drawImage(drone,o.xloc,o.yloc,this);
+					}
+				}
+				else{
+					
+				}
+			}
+		}
 	}
 }

@@ -110,8 +110,17 @@ public class View extends JPanel{
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
 				
-				g.setColor(o.getColor());
-				g.fillRect(o.xloc, o.yloc, o.width, o.height);
+				if(o instanceof Player){
+					
+				}
+				else if(o instanceof Obstacle){
+					
+				}
+				else{
+					
+				}
+				//g.setColor(o.getColor());
+				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
 	}
