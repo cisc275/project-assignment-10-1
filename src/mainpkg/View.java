@@ -74,11 +74,6 @@ public class View extends JPanel{
 		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
 		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
 		
-		
-		
-		
-		
-		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
 		frame.setBackground(Color.gray);

@@ -1,7 +1,6 @@
 package mainpkg;
 
-import java.awt.Color;
-import java.util.Timer;
+import java.awt.Graphics;
 
 import javax.swing.JTextArea;
 
@@ -10,7 +9,6 @@ public class MapView extends View {
 	public void showMap(boolean isEnd) throws InterruptedException {
 		
 		long tEnd = System.currentTimeMillis();
-		frame.setBackground(Color.CYAN);
 		frame.setVisible(true);
 		long tStart = tEnd + 5*1000;
 		if(isEnd) {
@@ -22,6 +20,10 @@ public class MapView extends View {
 			Thread.sleep(1000);
 		
 		}
+	}
+	
+	public void paint(Graphics g) {
+		g.drawImage(AmericaMap1, 0, 0, frameWidth, frameHeight, this);
 	}
 
 }
