@@ -26,8 +26,9 @@ public class View extends JPanel{
 	private int frameHeight = screensize.height;
 	private int frameCount;
 	static JFrame frame;
-	private int picNum;
-	protected boolean isOsprey;
+	protected int picNum;
+	protected int picNum2;
+	protected boolean isOsprey = true;
 	BufferedImage[] playerRight;
 	BufferedImage[] playerLeft;
 	BufferedImage AmericaMap1;
@@ -37,8 +38,7 @@ public class View extends JPanel{
 	BufferedImage DelawareMap2;
 	BufferedImage DelawareMap3;
 	BufferedImage Background;
-	BufferedImage mountainLeft;
-	BufferedImage mountainRight;
+	BufferedImage mountain;
 	BufferedImage drone;
 	BufferedImage powerLine;
 	BufferedImage planeRight;
@@ -60,6 +60,8 @@ public class View extends JPanel{
 
 	
 	public View(){
+		picNum = 0;
+		picNum2 = 0;
 		playerRight= new BufferedImage[10];
 		playerLeft= new BufferedImage[10];
 		//mouseLeft = new BufferedImage[10];

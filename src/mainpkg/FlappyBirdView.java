@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 @SuppressWarnings("serial")
@@ -35,4 +36,22 @@ public class FlappyBirdView extends View {
 			  gameObjects.add(o);
 		  }
 	  }
+	public void paint(Graphics g){ //paints the current state of the game
+		if (!gameObjects.isEmpty()) {
+			for (GameObject o : gameObjects) {
+				
+				if(o instanceof Player){
+					
+				}
+				else if(o instanceof Obstacle){
+					
+				}
+				else{
+					g.drawImage(nest, o.xloc, o.yloc,o.width,o.height, this);
+				}
+				//g.setColor(o.getColor());
+				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
+			}
+		}
+	}
 }

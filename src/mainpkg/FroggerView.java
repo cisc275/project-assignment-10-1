@@ -10,15 +10,14 @@ public class FroggerView extends View {
 	public FroggerView(){
 		super();
 		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
 		}
 		if(isOsprey){
 			Background = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
 			planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
 			planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
-			mountainLeft = createImage("GamePictures/Obstacles/MountairnSmallonLeft.png");
-			mountainRight = createImage("GamePictures/Obstacles/MountainSmallonRight.png");
+			mountain = createImage("GamePictures/Obstacles/Mountain.png");
 			
 		}
 		else{
@@ -37,27 +36,28 @@ public class FroggerView extends View {
 		}
 	}
 	public void paint(Graphics g){
+		picNum=(picNum+1)%10;
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
-					
+					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this);
 				}
 				else if(o instanceof Obstacle){
 					if(isOsprey){
 						if(o.xvel==0){
-							g.drawImage(mountainLeft,o.xloc,o.yloc,this);
+							g.drawImage(mountain,o.xloc,o.yloc,o.width,o.height,this);
 						}
 						else{
 							if(o.xvel<0){
-								g.drawImage(planeLeft,o.xloc,o.yloc,this);
+								g.drawImage(planeLeft,o.xloc,o.yloc,o.width, o.height,this);
 							}
 							else{
-								g.drawImage(planeRight,o.xloc,o.yloc,this);
+								g.drawImage(planeRight,o.xloc,o.yloc,o.width, o.height,this);
 							}
 						}
 					}
 					else{
-						g.drawImage(drone,o.xloc,o.yloc,this);
+						g.drawImage(drone,o.xloc,o.yloc,o.width, o.height, this);
 					}
 				}
 				else{

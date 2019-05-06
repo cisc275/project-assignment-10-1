@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -34,6 +35,38 @@ public class FoodGameView extends View {
 		gameObjects.add(player);
 		for(Objective o: objectives){
 			gameObjects.add(o);
+		}
+	}
+	public void paint(Graphics g){ //paints the current state of the game
+		picNum= (picNum+1) % 10;
+		picNum2 = (picNum2+1)%5;
+		if (!gameObjects.isEmpty()) {
+			for (GameObject o : gameObjects) {
+				
+				if(o instanceof Player){
+					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this);
+				}
+				else if(o instanceof Obstacle){
+					
+				}
+				else{
+					if(isOsprey){
+						if(o.xvel>0){
+							g.drawImage(fishRight, o.xloc, o.yloc, o.width, o.height, this);
+						}
+						else{
+							g.drawImage(fishLeft, o.xloc, o.yloc, o.width, o.height, this);
+						}
+					}
+					else{
+						if(o.xvel>0){
+							g.drawImage(mouseRight[picNum2],o.xloc,o.yloc,o.width,o.height,this);
+						}
+					}
+				}
+				//g.setColor(o.getColor());
+				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
+			}
 		}
 	}
 }
