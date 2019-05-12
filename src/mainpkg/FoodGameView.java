@@ -38,30 +38,33 @@ public class FoodGameView extends View {
 		}
 	}
 	public void paint(Graphics g){ //paints the current state of the game
-		picNum= (picNum+1) % 10;
-		picNum2 = (picNum2+1)%5;
+		picNum= (picNum+1) % 10; //Cycles through frames for the player
+		picNum2 = (picNum2+1)%5; //Cycles through frames for the mouse objective
 		if (!gameObjects.isEmpty()) {
-			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
+			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 			for (GameObject o : gameObjects) {
 				
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this);
+					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
 				}
 				else if(o instanceof Obstacle){
 					
 				}
 				else{
-					if(isOsprey){
+					if(isOsprey){ //Checks to see what bird player is playing as
 						if(o.xvel>0){
-							g.drawImage(fishRight, o.xloc, o.yloc, o.width, o.height, this);
+							g.drawImage(fishRight, o.xloc, o.yloc, o.width, o.height, this); //If the objective is moving right, use the right image for the fish
 						}
 						else{
-							g.drawImage(fishLeft, o.xloc, o.yloc, o.width, o.height, this);
+							g.drawImage(fishLeft, o.xloc, o.yloc, o.width, o.height, this); //If the objective is moving left, use the right image for the fish
 						}
 					}
 					else{
 						if(o.xvel>0){
-							g.drawImage(mouseRight[picNum2],o.xloc,o.yloc,o.width,o.height,this);
+							g.drawImage(mouseRight[picNum2],o.xloc,o.yloc,o.width,o.height,this); //Draws the objective as a mouse moving right, using the animation frames
+						}
+						else{
+							g.drawImage(mouseLeft[picNum2],o.xloc,o.yloc,o.width,o.height,this); //Draws the objective as a mouse moving to the left using the animation frames
 						}
 					}
 				}
