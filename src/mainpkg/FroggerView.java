@@ -36,29 +36,29 @@ public class FroggerView extends View {
 		}
 	}
 	public void paint(Graphics g){
-		picNum=(picNum+1)%10;
-		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
-		if (!gameObjects.isEmpty()) {
+		picNum=(picNum+1)%10; //Cycles through the frame numbers
+		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
+		if (!gameObjects.isEmpty()) { //Makes sure there are objects in the game
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this);
+					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
 				}
 				else if(o instanceof Obstacle){
-					if(isOsprey){
+					if(isOsprey){ //Checks to see which bird the player is playing as
 						if(o.xvel==0){
-							g.drawImage(mountain,o.xloc,o.yloc,o.width,o.height,this);
+							g.drawImage(mountain,o.xloc,o.yloc,o.width,o.height,this); //If the obstacle isn't moving draw it as a mountain
 						}
 						else{
-							if(o.xvel<0){
-								g.drawImage(planeLeft,o.xloc,o.yloc,o.width, o.height,this);
+							if(o.xvel<0){ 
+								g.drawImage(planeLeft,o.xloc,o.yloc,o.width, o.height,this); //IF obstacle is moving to the left draw it as the proper airplane
 							}
 							else{
-								g.drawImage(planeRight,o.xloc,o.yloc,o.width, o.height,this);
+								g.drawImage(planeRight,o.xloc,o.yloc,o.width, o.height,this); //If obstacle is moving to the right, draw it as the proper airplane
 							}
 						}
 					}
 					else{
-						g.drawImage(drone,o.xloc,o.yloc,o.width, o.height, this);
+						g.drawImage(drone,o.xloc,o.yloc,o.width, o.height, this); //If it is a Northern Harrier, draw all obstacles as drones
 					}
 				}
 				else{
