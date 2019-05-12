@@ -10,21 +10,21 @@ public class FoodGameView extends View {
 	public FoodGameView() {
 		super();
 		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing right
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing left
 		}
 		if(isOsprey){
-			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
-			fishLeft = createImage("GamePictures/Objectives/FishLeft.png");
-			fishRight = createImage("GamePictures/Objectives/FishRight.png");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg"); //Loads in the osprey foodgame background
+			fishLeft = createImage("GamePictures/Objectives/FishLeft.png"); //Loads the left facing fish image
+			fishRight = createImage("GamePictures/Objectives/FishRight.png"); //Loads the right facing fish image
 		}
 		else{
-			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
-			mouseLeft = new BufferedImage[10];
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg"); //Loads in the northern harrier background
+			mouseLeft = new BufferedImage[10]; 
 			mouseRight = new BufferedImage[10];
 			for(int j=0;j<5;j++){
-				mouseRight[j] = createImage("GamePictures/Objectives/MouseRight/Frame"+Integer.toString(j)+".png");
-				mouseLeft[j] = createImage("GamePictures/Objectives/MouseLeft/Frame"+Integer.toString(j)+".png");
+				mouseRight[j] = createImage("GamePictures/Objectives/MouseRight/Frame"+Integer.toString(j)+".png"); //Loads in the right facing mouse images
+				mouseLeft[j] = createImage("GamePictures/Objectives/MouseLeft/Frame"+Integer.toString(j)+".png"); //Loads in the left facing mouse images
 			}
 		}
 		

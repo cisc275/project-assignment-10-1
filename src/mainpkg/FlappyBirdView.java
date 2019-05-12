@@ -9,20 +9,20 @@ public class FlappyBirdView extends View {
 	public FlappyBirdView(){
 		super();
 		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing right animation
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing left animation
 		}
 		if(isOsprey){
-			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg");
-			tree = createImage("GamePictures/Obstacles/Tree.png");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg"); //Loads the osprey flappy bird game background image
+			tree = createImage("GamePictures/Obstacles/Tree.png"); //Loads the tree image for the obstacles
 			
 		}
 		else{
-			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg");
-			powerLine = createImage("GamePictures/Obstacles/PowerLine.png");
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/NHFoodGame.jpg"); //Loads the northern harrier flappy bird game background image
+			powerLine = createImage("GamePictures/Obstacles/PowerLine.png"); //Loads the power line image for the obstacles
 		}
-		nest = createImage("GamePictures/Objectives/Nest.png");
-		twig = createImage("GamePictures/Objectives/Twig.png");
+		nest = createImage("GamePictures/Objectives/Nest.png"); //Loads the image of the nest 
+		twig = createImage("GamePictures/Objectives/Twig.png"); //Loads the image of the twig
 	}
 
 	public void startFlappyBird(Player player, ArrayList<Objective> objectives, ArrayList<Obstacle> obstacles) { 

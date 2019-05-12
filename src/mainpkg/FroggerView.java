@@ -10,21 +10,21 @@ public class FroggerView extends View {
 	public FroggerView(){
 		super();
 		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png");
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png");
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads animation frames for the player facing left
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads the animation frames for the player facing right
 		}
 		if(isOsprey){
-			Background = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg");
-			planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png");
-			planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png");
-			mountain = createImage("GamePictures/Obstacles/Mountain.png");
+			Background = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg"); //Loads the osprey frogger background
+			planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png"); //Loads the image for the airplane moving to the left
+			planeRight = createImage("GamePictures/Obstacles/AirplaneRight.png"); //Loads the image for the airplane moving to the right
+			mountain = createImage("GamePictures/Obstacles/Mountain.png"); //Loads the image for the mountain
 			
 		}
 		else{
-			Background = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png");
-			drone = createImage("GamePictures/Obstacles/Drone.png");
-			crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png");
-			crowRight = createImage("GamePictures/Obstacles/CrowRight.png");
+			Background = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png"); //Loads the northern harrier frogger background image
+			drone = createImage("GamePictures/Obstacles/Drone.png"); //Loads the image of the drone
+			crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png"); //Loads the image of a crow facing to the left
+			crowRight = createImage("GamePictures/Obstacles/CrowRight.png"); //Loads the image of a crow facing to the right
 		}
 	}
 	
