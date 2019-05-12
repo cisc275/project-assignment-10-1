@@ -39,23 +39,23 @@ public class FlappyBirdView extends View {
 	}
 	
 	public void paint(Graphics g){ //paints the current state of the game
-		picNum=(picNum+1)%10;
-		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this);
+		picNum=(picNum+1)%10; //Cycles through frame numbers
+		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (!gameObjects.isEmpty()) {
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this);
+					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this); //Draws the player, cycling through the frames to make it animated
 				}
 				else if(o instanceof Obstacle){
-					if(isOsprey){
-						g.drawImage(tree, o.xloc, o.yloc, o.width, o.height, this);
+					if(isOsprey){ //Checks to see what bird the person is playing as
+						g.drawImage(tree, o.xloc, o.yloc, o.width, o.height, this); //Draw obstacle as tree if osprey
 					}
 					else{
-						g.drawImage(powerLine, o.xloc, o.yloc, o.width, o.height, this);
+						g.drawImage(powerLine, o.xloc, o.yloc, o.width, o.height, this); //Draw obstacles as powerline if Northern Harrier
 					}
 				}
 				else{
-					g.drawImage(nest, o.xloc, o.yloc,o.width,o.height, this);
+					g.drawImage(nest, o.xloc, o.yloc,o.width,o.height, this); //Draw the objective as the nest
 				}
 				//g.setColor(o.getColor());
 				//g.fillRect(o.xloc, o.yloc, o.width, o.height);

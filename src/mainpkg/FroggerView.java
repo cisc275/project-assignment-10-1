@@ -61,9 +61,6 @@ public class FroggerView extends View {
 						g.drawImage(drone,o.xloc,o.yloc,o.width, o.height, this); //If it is a Northern Harrier, draw all obstacles as drones
 					}
 				}
-				else{
-					
-				}
 			}
 		}
 	}
