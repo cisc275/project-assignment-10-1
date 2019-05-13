@@ -73,6 +73,7 @@ public class FroggerModel extends Model {
 		updateFroggerObstacles();
 		
 		if(wallCollision(player) || playerAndObstacleCollision()) {
+			// moves player back to beginning if they hit a wall or an obstacle
 			player.xloc = startingX;
 			player.yloc = startingY;
 		}

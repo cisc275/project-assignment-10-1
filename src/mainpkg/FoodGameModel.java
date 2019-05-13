@@ -15,6 +15,8 @@ public class FoodGameModel extends Model {
 	}
 	
 	//Initializes everything for the food game
+	// 9 rows and 9 columns wide. Game works by having a common "buffer" size
+	// between all objects, the wall, etc. This is a similar system to the frogger game.
 	public void startFoodGame(){
 		obstacles = null;
 		objectives = new ArrayList<Objective>();

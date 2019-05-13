@@ -74,10 +74,12 @@ public class FlappyBirdModel extends Model {
 			player.xloc+=10;
 		}
 		if(playerAndObstacleCollision() || wallCollision(player)) {
+			// sets player back to beginning if they hit a wall or obstacle
 			player.xloc = startingX;
 			player.yloc = startingY;
 		}
 		if(collision(player, objectives.get(0))) {
+			// if you hit the top, the game finishes
 			isPlaying = false;
 		}
 		

@@ -16,9 +16,12 @@ public class BirdSelectorView extends View{
 		super();
 		NHSelection = createImage("GamePictures/BirdSelect/NorthernHarrier.jpg");
 		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
+		// get both bird picks ready for selection
 	}
 	
 	public void startBirdSelection() {
+		// gets jpanel ready for selection. Adds buttons and their pictures.
+		
 	//	frame.requestFocus();
 		JTextArea title = new JTextArea("Select a bird.");
 		this.leftbutton = new JButton("Osprey");

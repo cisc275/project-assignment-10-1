@@ -39,6 +39,10 @@ public class Controller implements KeyListener,ActionListener {
 	}
 	
 	public void start() throws InterruptedException{
+		// main method for running game. Starts all the views and models for each game.
+		// runs through the maps inbetween and everything. runs with booleans and while
+		// loops so that you stay within a game while isPlaying is true.
+		
 		view.addKeyListener(this);
 		
 		//BirdSelection - START
@@ -220,17 +224,21 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("END OF GAME");
 	}
 	public static void main(String[] args) throws InterruptedException{
+		// makes the controller and calls the start method onto it. This starts the game.
 		Controller c = new Controller();
 		c.start();
 	}
 	
 	
 	public void keyPressed(KeyEvent e){
+		// passes the KeyEvent into the keyBindings collections.
+		// prints out to show when a key was pressed
 		System.out.println("pressed");
 		other[e.getExtendedKeyCode()] = true;
 		keyBindings.get(e.getKeyCode()).isDown = true;
 	}
 	public void keyReleased(KeyEvent e) {
+		// passes KeyEvent into the keyBindings collection.
 		
 		other[e.getExtendedKeyCode()] = false;
 	    keyBindings.get(e.getKeyCode()).isDown = false;
@@ -249,16 +257,19 @@ public class Controller implements KeyListener,ActionListener {
 		keyBindings.put(keyCode, key);
 	}
 	public void startFoodGame(){
+		//runs view and model for food game
 		mFood.startFoodGame();
 		vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 	}
 	
 	public void startFrogger() {
+		//runs view and model for frogger game
 		mFrogger.startFrogger(view.getWidth(), view.getHeight());
 		vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 	}
 	
 	public void startFlappyBird() {
+		//runs view and model for flappy game
 		mFlappy.startFlappyBird(view.getWidth(), view.getHeight());
 		vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
 	}
