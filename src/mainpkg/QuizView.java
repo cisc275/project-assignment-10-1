@@ -31,41 +31,41 @@ public class QuizView extends View {
 		
 		if (quiznum == 1) { // Frogger game question
 			
-			Q = new JTextField("Q1", 1);
+			Q = new JTextField("What is a threat to Osprey while they migrate?", 1);
 			Q.setEditable(false);
 			blank = new JTextField("",0);
 			blank.setEditable(false);
 			
-			A = new JButton("Q1A");
-			B = new JButton("Q1B");
-			C = new JButton("Q1C");
-			D = new JButton("Q1D");
+			A = new JButton("Air traffic");
+			B = new JButton("Foxes");
+			C = new JButton("Predatory whales");
+			D = new JButton("Deadly nightshade");
 				
 		}
 		
 		else if (quiznum == 2) { // Food game Question
-			Q = new JTextField("Q2", 1);
+			Q = new JTextField("What is the main diet of the Osprey?", 1);
 			Q.setEditable(false);
 			blank = new JTextField("",0);
 			blank.setEditable(false);
 			
-			A = new JButton("Q2A");
-			B = new JButton("Q2B");
-			C = new JButton("Q2C");
-			D = new JButton("Q2D");
+			A = new JButton("Mice");
+			B = new JButton("Fish");
+			C = new JButton("Fruit");
+			D = new JButton("Insects");
 		}
 		
 		else if (quiznum == 3) { // FlappyBird Question
 			
-			Q = new JTextField("Q3", 1);
+			Q = new JTextField("Where does the Osprey typically make its nest?", 1);
 			Q.setEditable(false);
 			blank = new JTextField("",0);
 			blank.setEditable(false);
 			
-			A = new JButton("Q3A");
-			B = new JButton("Q3B");
-			C = new JButton("Q3C");
-			D = new JButton("Q3D");
+			A = new JButton("On the ground");
+			B = new JButton("In the water");
+			C = new JButton("In a tree");
+			D = new JButton("It does not nest");
 		}
 		
 		//-----------------------------------------------
