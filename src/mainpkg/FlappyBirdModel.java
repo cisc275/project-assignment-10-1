@@ -11,6 +11,8 @@ public class FlappyBirdModel extends Model {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Takes width and height to set buffers
+	//begins FlappyBird game
 	public void startFlappyBird(int width, int height) {
 		isPlaying = true;
 		int xBuffer = width/100;
@@ -61,6 +63,8 @@ public class FlappyBirdModel extends Model {
 		objectives.add(new Objective(pWidth, pHeight, frameWidth-pWidth-xBuffer, frameHeight/2, 0, 0, false, 0));
 	}
 	
+	//Updates the FlappyBirdGameState with starting x and y locations.
+	//If player collides, will reset player back to starting coordinates
 	public void updateFlappyBirdGameState(int startingX, int startingY) {
 		if(Key.space.isDown) {
 			player.yloc-=80;

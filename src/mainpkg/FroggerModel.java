@@ -11,6 +11,7 @@ public class FroggerModel extends Model {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Begins frogger game, initializes screen with width height used in various calculations
 	public void startFrogger(int width, int height) {
 		isPlaying = true;
 		int xbuffer = width/100;
@@ -61,6 +62,7 @@ public class FroggerModel extends Model {
 		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/75, 0, lostPoints));
 	}
 	
+	//Updates the FroggerState, if collision is detected returns player back to starting coordinates
 	public void updateFroggerState(int startingX, int startingY) {
 	
 		if(Key.up.isDown) player.yJump(true,frameHeight);
@@ -80,6 +82,7 @@ public class FroggerModel extends Model {
 		}
 	}
 	
+	//Ends frogger game if the player is at the end of the screen
 	private boolean froggerEnd() {
 		if(player.yloc < player.height){
 			return true;
@@ -87,6 +90,7 @@ public class FroggerModel extends Model {
 		return false;
 	}
 	
+	//Handles Obstacle movement
 	public void updateFroggerObstacles() {
 		for(Obstacle o : obstacles) {
 			o.move();

@@ -14,6 +14,7 @@ public class FoodGameModel extends Model {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//Initializes everything for the food game
 	public void startFoodGame(){
 		obstacles = null;
 		objectives = new ArrayList<Objective>();
@@ -31,6 +32,8 @@ public class FoodGameModel extends Model {
 		objectives.add(new Objective(50, 50, oXLoc, foodHeight, 0,0,false, 0));
 			}
 	
+	//updates the state of the FoodGame
+	//Handles player movement/food retrieval
 	public void updateFoodGameState(){
 		if(player.yloc == foodHeight) {
 			eatFood();
@@ -51,6 +54,8 @@ public class FoodGameModel extends Model {
 		System.out.println(player.xloc + ", " + player.yloc);
 	}
 	
+	//Assigns points to player when food is eaten
+	//Calls collision detection
 	public void eatFood() {
 		Iterator<Objective> objIt = objectives.iterator();
 		Objective o;
