@@ -30,7 +30,7 @@ public class FoodGameView extends View {
 		
 		
 	}
-	public void foodGame(Player player, ArrayList<Objective> objectives){
+	public void foodGame(Player player, ArrayList<Objective> objectives){ //Creates a composit arraylist of all game objects to begin the game
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Objective o: objectives){

@@ -25,7 +25,7 @@ public class FlappyBirdView extends View {
 		twig = createImage("GamePictures/Objectives/Twig.png"); //Loads the image of the twig
 	}
 
-	public void startFlappyBird(Player player, ArrayList<Objective> objectives, ArrayList<Obstacle> obstacles) { 
+	public void startFlappyBird(Player player, ArrayList<Objective> objectives, ArrayList<Obstacle> obstacles) { //Creates a composite arraylist of all gameobjects at the start of the game
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Objective o: objectives){
