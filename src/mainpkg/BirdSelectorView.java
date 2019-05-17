@@ -16,12 +16,9 @@ public class BirdSelectorView extends View{
 		super();
 		NHSelection = createImage("GamePictures/BirdSelect/NorthernHarrier.jpg");
 		OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
-		// get both bird picks ready for selection
 	}
 	
 	public void startBirdSelection() {
-		// gets jpanel ready for selection. Adds buttons and their pictures.
-		
 	//	frame.requestFocus();
 		JTextArea title = new JTextArea("Select a bird.");
 		this.leftbutton = new JButton("Osprey");
@@ -30,7 +27,15 @@ public class BirdSelectorView extends View{
 		this.leftbutton.setFont(new Font("Arial", Font.PLAIN, 50));
 		this.rightbutton.setFont(new Font("Arial", Font.PLAIN, 50));
 		JPanel panel = new JPanel(new GridLayout(1, 2));
+		panel.setLayout(null);
 		
+		//Set size and location of buttons here
+		this.leftbutton.setSize(500,100);
+	    this.leftbutton.setLocation(frameWidth/4, frameHeight/4);
+	    this.rightbutton.setSize(500,100);
+	    this.rightbutton.setLocation(frameWidth - (frameWidth/2), frameHeight - (frameHeight/2));
+		
+	    
 		panel.add(leftbutton);
 		panel.add(rightbutton);
 		frame.add(panel);
