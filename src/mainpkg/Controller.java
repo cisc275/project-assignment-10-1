@@ -25,6 +25,7 @@ public class Controller implements KeyListener,ActionListener {
 	private QuizModel mQuiz;
 	public HashMap<Integer, Key> keyBindings = new HashMap<Integer, Key>();
 	public static boolean other[] = new boolean[256];
+	private boolean isRight=true;
 	
 	public Controller(){
 		view = new View();

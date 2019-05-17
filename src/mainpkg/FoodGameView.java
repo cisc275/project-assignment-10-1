@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class FoodGameView extends View {
-
+	
+	private boolean isRight;
+	
 	public FoodGameView() {
 		super();
 		for(int i=0; i<10; i++){
@@ -45,7 +47,13 @@ public class FoodGameView extends View {
 			for (GameObject o : gameObjects) {
 				
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
+					if(isRight){
+						g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
+					}
+					else{
+						g.drawImage(playerLeft[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
+					}
+					
 				}
 				else if(o instanceof Obstacle){
 					

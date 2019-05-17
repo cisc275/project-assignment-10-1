@@ -6,6 +6,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class FroggerView extends View {
 	
+	private boolean isRight = true;
 	
 	public FroggerView(){
 		super();
@@ -41,7 +42,13 @@ public class FroggerView extends View {
 		if (!gameObjects.isEmpty()) { //Makes sure there are objects in the game
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
+					if(isRight){
+						g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
+					}
+					else{
+						g.drawImage(playerLeft[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
+					}
+					
 				}
 				else if(o instanceof Obstacle){
 					if(isOsprey){ //Checks to see which bird the player is playing as
