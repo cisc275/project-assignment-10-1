@@ -2,12 +2,12 @@ package mainpkg;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class FoodGameModel extends Model {
 
-	private int flyHeight;
-	private int foodHeight; 
+	private int flyHeight; 
 	
 	public FoodGameModel(int fw, int fh, int s) {
 		super(fw, fh, s);
@@ -27,33 +27,31 @@ public class FoodGameModel extends Model {
 		int ybuffer = frameHeight/100;
 		int pHeight = frameHeight/rows - 2*ybuffer;
 		int pWidth = frameWidth/columns - 2*xbuffer;
-		int oXLoc = (frameWidth/columns) * ThreadLocalRandom.current().nextInt(1, columns-2);
-		foodHeight = (frameHeight/rows)*7;
 		flyHeight = ybuffer;
 		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0,0);
-		objectives.add(new Objective(50, 50, oXLoc, foodHeight, 0,0,false, 0));
-			}
+		
+		createFish(5);
+
+	}
 	
 	//updates the state of the FoodGame
 	//Handles player movement/food retrieval
 	public void updateFoodGameState(){
-		if(player.yloc == foodHeight) {
+
+		if (Key.space.isDown) {
+			player.dive(frameHeight);
 			eatFood();
-			player.dive(flyHeight);
+			player.yloc = flyHeight;
 		}
-		else {
-			if (Key.space.isDown) {
-				player.dive(foodHeight);
-			}
-			if (Key.left.isDown)
-				player.xJump(false,frameWidth);
-			if (Key.right.isDown)
-				player.xJump(true,frameWidth);
-			if (player.getPoints() > 0) {
-				isPlaying = false;
-			}
-		}
-		System.out.println(player.xloc + ", " + player.yloc);
+		if (Key.left.isDown)
+			player.xJump(false,frameWidth);
+		if (Key.right.isDown)
+			player.xJump(true,frameWidth);
+		if (player.getPoints() > 100) 
+			isPlaying = false;
+		
+		updateFoodObjectives();
+		//System.out.println(player.xloc + ", " + player.yloc);
 	}
 	
 	//Assigns points to player when food is eaten
@@ -64,9 +62,32 @@ public class FoodGameModel extends Model {
 		while(objIt.hasNext()) {
 			o = objIt.next();
 			if(collision(o, player)) {
-				player.addPoints(1);
-				//objectives.remove(o); 
+				player.addPoints(o.getPoints());
+				objectives.remove(o); 
+				createFish(1);
 			}
 		}
+	}
+	
+	//Creates the objectives
+	public void createFish(int amount) {
+		Random rx = new Random();
+		for(int i = 0; i < amount; i++) {
+			int x = rx.nextInt(frameWidth);
+			int y = ThreadLocalRandom.current().nextInt((frameHeight-300), frameHeight);
+			System.out.println(y);
+			objectives.add(new Objective(50, 50, x, y, 50, 0, false, 10));
+		}
+	}
+	
+	//Moves the fish
+	public void updateFoodObjectives() {
+		for(Objective o : objectives) {
+			o.move();
+			if(wallCollision(o)) {
+				o.xvel *= -1;
+			}
+		}
+		
 	}
 }

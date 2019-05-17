@@ -37,7 +37,7 @@ public class ModelTest {
 		//Testing startFrogger
 		FroggerModel fModel = new FroggerModel(fw, fh, 0);
 		assertFalse("myModel will not be playing before calling startFrogger", fModel.isPlaying);
-		fModel.startFrogger(500, 500);
+		fModel.startFrogger();
 		assertTrue("Should now be playing", fModel.isPlaying);
 		
 		//Testing updateFroggerState

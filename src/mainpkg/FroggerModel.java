@@ -12,54 +12,54 @@ public class FroggerModel extends Model {
 	}
 
 	//Begins frogger game, initializes screen with width height used in various calculations
-	public void startFrogger(int width, int height) {
+	public void startFrogger() {
 		isPlaying = true;
-		int xbuffer = width/100;
-		int ybuffer = height/100;
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
 		int collums = 9;
 		int rows = 9;
-		int pWidth = width/collums - xbuffer*2;
-		int pHeight = height/rows - ybuffer*2;
-		int yLoc = height - (ybuffer+pHeight);
-		int oWidth = pWidth + 2*(width/collums);
+		int pWidth = frameWidth/collums - xbuffer*2;
+		int pHeight = frameHeight/rows - ybuffer*2;
+		int yLoc = frameHeight - (ybuffer+pHeight);
+		int oWidth = pWidth + 2*(frameWidth/collums);
 		obstacles = new ArrayList<Obstacle>();
 		//row 0
-		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0, 0);
+		player = new Player(pWidth, pHeight, frameWidth/2, yLoc, 0, 0, 0);
 		
 		// row 1
 		yLoc -= pHeight + 2*ybuffer;
 		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, 0, 0, lostPoints));
-		obstacles.add(new Obstacle(oWidth, pHeight, (width - oWidth) - xbuffer, yLoc, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, (frameWidth - oWidth) - xbuffer, yLoc, 0, 0, lostPoints));
 		
 		// row 2
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/100, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/100, 0, lostPoints));
 		
 		//row 3
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/50, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/50, 0, lostPoints));
 		
 		//row 4
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*4;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/200, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/200, 0, lostPoints));
 		
 		//row 5
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/15, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/15, 0, lostPoints));
 		
 		//row 6
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth*3;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/30, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/30, 0, lostPoints));
 		
 		//row 7
 		yLoc -= pHeight + 2*ybuffer;
 		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/75, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/75, 0, lostPoints));
 	}
 	
 	//Updates the FroggerState, if collision is detected returns player back to starting coordinates
@@ -98,4 +98,6 @@ public class FroggerModel extends Model {
 			if(wallCollision(o)) o.xvel *= -1;
 		}
 	}
+	
+
 }
