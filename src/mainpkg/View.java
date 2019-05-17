@@ -55,7 +55,7 @@ public class View extends JPanel{
 	BufferedImage twig;
 	BufferedImage NHSelection;
 	BufferedImage OspreySelection;
-	
+	protected boolean isRight=true;
 	
 
 	protected ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -151,7 +151,14 @@ public class View extends JPanel{
 //		requestFocus();
     	//setOpaque(false);
 	}
-
+	public void checkDirect(){
+		if(Key.left.isDown){
+			isRight=false;
+		}
+		if(Key.right.isDown){
+			isRight=true;
+		}
+	}
 	protected BufferedImage createImage(String file){
     	BufferedImage bufferedImage;
     	try {

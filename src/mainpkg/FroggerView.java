@@ -6,7 +6,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class FroggerView extends View {
 	
-	private boolean isRight = true;
+
 	
 	public FroggerView(){
 		super();
@@ -38,6 +38,7 @@ public class FroggerView extends View {
 	}
 	public void paint(Graphics g){
 		picNum=(picNum+1)%10; //Cycles through the frame numbers
+		checkDirect();
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (!gameObjects.isEmpty()) { //Makes sure there are objects in the game
 			for (GameObject o : gameObjects) {

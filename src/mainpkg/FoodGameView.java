@@ -42,6 +42,7 @@ public class FoodGameView extends View {
 	public void paint(Graphics g){ //paints the current state of the game
 		picNum= (picNum+1) % 10; //Cycles through frames for the player
 		picNum2 = (picNum2+1)%5; //Cycles through frames for the mouse objective
+		checkDirect();
 		if (!gameObjects.isEmpty()) {
 			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 			for (GameObject o : gameObjects) {
