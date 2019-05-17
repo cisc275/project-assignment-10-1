@@ -54,14 +54,14 @@ public class Controller implements KeyListener,ActionListener {
 		vBird.startBirdSelection();
 		vBird.leftbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				view.isOsprey = true;
+				View.isOsprey = true;
 				mBird.needInput = false;
 			}
 		});
 
 		vBird.rightbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				view.isOsprey = false;
+				View.isOsprey = false;
 				mBird.needInput = false;
 			}
 		});
@@ -86,6 +86,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//Frogger - START
 		//------------------------------------------------------------
+		
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
@@ -102,7 +103,7 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("end of frogger");
 		
 		
-		
+
 		//Quiz 1 - START
 		//-----------------------------------------------------------
 		
