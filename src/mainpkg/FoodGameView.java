@@ -6,12 +6,13 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class FoodGameView extends View {
-
+	
+	
 	public FoodGameView() {
 		super();
 		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing right
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing left
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing right
+			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing left
 		}
 		if(isOsprey){
 			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg"); //Loads in the osprey foodgame background
@@ -40,12 +41,19 @@ public class FoodGameView extends View {
 	public void paint(Graphics g){ //paints the current state of the game
 		picNum= (picNum+1) % 10; //Cycles through frames for the player
 		picNum2 = (picNum2+1)%5; //Cycles through frames for the mouse objective
+		checkDirect();
 		if (!gameObjects.isEmpty()) {
 			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 			for (GameObject o : gameObjects) {
 				
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
+					if(isRight){
+						g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
+					}
+					else{
+						g.drawImage(playerLeft[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
+					}
+					
 				}
 				else if(o instanceof Obstacle){
 					

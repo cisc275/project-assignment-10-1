@@ -29,7 +29,7 @@ public class Model {
 				|| o.yloc <= 0
 				|| o.yloc > (frameHeight - o.height)) {
 			if (o instanceof Player) {
-				System.out.println("pWallCollide");
+				//System.out.println("pWallCollide");
 			}
 			return true;
 		}
@@ -55,7 +55,7 @@ public class Model {
 
 		if((x1Low <= x2High && x1High >= x2Low) 
 				&& (y1Low <= y2High && y1High >= y2Low)) {
-			System.out.println("collision");
+			//System.out.println("collision");
 			return true;
 		}
 		return false;

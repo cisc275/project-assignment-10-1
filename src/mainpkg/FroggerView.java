@@ -6,6 +6,7 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class FroggerView extends View {
 	
+
 	
 	public FroggerView(){
 		super();
@@ -23,8 +24,12 @@ public class FroggerView extends View {
 		else{
 			Background = createImage("GamePictures/Backgrounds/Frogger/NHBackground.png"); //Loads the northern harrier frogger background image
 			drone = createImage("GamePictures/Obstacles/Drone.png"); //Loads the image of the drone
-			crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png"); //Loads the image of a crow facing to the left
-			crowRight = createImage("GamePictures/Obstacles/CrowRight.png"); //Loads the image of a crow facing to the right
+			//crowLeft = createImage("GamePictures/Obstacles/CrowLeft.png"); //Loads the image of a crow facing to the left
+			//crowRight = createImage("GamePictures/Obstacles/CrowRight.png");//Loads the image of a crow facing to the right
+			for(int i=0; i<10; i++){
+				foxRight[i] = createImage("GamePictures/Obstacles/FoxRightPNG/Frame"+Integer.toString(i)+".png");
+				foxLeft[i] = createImage("GamePictures/Obstacles/FoxLeftPNG/Frame"+Integer.toString(i)+".png");
+			}
 		}
 	}
 	
@@ -37,11 +42,18 @@ public class FroggerView extends View {
 	}
 	public void paint(Graphics g){
 		picNum=(picNum+1)%10; //Cycles through the frame numbers
+		checkDirect();
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (!gameObjects.isEmpty()) { //Makes sure there are objects in the game
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
+					if(isRight){
+						g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
+					}
+					else{
+						g.drawImage(playerLeft[picNum],o.xloc,o.yloc,o.width,o.height,this); //Cycles through the player animation frames and draws them
+					}
+					
 				}
 				else if(o instanceof Obstacle){
 					if(isOsprey){ //Checks to see which bird the player is playing as
@@ -58,7 +70,16 @@ public class FroggerView extends View {
 						}
 					}
 					else{
-						g.drawImage(drone,o.xloc,o.yloc,o.width, o.height, this); //If it is a Northern Harrier, draw all obstacles as drones
+						if(o.xvel<0){
+							g.drawImage(foxLeft[picNum],o.xloc,o.yloc,o.width,o.height,this);
+						}
+						else if(o.xvel>0){
+							g.drawImage(foxRight[picNum],o.xloc,o.yloc,o.width,o.height,this);
+						}
+						else{
+							g.drawImage(drone,o.xloc,o.yloc,o.width, o.height, this); //If it is a Northern Harrier, draw all stationary obstacles as drones
+						}
+						
 					}
 				}
 			}

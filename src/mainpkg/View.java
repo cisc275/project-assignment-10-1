@@ -49,13 +49,15 @@ public class View extends JPanel{
 	BufferedImage crowRight;
 	BufferedImage[] mouseLeft;
 	BufferedImage[] mouseRight;
+	BufferedImage[] foxRight;
+	BufferedImage[] foxLeft;
 	BufferedImage fishLeft;
 	BufferedImage fishRight;
 	BufferedImage nest;
 	BufferedImage twig;
 	BufferedImage NHSelection;
 	BufferedImage OspreySelection;
-	
+	protected boolean isRight=true;
 	
 
 	protected ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
@@ -66,6 +68,8 @@ public class View extends JPanel{
 		picNum2 = 0;
 		playerRight= new BufferedImage[10];
 		playerLeft= new BufferedImage[10];
+		foxRight = new BufferedImage[10];
+		foxLeft = new BufferedImage[10];
 		//mouseLeft = new BufferedImage[10];
 		//mouseRight = new BufferedImage[10];
 		AmericaMap1 = createImage("GamePictures/Maps/America/Blank.jpg");
@@ -151,7 +155,14 @@ public class View extends JPanel{
 //		requestFocus();
     	//setOpaque(false);
 	}
-
+	public void checkDirect(){
+		if(Key.left.isDown){
+			isRight=false;
+		}
+		if(Key.right.isDown){
+			isRight=true;
+		}
+	}
 	protected BufferedImage createImage(String file){
     	BufferedImage bufferedImage;
     	try {
@@ -164,7 +175,7 @@ public class View extends JPanel{
     	}
 	
   
-  protected void deletePlayer(){
+  protected void delete(){
 	  for(int i=0;i<10;i++){
 		  playerRight[i]=null;
 		  playerLeft[i]=null;

@@ -53,7 +53,7 @@ public class FoodGameModel extends Model {
 				isPlaying = false;
 			}
 		}
-		System.out.println(player.xloc + ", " + player.yloc);
+		//System.out.println(player.xloc + ", " + player.yloc);
 	}
 	
 	//Assigns points to player when food is eaten
