@@ -26,6 +26,7 @@ public class BirdSelectorView extends View{
 	
 	public void startBirdSelection() {
 	//	frame.requestFocus();
+		frame.paint(getGraphics());
 		JTextArea title = new JTextArea("Select a bird.");
 		this.leftbutton = new JButton("Osprey");
 		this.rightbutton = new JButton("Northern Harrier");
@@ -37,12 +38,16 @@ public class BirdSelectorView extends View{
 		panel.setLayout(null);
 		
 		//Set size and location of buttons here
-		this.leftbutton.setSize(500,100);
-	    this.leftbutton.setLocation(frameWidth/4, frameHeight/4);
-	    this.rightbutton.setSize(500,100);
-	    this.rightbutton.setLocation(frameWidth - (frameWidth/2), frameHeight - (frameHeight/2));
+		//this.leftbutton.setSize(500,100);
+	    //this.leftbutton.setLocation(frameWidth/4, frameHeight/4);
+	    //this.rightbutton.setSize(500,100);
+	    //this.rightbutton.setLocation(frameWidth - (frameWidth/2), frameHeight - (frameHeight/2));
+		this.leftbutton.setSize(frameWidth/2, frameHeight);
+		this.leftbutton.setLocation(0,0);
+		this.rightbutton.setSize(frameWidth/2,frameHeight);
+		this.rightbutton.setLocation(frameWidth/2,0);
 		this.leftbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/Osprey.jpg"));
-	    this.rightbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/NorthernHarrier.jpg"));
+	    this.rightbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/NorthernHarrier2.jpg"));
 		panel.add(leftbutton);
 		panel.add(rightbutton);
 		frame.add(panel);
@@ -50,7 +55,7 @@ public class BirdSelectorView extends View{
 		frame.setVisible(true);
 		
 	}
-	//public void paint(Graphics g){
-		//g.drawImage(Selection,0,0,frameWidth,frameHeight,this);
-	//}
+//	public void paint(Graphics g){
+//		g.drawImage(Selection,0,0,frameWidth,frameHeight,this);
+//	}
 }
