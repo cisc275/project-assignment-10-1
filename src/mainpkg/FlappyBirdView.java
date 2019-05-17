@@ -9,9 +9,8 @@ public class FlappyBirdView extends View {
 	public FlappyBirdView(){
 		super();
 		for(int i=0; i<10; i++){
-			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing right animation
-			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing left animation
-		}
+			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing right animation
+					}
 		if(isOsprey){
 			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg"); //Loads the osprey flappy bird game background image
 			tree = createImage("GamePictures/Obstacles/Tree.png"); //Loads the tree image for the obstacles
