@@ -38,19 +38,25 @@ public class FoodGameModel extends Model {
 	//Handles player movement/food retrieval
 	public void updateFoodGameState(){
 
-		if (Key.space.isDown) {
-			player.dive(frameHeight);
-			eatFood();
+		updateFoodObjectives();
+		
+		if(player.yloc == frameHeight) {
 			player.dive(flyHeight);
 		}
-		if (Key.left.isDown)
-			player.xJump(false,frameWidth);
-		if (Key.right.isDown)
-			player.xJump(true,frameWidth);
-		if (player.getPoints() > 100) 
-			isPlaying = false;
+		else {
+			if (Key.space.isDown) {
+				player.dive(frameHeight);
+				eatFood();
+			}
+			if (Key.left.isDown)
+				player.xJump(false,frameWidth);
+			if (Key.right.isDown)
+				player.xJump(true,frameWidth);
+			if (player.getPoints() > 0) {
+				isPlaying = false;
+			}
+		}
 		
-		updateFoodObjectives();
 		//System.out.println(player.xloc + ", " + player.yloc);
 	}
 	

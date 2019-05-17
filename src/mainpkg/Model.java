@@ -62,22 +62,6 @@ public class Model {
 		return false;
 	}
 	
-	public void updateGameState(){
-		
-	}
-	
-	public void updateLocation(){
-		
-	}
-	
-	public void superPower(){ //detects if the player has collided with an objective object and responds accordingly
-		for(Objective o: objectives){
-			if(collision(player, o)){
-				
-			}
-		}
-	}
-	
 	public Player getPlayer(){
 		return player;
 	}
