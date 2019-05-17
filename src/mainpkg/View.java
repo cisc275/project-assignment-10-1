@@ -29,7 +29,7 @@ public class View extends JPanel{
 	static JFrame frame;
 	protected int picNum;
 	protected int picNum2;
-	protected boolean isOsprey = true;
+	protected boolean isOsprey;
 	BufferedImage[] playerRight;
 	BufferedImage[] playerLeft;
 	BufferedImage AmericaMap1;

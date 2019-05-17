@@ -54,14 +54,14 @@ public class Controller implements KeyListener,ActionListener {
 		vBird.startBirdSelection();
 		vBird.leftbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				model.isOsprey = true;
+				view.isOsprey = true;
 				mBird.needInput = false;
 			}
 		});
 
 		vBird.rightbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				model.isOsprey = false;
+				view.isOsprey = false;
 				mBird.needInput = false;
 			}
 		});
