@@ -75,7 +75,7 @@ public class FoodGameModel extends Model {
 		for(int i = 0; i < amount; i++) {
 			int x = rx.nextInt(frameWidth);
 			int y = ThreadLocalRandom.current().nextInt((frameHeight-300), frameHeight);
-			System.out.println(y);
+			//System.out.println(y);
 			objectives.add(new Objective(50, 50, x, y, 50, 0, false, 10));
 		}
 	}
