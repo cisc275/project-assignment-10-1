@@ -112,10 +112,16 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("Quiz 1");
 		vQuiz = new QuizView();
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
-		
+		boolean quizOn = true;
 		vQuiz.startQuiz(1); //First quiz!
 		
-		while(!vQuiz.Answer.equals("A")) { // Answer is A. Will expand this so that it's more obvious when you answer incorrectly
+		while(quizOn) { // Answer is A. Will expand this so that it's more obvious when you answer incorrectly
+			if (vQuiz.Answer.equals("A")) {
+				quizOn = false;
+			}
+			else if (vQuiz.Answer.equals("B") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+				vQuiz.panel.add(vQuiz.wrong);
+			}
 			vQuiz.update();
 		}
 		
@@ -157,12 +163,19 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("Quiz 2");
 		vQuiz = new QuizView();
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
-		
+		quizOn = true;
 		vQuiz.startQuiz(2); //Second quiz!
 		
-		while(!vQuiz.Answer.equals("B")) { // Answer is B. Will expand this so that it's more obvious when you answer incorrectly
+		while(quizOn) {  // Answer is B. Will expand this so that it's more obvious when you answer incorrectly
+			if (vQuiz.Answer.equals("B")) {
+				quizOn = false;
+			}
+			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+				vQuiz.panel.add(vQuiz.wrong);
+			}
+			
 			vQuiz.update();
-		}
+			}
 		
 		vQuiz.resetFrame();
 		//System.out.println("end of quiz");
@@ -203,12 +216,19 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("Quiz 3");
 		vQuiz = new QuizView();
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
-		
+		quizOn = true;
 		vQuiz.startQuiz(3); //Last quiz!
 		
-		while(!vQuiz.Answer.equals("C")) { // Answer is C. Will expand this so that it's more obvious when you answer incorrectly
+		while(quizOn) {  // Answer is C. Will expand this so that it's more obvious when you answer incorrectly
+			if (vQuiz.Answer.equals("C")) {
+				quizOn = false;
+			}
+			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("B") || vQuiz.Answer.equals("D")) {
+				vQuiz.panel.add(vQuiz.wrong);
+			}
+			
 			vQuiz.update();
-		}
+			}
 		
 		vQuiz.resetFrame();
 		//System.out.println("end of quiz");
