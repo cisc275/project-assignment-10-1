@@ -41,7 +41,7 @@ public class FoodGameModel extends Model {
 		if (Key.space.isDown) {
 			player.dive(frameHeight);
 			eatFood();
-			player.yloc = flyHeight;
+			player.dive(flyHeight);
 		}
 		if (Key.left.isDown)
 			player.xJump(false,frameWidth);
