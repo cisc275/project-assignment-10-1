@@ -26,10 +26,10 @@ public class View extends JPanel{
 	protected int frameWidth = screensize.width; //TODO: have this adjust per display
 	protected int frameHeight = screensize.height;
 	private int frameCount;
-	static JFrame frame;
+	protected JFrame frame;
 	protected int picNum;
 	protected int picNum2;
-	protected boolean isOsprey = true;
+	protected static boolean isOsprey;
 	BufferedImage[] playerRight;
 	BufferedImage[] playerLeft;
 	BufferedImage AmericaMap1;
