@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -31,13 +32,7 @@ public class BirdSelectorView extends View{
 		
 		this.leftbutton.setFont(new Font("Arial", Font.PLAIN, 50));
 		this.rightbutton.setFont(new Font("Arial", Font.PLAIN, 50));
-		JPanel background = new JPanel(){
-			@Override
-			protected void paintComponent(Graphics g){
-				super.paintComponent(g);
-				g.drawImage(Selection, 0, 0, frameHeight, frameWidth, this);
-			}
-		};
+		
 		JPanel panel = new JPanel(new GridLayout(1, 2));
 		panel.setLayout(null);
 		
@@ -46,15 +41,16 @@ public class BirdSelectorView extends View{
 	    this.leftbutton.setLocation(frameWidth/4, frameHeight/4);
 	    this.rightbutton.setSize(500,100);
 	    this.rightbutton.setLocation(frameWidth - (frameWidth/2), frameHeight - (frameHeight/2));
+		this.leftbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/Osprey.jpg"));
+	    this.rightbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/NorthernHarrier.jpg"));
 		panel.add(leftbutton);
 		panel.add(rightbutton);
-		frame.add(background);
 		frame.add(panel);
 		frame.add(title, BorderLayout.PAGE_START);
 		frame.setVisible(true);
 		
 	}
-	public void paint(Graphics g){
-		g.drawImage(Selection,0,0,frameWidth,frameHeight,this);
-	}
+	//public void paint(Graphics g){
+		//g.drawImage(Selection,0,0,frameWidth,frameHeight,this);
+	//}
 }
