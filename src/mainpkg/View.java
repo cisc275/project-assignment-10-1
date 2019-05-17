@@ -49,6 +49,8 @@ public class View extends JPanel{
 	BufferedImage crowRight;
 	BufferedImage[] mouseLeft;
 	BufferedImage[] mouseRight;
+	BufferedImage[] foxRight;
+	BufferedImage[] foxLeft;
 	BufferedImage fishLeft;
 	BufferedImage fishRight;
 	BufferedImage nest;
@@ -66,6 +68,8 @@ public class View extends JPanel{
 		picNum2 = 0;
 		playerRight= new BufferedImage[10];
 		playerLeft= new BufferedImage[10];
+		foxRight = new BufferedImage[10];
+		foxLeft = new BufferedImage[10];
 		//mouseLeft = new BufferedImage[10];
 		//mouseRight = new BufferedImage[10];
 		AmericaMap1 = createImage("GamePictures/Maps/America/Blank.jpg");
@@ -171,7 +175,7 @@ public class View extends JPanel{
     	}
 	
   
-  protected void deletePlayer(){
+  protected void delete(){
 	  for(int i=0;i<10;i++){
 		  playerRight[i]=null;
 		  playerLeft[i]=null;

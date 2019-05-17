@@ -98,7 +98,7 @@ public class Controller implements KeyListener,ActionListener {
 			mFrogger.updateFroggerState(startingX, startingY);
 			vFrogger.update();
 		}
-		vFrogger.deletePlayer();
+		vFrogger.delete();
 		vFrogger.resetFrame();
 		//System.out.println("end of frogger");
 		
@@ -144,7 +144,7 @@ public class Controller implements KeyListener,ActionListener {
 			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 			vFood.update();
 		}
-		vFood.deletePlayer();
+		vFood.delete();
 		//System.out.println("end foodGame");
 		
 		
@@ -191,7 +191,7 @@ public class Controller implements KeyListener,ActionListener {
 			mFlappy.updateFlappyBirdGameState(startingX, startingY);
 			vFlappy.update();
 		}
-		vFlappy.deletePlayer();
+		vFlappy.delete();
 		//System.out.println("end flappy");
 		
 		
