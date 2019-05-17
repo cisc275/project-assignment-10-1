@@ -87,7 +87,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//Frogger - START
 		//------------------------------------------------------------
-		System.out.println("start of frogger");
+		//System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
@@ -108,7 +108,7 @@ public class Controller implements KeyListener,ActionListener {
 		//-----------------------------------------------------------
 		
 		
-		System.out.println("Quiz 1");
+		//System.out.println("Quiz 1");
 		vQuiz = new QuizView();
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
 		
@@ -125,7 +125,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//Go to Map 
 		//------------------------------------------------------------			
-		System.out.println("map is showing");
+		//System.out.println("map is showing");
 		vMap = new MapView();
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
@@ -134,7 +134,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//FoodGame - START
 		//------------------------------------------------------------
-		System.out.println("start foodGame");
+		//System.out.println("start foodGame");
 		vFood = new FoodGameView();
 		vFood.addKeyListener(this);
 		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
@@ -153,7 +153,7 @@ public class Controller implements KeyListener,ActionListener {
 		//-----------------------------------------------------------
 		
 		
-		System.out.println("Quiz 2");
+		//System.out.println("Quiz 2");
 		vQuiz = new QuizView();
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
 		
