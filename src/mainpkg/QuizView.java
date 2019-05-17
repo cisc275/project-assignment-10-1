@@ -153,7 +153,22 @@ public class QuizView extends View {
 		
 		//Panel with a grid layout for buttons
 		JPanel panel = new JPanel();
+		panel.setLayout(null);
 		
+		A.setSize(500,150);
+		A.setLocation(frameWidth/2-500, frameHeight/2-150 );
+		
+		B.setSize(500,150);
+		B.setLocation(frameWidth/2, frameHeight/2-150 );
+		
+		C.setSize(500,150);
+		C.setLocation(frameWidth/2-500, frameHeight/2 );
+		
+		D.setSize(500,150);
+		D.setLocation(frameWidth/2, frameHeight/2 );
+		
+		Q.setSize(frameWidth,150);
+		Q.setLocation(frameWidth/3, frameHeight/4);
 		
 		//May want to change these sizes based on length of question/answers
 		A.setFont(new Font("Arial", Font.PLAIN, 50));
