@@ -87,7 +87,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//Frogger - START
 		//------------------------------------------------------------
-		//System.out.println("start of frogger");
+		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);

@@ -24,7 +24,7 @@ public class FroggerModel extends Model {
 		int oWidth = pWidth + 2*(width/collums);
 		obstacles = new ArrayList<Obstacle>();
 		//row 0
-		player = new Player(pWidth, pHeight, xbuffer, yLoc, frameWidth/2, 0, 0);
+		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0, 0);
 		
 		// row 1
 		yLoc -= pHeight + 2*ybuffer;

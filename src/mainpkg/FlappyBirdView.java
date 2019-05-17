@@ -13,7 +13,7 @@ public class FlappyBirdView extends View {
 					}
 		if(isOsprey){
 			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg"); //Loads the osprey flappy bird game background image
-			tree = createImage("GamePictures/Obstacles/Tree.png"); //Loads the tree image for the obstacles
+			tree = createImage("GamePictures/Obstacles/Tree2.png"); //Loads the tree image for the obstacles
 			
 		}
 		else{
