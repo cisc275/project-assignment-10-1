@@ -48,7 +48,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//BirdSelection - START
 		//---------------------------------------------------------
-		System.out.println("start bird selection");
+		//System.out.println("start bird selection");
 		vBird = new BirdSelectorView();
 		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
 		mBird.needInput = true;
@@ -74,11 +74,11 @@ public class Controller implements KeyListener,ActionListener {
 				//mBird.needInput = false;
 		}
 		vBird.resetFrame();
-		System.out.println("end of bird selection");
+		//System.out.println("end of bird selection");
 		
 		//Go to Map 
 		//------------------------------------------------------------	
-		System.out.println("map is showing");
+		//System.out.println("map is showing");
 		vMap = new MapView();
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
@@ -100,7 +100,7 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		vFrogger.deletePlayer();
 		vFrogger.resetFrame();
-		System.out.println("end of frogger");
+		//System.out.println("end of frogger");
 		
 		
 		
@@ -119,7 +119,7 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		
 		vQuiz.resetFrame();
-		System.out.println("end of quiz");
+		//System.out.println("end of quiz");
 		
 		
 		
@@ -145,7 +145,7 @@ public class Controller implements KeyListener,ActionListener {
 			vFood.update();
 		}
 		vFood.deletePlayer();
-		System.out.println("end foodGame");
+		//System.out.println("end foodGame");
 		
 		
 		
@@ -164,14 +164,14 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		
 		vQuiz.resetFrame();
-		System.out.println("end of quiz");
+		//System.out.println("end of quiz");
 		
 
 		
 		
 		//Go to Map 
 		//------------------------------------------------------------			
-		System.out.println("map is showing");
+		//System.out.println("map is showing");
 		vMap = new MapView();
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
@@ -180,7 +180,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//FlappyBird - START
 		//-------------------------------------------------------------
-		System.out.println("Start flappy");
+		//System.out.println("Start flappy");
 		vFlappy = new FlappyBirdView();
 		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
@@ -192,7 +192,7 @@ public class Controller implements KeyListener,ActionListener {
 			vFlappy.update();
 		}
 		vFlappy.deletePlayer();
-		System.out.println("end flappy");
+		//System.out.println("end flappy");
 		
 		
 		//Quiz 3 - START
@@ -210,19 +210,19 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		
 		vQuiz.resetFrame();
-		System.out.println("end of quiz");
+		//System.out.println("end of quiz");
 		
 		
 		
 		
 		//Go to Map 
 		//------------------------------------------------------------
-		System.out.println("map is showing");
+		//System.out.println("map is showing");
 		vMap.showMap(true);
 		vMap.resetFrame();
 		
 		
-		System.out.println("END OF GAME");
+		//System.out.println("END OF GAME");
 	}
 	public static void main(String[] args) throws InterruptedException{
 		// makes the controller and calls the start method onto it. This starts the game.
@@ -234,7 +234,7 @@ public class Controller implements KeyListener,ActionListener {
 	public void keyPressed(KeyEvent e){
 		// passes the KeyEvent into the keyBindings collections.
 		// prints out to show when a key was pressed
-		System.out.println("pressed");
+		//System.out.println("pressed");
 		other[e.getExtendedKeyCode()] = true;
 		keyBindings.get(e.getKeyCode()).isDown = true;
 	}
