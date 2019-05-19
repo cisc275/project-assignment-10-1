@@ -55,8 +55,7 @@ public class View extends JPanel{
 	BufferedImage fishRight;
 	BufferedImage nest;
 	BufferedImage twig;
-	BufferedImage NHSelection;
-	BufferedImage OspreySelection;
+	BufferedImage Selection;
 	protected boolean isRight=true;
 	
 
