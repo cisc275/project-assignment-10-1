@@ -34,7 +34,7 @@ public class FoodGameModel extends Model {
 		int oXLoc = (frameWidth/columns) * ThreadLocalRandom.current().nextInt(1, columns-2);
 		foodHeight = (frameHeight/rows)*7;
 		flyHeight = ybuffer;
-		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0,0);
+		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0);
 		objectives.add(new Objective(50, 50, oXLoc, foodHeight,0 ,0,false, 0));
 			}
 	

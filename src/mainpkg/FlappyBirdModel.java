@@ -24,7 +24,7 @@ public class FlappyBirdModel extends Model {
 		int yLoc = 50;
 		int spacing = pHeight*8;
 		
-		player = new Player(pWidth, pHeight, xBuffer, yLoc, 0, 0, 0);
+		player = new Player(pWidth, pHeight, xBuffer, yLoc, 0, 0);
 		objectives = new ArrayList<Objective>();
 		obstacles = new ArrayList<Obstacle>();
 		
