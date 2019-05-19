@@ -245,7 +245,7 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("map is showing");
 		vMap.showMap(true,0);
 		vMap.resetFrame();
-		
+		Player.totalPoints=0;
 		
 		//System.out.println("END OF GAME");
 	}
