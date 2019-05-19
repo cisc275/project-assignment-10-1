@@ -17,8 +17,8 @@ public class FlappyBirdModel extends Model {
 		isPlaying = true;
 		int xBuffer = width/100;
 		int yBuffer = height/100;
-		int columns = 19;
-		int rows = 19;
+		int columns = 10;
+		int rows = 10;
 		int pWidth = width/columns - 2*xBuffer;
 		int pHeight = height/rows - 2*yBuffer;
 		int yLoc = 50;
