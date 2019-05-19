@@ -56,6 +56,8 @@ public class View extends JPanel{
 	BufferedImage nest;
 	BufferedImage twig;
 	BufferedImage Selection;
+	BufferedImage OspreyEnd;
+	BufferedImage NHEnd;
 	protected boolean isRight=true;
 	
 
@@ -71,12 +73,7 @@ public class View extends JPanel{
 		foxLeft = new BufferedImage[10];
 		//mouseLeft = new BufferedImage[10];
 		//mouseRight = new BufferedImage[10];
-		AmericaMap1 = createImage("GamePictures/Maps/America/Blank2.jpg");
-		AmericaMap2 = createImage("GamePictures/Maps/America/Leg1.jpg");
-		AmericaMap3 = createImage("GamePictures/Maps/America/Leg2.jpg");
-		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
-		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
-		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
+		
 		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
