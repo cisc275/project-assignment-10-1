@@ -30,7 +30,8 @@ public class FoodGameView extends View {
 		
 		
 	}
-	public void foodGame(Player player, ArrayList<Objective> objectives){ //Creates a composit arraylist of all game objects to begin the game
+	public void foodGame(Player player, ArrayList<Objective> objectives){ 
+		//Creates a composite arraylist of all game objects to begin the game
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Objective o: objectives){
@@ -43,7 +44,6 @@ public class FoodGameView extends View {
 		if (!gameObjects.isEmpty()) {
 			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 			for (GameObject o : gameObjects) {
-				
 				if(o instanceof Player){
 					g.drawImage(playerRight[picNum],o.xloc,o.yloc,o.width,o.height,this); //Draws the player using the animation frames
 				}

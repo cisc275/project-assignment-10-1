@@ -38,23 +38,34 @@ public class FoodGameModel extends Model {
 	//Handles player movement/food retrieval
 	public void updateFoodGameState(){
 
+		int x = player.xloc;
+		int y = player.yloc;
 		updateFoodObjectives();
+		int speed = objectives.get(0).xvel;
 		
 		if(player.yloc == frameHeight) {
-			player.dive(flyHeight);
+			player.dive(flyHeight, false);
+			//startAnimation(speed);
 		}
 		else {
 			if (Key.space.isDown) {
-				player.dive(frameHeight);
+				//stopAnimation();
+				System.out.println("Space bar press recieved");
+				player.dive(frameHeight, true);
+				System.out.println("Player should be at bottom");
 				eatFood();
 			}
 			if (Key.left.isDown)
 				player.xJump(false,frameWidth);
 			if (Key.right.isDown)
 				player.xJump(true,frameWidth);
-			if (player.getPoints() > 0) {
+			if (player.getPoints() > 100) {
 				isPlaying = false;
 			}
+		}
+		if(wallCollision(player)) {
+			player.xloc = x;
+			player.yloc = y;
 		}
 		
 		//System.out.println(player.xloc + ", " + player.yloc);
@@ -94,6 +105,18 @@ public class FoodGameModel extends Model {
 				o.xvel *= -1;
 			}
 		}
-		
 	}
+	
+	public void stopAnimation() {
+		for(Objective o : objectives) {
+			o.xvel = 0;
+		}
+	}
+	public void startAnimation(int speed) {
+		for(Objective o : objectives) {
+			o.xvel = speed;
+		}
+	}
+	
+	
 }
