@@ -6,11 +6,13 @@ import javax.swing.JTextArea;
 
 public class MapView extends View {
 	
-	public void showMap(boolean isEnd) throws InterruptedException {
+	private int legnum;
+	
+	public void showMap(boolean isEnd, int picnum) throws InterruptedException {
 		// Map shown inbetween games. Works by grabbing the system time in milliseconds,
 		// adding 5000, and then counting down 1 second every second. Effectively keeping
 		// the map screen up for 5 seconds.
-
+		legnum=picnum;
 		long tEnd = System.currentTimeMillis();
 		frame.setVisible(true);
 		long tStart = tEnd + 5*1000;
@@ -27,7 +29,29 @@ public class MapView extends View {
 	
 	public void paint(Graphics g) {
 		// putting the map image on the screen during the duration of the timer.
-		g.drawImage(AmericaMap1, 0, 0, frameWidth, frameHeight, this);
+		if(isOsprey){
+			if(legnum==1){
+				g.drawImage(AmericaMap1, 0, 0, frameWidth, frameHeight, this);
+			}
+			else if(legnum==2){
+				g.drawImage(AmericaMap2, 0, 0, frameWidth, frameHeight, this);
+			}
+			else if (legnum==3){
+				g.drawImage(AmericaMap3, 0, 0, frameWidth, frameHeight, this);
+			}
+		}
+		else{
+			if(legnum==1){
+				g.drawImage(DelawareMap1, 0, 0, frameWidth, frameHeight, this);
+			}
+			else if(legnum==2){
+				g.drawImage(DelawareMap2, 0, 0, frameWidth, frameHeight, this);
+			}
+			else if (legnum==3){
+				g.drawImage(DelawareMap3, 0, 0, frameWidth, frameHeight, this);
+			}
+		}
+		
 	}
 
 }
