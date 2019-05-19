@@ -75,7 +75,7 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		vBird.resetFrame();
 		//System.out.println("end of bird selection");
-		
+	
 		//Go to Map 
 		//------------------------------------------------------------	
 		//System.out.println("map is showing");
@@ -84,6 +84,10 @@ public class Controller implements KeyListener,ActionListener {
 		vMap.addKeyListener(this);
 		vMap.showMap(false,1);
 		vMap.resetFrame();
+		//Go to Map - START
+		//------------------------------------------------------------
+		
+		
 		
 		//Frogger - START
 		//------------------------------------------------------------

@@ -1,5 +1,6 @@
 package mainpkg;
 
+
 import java.awt.Graphics;
 
 import javax.swing.JTextArea;
@@ -51,7 +52,6 @@ public class MapView extends View {
 				g.drawImage(DelawareMap3, 0, 0, frameWidth, frameHeight, this);
 			}
 		}
-		
-	}
-
+		}
 }
+		

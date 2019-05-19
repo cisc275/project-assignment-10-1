@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class FoodGameView extends View {
+<<<<<<< HEAD
 	
 	
 	public FoodGameView() {
@@ -32,6 +33,10 @@ public class FoodGameView extends View {
 		
 	}
 	public void foodGame(Player player, ArrayList<Objective> objectives){ //Creates a composit arraylist of all game objects to begin the game
+=======
+
+	public void foodGame(Player player, ArrayList<Objective> objectives){
+>>>>>>> 988cc7dd39992074b084f5c57d0db99fb9871125
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Objective o: objectives){
