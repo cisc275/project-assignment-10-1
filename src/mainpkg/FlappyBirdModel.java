@@ -30,32 +30,32 @@ public class FlappyBirdModel extends Model {
 		
 		//obstacle 1
 		int xLoc = 12*xBuffer+pWidth;
-		int oHeight = pHeight + 6*(height/rows);
+		int oHeight = pHeight + 3*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight , xLoc, yBuffer, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		
 		//obstacle 2
 		xLoc += 12*xBuffer+pWidth;
-		oHeight = pHeight + 4*(height/rows);
+		oHeight = pHeight + 2*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//obstacle 3
 		xLoc += 12*xBuffer+pWidth;
-		oHeight = pHeight + 7*(height/rows);
+		oHeight = pHeight + 3*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//obstacle 4
 		xLoc += 12*xBuffer+pWidth;
-		oHeight = pHeight + 5*(height/rows);
+		oHeight = pHeight + 2*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//obstacle 5
 		xLoc += 12*xBuffer+pWidth;
-		oHeight = pHeight + 6*(height/rows);
+		oHeight = pHeight + 3*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
