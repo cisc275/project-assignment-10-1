@@ -71,6 +71,14 @@ public class View extends JPanel{
 		playerLeft= new BufferedImage[10];
 		foxRight = new BufferedImage[10];
 		foxLeft = new BufferedImage[10];
+		AmericaMap1 = createImage("GamePictures/Maps/America/Blank2.jpg");
+		AmericaMap2 = createImage("GamePictures/Maps/America/Leg1.jpg");
+		AmericaMap3 = createImage("GamePictures/Maps/America/Leg2.jpg");
+		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
+		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
+		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
+		OspreyEnd = createImage("GamePictures/EndScreens/Osprey.jpg");
+		NHEnd = createImage("GamePictures/EndScreens/NH.jpg");
 		//mouseLeft = new BufferedImage[10];
 		//mouseRight = new BufferedImage[10];
 		

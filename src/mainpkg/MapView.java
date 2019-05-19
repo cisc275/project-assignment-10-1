@@ -8,17 +8,7 @@ import javax.swing.JTextArea;
 public class MapView extends View {
 	
 	private int legnum;
-	public MapView(){
-		super();
-		AmericaMap1 = createImage("GamePictures/Maps/America/Blank2.jpg");
-		AmericaMap2 = createImage("GamePictures/Maps/America/Leg1.jpg");
-		AmericaMap3 = createImage("GamePictures/Maps/America/Leg2.jpg");
-		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
-		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
-		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
-		OspreyEnd = createImage("GamePictures/EndScreens/Osprey");
-		NHEnd = createImage("GamePictures/EndScreens/NH");
-	}
+	
 	
 	public void showMap(boolean isEnd, int picnum) throws InterruptedException {
 		// Map shown inbetween games. Works by grabbing the system time in milliseconds,
