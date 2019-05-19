@@ -78,7 +78,7 @@ public class QuizView extends View {
 		else {
 		if (quiznum == 1) { // Frogger game question
 			
-			Q = new JLabel("What is a threat to Northern Harrier as they traverse Delaware?", 1);
+			Q = new JLabel("What is a threat to Northern Harrier as they traverse Delaware?");
 			
 			A = new JButton("Drones");
 			B = new JButton("Foxes");
@@ -88,7 +88,7 @@ public class QuizView extends View {
 		}
 		
 		else if (quiznum == 2) { // Food game Question
-			Q = new JLabel("What is the main diet of the Northern Harrier?", 1);
+			Q = new JLabel("What is the main diet of the Northern Harrier?");
 
 			
 			A = new JButton("Fish");
@@ -99,7 +99,7 @@ public class QuizView extends View {
 		
 		else if (quiznum == 3) { // FlappyBird Question
 			
-			Q = new JLabel("Where does the Northern Harrier typically make its nest?", 1);
+			Q = new JLabel("Where does the Northern Harrier typically make its nest?");
 			
 			A = new JButton("In the tree");
 			B = new JButton("In the water");

@@ -43,6 +43,7 @@ public class MapView extends View {
 			}
 			else{
 				g.drawImage(OspreyEnd,0,0,frameWidth,frameHeight,this);
+				g.drawImage(Win,frameWidth/2,frameHeight/2,frameWidth/4,frameHeight/4,this);
 			}
 		}
 		else{
@@ -57,6 +58,8 @@ public class MapView extends View {
 			}
 			else{
 				g.drawImage(NHEnd,0,0,frameWidth,frameHeight,this);
+				g.drawImage(Win,frameWidth/2,frameHeight/2,frameWidth/4,frameHeight/4,this);
+				
 			}
 		}
 		}

@@ -58,6 +58,7 @@ public class View extends JPanel{
 	BufferedImage Selection;
 	BufferedImage OspreyEnd;
 	BufferedImage NHEnd;
+	BufferedImage Win;
 	protected boolean isRight=true;
 	
 
@@ -79,8 +80,9 @@ public class View extends JPanel{
 		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
 		OspreyEnd = createImage("GamePictures/EndScreens/Osprey.jpg");
 		NHEnd = createImage("GamePictures/EndScreens/NH.jpg");
-		//mouseLeft = new BufferedImage[10];
-		//mouseRight = new BufferedImage[10];
+		Win = createImage("GamePictures/EndScreens/uwin.png");
+		mouseLeft = new BufferedImage[5];
+		mouseRight = new BufferedImage[5];
 		
 		
 		frame = new JFrame();
@@ -183,7 +185,28 @@ public class View extends JPanel{
 	  for(int i=0;i<10;i++){
 		  playerRight[i]=null;
 		  playerLeft[i]=null;
+		  foxLeft[i]=null;
+		  foxRight[i]=null;
 	  }
+	  AmericaMap1 = null;
+	  AmericaMap2= null;
+	  AmericaMap3= null;
+		DelawareMap1= null;
+		DelawareMap2= null;
+		DelawareMap3= null;
+		Background= null;
+		mountain= null;
+		drone= null;
+		powerLine= null;
+		planeRight= null;
+		planeLeft= null;
+		tree= null;
+		crowLeft= null;
+		crowRight= null;
+		for(int i=0; i<5;i++){
+			mouseRight[i]=null;
+			mouseLeft[i]=null;
+		}
   }
 	
 }
