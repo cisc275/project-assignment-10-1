@@ -268,7 +268,6 @@ public class Controller implements KeyListener,ActionListener {
 		vMap.showMap(true);
 		
 		vMap.resetFrame();
-		Player.totalPoints=0;
 		
 
 		//System.out.println("END OF GAME");
@@ -320,7 +319,7 @@ public class Controller implements KeyListener,ActionListener {
 			vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 		}
 		else {
-			mFrogger.startFrogger(view.getWidth(), view.getHeight());
+			mFrogger.startFrogger();
 			vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 		}
 	}
