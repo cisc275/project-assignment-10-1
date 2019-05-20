@@ -26,12 +26,12 @@ public class QuizView extends View {
 	public String Answer = "";
 	public JPanel panel;
 	
-	public double BUTTON_WIDTH = frameWidth/5;
-	public double BUTTON_HEIGHT = frameHeight/16;
-	public double TOP_ROW = (frameHeight/2) - (BUTTON_HEIGHT/2);
-	public double BOTTOM_ROW = (frameHeight/2) + (BUTTON_HEIGHT/2);
-	public double LEFT_COL = (frameWidth/2) - (BUTTON_WIDTH/2);
-	public double RIGHT_COL = (frameWidth/2) + (BUTTON_WIDTH/2);
+	public int BUTTON_WIDTH = frameWidth/5;
+	public int BUTTON_HEIGHT = frameHeight/16;
+	public int TOP_ROW = (frameHeight/2) - BUTTON_HEIGHT;
+	public int BOTTOM_ROW = (frameHeight/2);
+	public int LEFT_COL = (frameWidth/2) - BUTTON_WIDTH;
+	public int RIGHT_COL = (frameWidth/2);
 	
 	
 	public void changeAnswer(String Answer) {
@@ -154,32 +154,35 @@ public class QuizView extends View {
 		panel = new JPanel();
 		panel.setLayout(null);
 		
-		A.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
-		A.setLocation((int)LEFT_COL, (int)TOP_ROW );
+		A.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+		A.setLocation(LEFT_COL, TOP_ROW );
 		
-		B.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
-		B.setLocation((int)RIGHT_COL, (int)TOP_ROW  );
+		B.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+		B.setLocation(RIGHT_COL, TOP_ROW  );
 		
-		C.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
-		C.setLocation((int)LEFT_COL, (int)BOTTOM_ROW  );
+		C.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+		C.setLocation(LEFT_COL, BOTTOM_ROW  );
 		
-		D.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
-		D.setLocation((int)RIGHT_COL, (int)BOTTOM_ROW  );
+		D.setSize(BUTTON_WIDTH, (int)BUTTON_HEIGHT);
+		D.setLocation(RIGHT_COL, BOTTOM_ROW  );
 		
-		Q.setSize((int)frameWidth, (int)BUTTON_HEIGHT);
-		Q.setLocation(frameWidth/3, frameHeight/4);
+		Q.setSize(frameWidth, BUTTON_HEIGHT);
+		Q.setLocation(0, TOP_ROW - BUTTON_HEIGHT);
+		Q.setHorizontalAlignment(JLabel.CENTER);
 		
 		
-		wrong.setSize(frameWidth,(int)BUTTON_HEIGHT);
-		wrong.setLocation(frameWidth/3, 3*frameHeight/4);
+		wrong.setSize(frameWidth,BUTTON_HEIGHT);
+		wrong.setLocation(0, BOTTOM_ROW + BUTTON_HEIGHT);
+		wrong.setHorizontalAlignment(JLabel.CENTER);
+
 		
 		//May want to change these sizes based on length of question/answers
-		A.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
-		B.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
-		C.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
-		D.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
-		Q.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
-		wrong.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
+		A.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
+		B.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
+		C.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
+		D.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
+		Q.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
+		wrong.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
 		
 		
 		
