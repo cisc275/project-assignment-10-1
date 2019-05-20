@@ -3,12 +3,13 @@ package mainpkg;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
+
+import org.junit.rules.Stopwatch;
 
 public class FoodGameModel extends Model {
 
 	private int flyHeight; 
-	private int foodHeight = frameHeight - (frameHeight/7);
+	private int foodHeight = frameHeight - (frameHeight/7);	
 	
 	public FoodGameModel(int fw, int fh, int s) {
 		super(fw, fh, s);
@@ -30,14 +31,12 @@ public class FoodGameModel extends Model {
 		int pWidth = frameWidth/columns - 2*xbuffer;
 		flyHeight = ybuffer;
 		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0,0);
-		
 		createFish(5);
-
 	}
 	
 	//updates the state of the FoodGame
 	//Handles player movement/food retrieval
-	public void updateFoodGameState(){
+	public void updateFoodGameState(int timer){
 		
 		int x = player.xloc;
 		int y = player.yloc;
@@ -55,7 +54,7 @@ public class FoodGameModel extends Model {
 				player.xJump(false,frameWidth);
 			if (Key.right.isDown)
 				player.xJump(true,frameWidth);
-			if (player.getPoints() > 100) {
+			if(timer <= 0) {
 				isPlaying = false;
 			}
 		}
@@ -63,6 +62,7 @@ public class FoodGameModel extends Model {
 			player.xloc = x;
 			player.yloc = y;
 		}
+		
 		
 	}
 	
