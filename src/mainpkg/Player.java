@@ -4,13 +4,11 @@ import java.awt.Color;
 
 public class Player extends GameObject{
 	private int totalPoints;
-
 	
 	//Player constructor, initializes all relevant variables.
-	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel, int totalPoints) {
+	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel) {
 		super(width, height, xloc, yloc, xvel, yvel);
 		this.totalPoints = totalPoints;
-
 	}
 	
 	//Moves the player in the xDirection when called in various games

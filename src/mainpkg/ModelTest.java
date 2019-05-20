@@ -22,7 +22,7 @@ public class ModelTest {
 		GameObject myObj4 = new Objective(100,100,0,200,0,0,false,0);
 		GameObject myObj5 = new Objective(100,100,500,200,0,0,false,0);
 		
-		GameObject player = new Player(100,100,250,200,0,0,0);
+		GameObject player = new Player(100,100,250,200,0,0);
 		
 		//wallCollision Testing
 		assertFalse("shouldn't collide with anything", myModel.wallCollision(myObj1));

@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-import org.junit.rules.Stopwatch;
-
 public class FoodGameModel extends Model {
 
 	private int flyHeight; 
 	private int foodHeight = frameHeight - (frameHeight/7);	
+	
 	
 	public FoodGameModel(int fw, int fh, int s) {
 		super(fw, fh, s);
@@ -20,6 +19,7 @@ public class FoodGameModel extends Model {
 	// 9 rows and 9 columns wide. Game works by having a common "buffer" size
 	// between all objects, the wall, etc. This is a similar system to the frogger game.
 	public void startFoodGame(){
+		Random rand = new Random();
 		obstacles = null;
 		objectives = new ArrayList<Objective>();
 		isPlaying = true;
@@ -27,6 +27,7 @@ public class FoodGameModel extends Model {
 		int columns = 9;
 		int xbuffer = frameWidth/100;
 		int ybuffer = frameHeight/100;
+		int vel = rand.nextInt(xbuffer);
 		int pHeight = frameHeight/rows - 2*ybuffer;
 		int pWidth = frameWidth/columns - 2*xbuffer;
 		flyHeight = ybuffer;
@@ -64,6 +65,9 @@ public class FoodGameModel extends Model {
 		}
 		
 		
+
+		//System.out.println(player.xloc + ", " + player.yloc);
+
 	}
 	
 	//Assigns points to player when food is eaten
@@ -98,17 +102,6 @@ public class FoodGameModel extends Model {
 			if(wallCollision(o)) {
 				o.xvel *= -1;
 			}
-		}
-	}
-	
-	public void stopAnimation() {
-		for(Objective o : objectives) {
-			o.xvel = 0;
-		}
-	}
-	public void startAnimation(int speed) {
-		for(Objective o : objectives) {
-			o.xvel = speed;
 		}
 	}
 	

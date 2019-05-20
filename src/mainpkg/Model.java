@@ -16,7 +16,6 @@ public class Model {
 //	private boolean playDown=false;
 	public boolean isPlaying = false;
 	public boolean needInput = false;
-	public boolean isOsprey;
 	
 	public Model(int fw, int fh, int s){
 		frameWidth=fw;
@@ -30,7 +29,7 @@ public class Model {
 				|| o.yloc <= 0
 				|| o.yloc > (frameHeight - o.height)) {
 			if (o instanceof Player) {
-				System.out.println("pWallCollide");
+				//System.out.println("pWallCollide");
 			}
 			return true;
 		}
@@ -39,8 +38,21 @@ public class Model {
 
 	public boolean playerAndObstacleCollision() { //Returns true if a player object collides with an obstacle object
 		for(Obstacle o : obstacles) {
-			if(collision(player, o))
-					return true;
+			if(collision(player, o)){
+				player.addPoints(o.getPoints());
+				return true;
+			}
+				
+					
+		}
+		return false;
+	}
+	public boolean playerAndObjectiveCollision(){
+		for(Objective o: objectives){
+			if(collision(player,o)){
+				player.addPoints(o.getPoints());
+				return true;
+			}
 		}
 		return false;
 	}
@@ -56,7 +68,7 @@ public class Model {
 
 		if((x1Low <= x2High && x1High >= x2Low) 
 				&& (y1Low <= y2High && y1High >= y2Low)) {
-			System.out.println("collision");
+			//System.out.println("collision");
 			return true;
 		}
 		return false;
