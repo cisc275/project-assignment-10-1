@@ -4,17 +4,28 @@ package mainpkg;
 import java.awt.Font;
 import java.awt.Graphics;
 
-import javax.swing.JTextArea;
+import javax.swing.JButton;
 
 public class MapView extends View {
 	
 	public int legnum;
-	
+	//public JButton replay = new JButton();
 	
 	public void showMap(boolean isEnd) {
 		// Map shown inbetween games. Works by grabbing the system time in milliseconds,
 		// adding 5000, and then counting down 1 second every second. Effectively keeping
 		// the map screen up for 5 seconds.
+//		if(legnum == 4) {
+//			replay = new JButton("Replay");
+//			replay.setSize(frameWidth*5/100, frameHeight*5/100);
+//			if(isOsprey) {
+//				replay.setLocation((frameWidth/2)+frameWidth*30/100, frameHeight/2);
+//			}
+//			else {
+//				replay.setLocation((frameWidth/2)+frameWidth*15/100, frameWidth/2);
+//			}
+//			frame.add(replay);
+//		}
 		long tEnd = System.currentTimeMillis();
 		frame.setVisible(true);
 		long tStart = tEnd + 3*1000;
@@ -26,7 +37,6 @@ public class MapView extends View {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
 		}
 	}
 	
@@ -46,7 +56,7 @@ public class MapView extends View {
 				g.drawImage(OspreyEnd,0,0,frameWidth,frameHeight,this);
 				g.drawImage(Win,frameWidth/2,frameHeight/2,frameWidth/4,frameHeight/4,this);
 				g.setFont(new Font("Times New Roman", Font.BOLD, 48));
-				g.drawString("Score: " + Model.player.getPoints(), (frameWidth/2)-frameWidth*30/100, (frameHeight/2));
+				g.drawString("Score: " + Model.player.getPoints(), (frameWidth/2)-frameWidth*30/100, (frameHeight/2));			
 			}
 		}
 		else{

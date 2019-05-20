@@ -46,36 +46,6 @@ public class Controller implements KeyListener,ActionListener {
 		
 		view.addKeyListener(this);
 	
-		selectBird();
-		
-		seeMap(1);
-		
-		playFrogger();
-		
-		takeQuiz(1);		
-		
-		seeMap(2);
-
-		playFood();
-		
-		takeQuiz(2);
-		
-		seeMap(3);
-		
-		playFlappy();		
-		
-		takeQuiz(3);
-		
-		seeMap(4);
-		
-	}
-	public static void main(String[] args) throws InterruptedException{
-		// makes the controller and calls the start method onto it. This starts the game.
-		Controller c = new Controller();
-		c.start();
-	}
-	
-	public void selectBird() {
 		//BirdSelection - START
 		//---------------------------------------------------------
 		vBird = new BirdSelectorView();
@@ -99,10 +69,17 @@ public class Controller implements KeyListener,ActionListener {
 			//wait for user to select bird
 			vBird.update();
 		}
-		vBird.resetFrame();
-	}
-	
-	public void playFrogger() {
+		vBird.resetFrame();		
+		
+		//Go to Map 
+		//------------------------------------------------------------	
+		vMap = new MapView();
+		vMap.legnum = 1;
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
+		vMap.addKeyListener(this);
+		vMap.showMap(false);
+		vMap.resetFrame();
+		
 		//Frogger - START
 		//------------------------------------------------------------
 		vFrogger = new FroggerView();
@@ -129,9 +106,36 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		model.player.addPoints(1000);
 		vFrogger.resetFrame();		
-	}
-	
-	public void playFood() {
+		
+		//Quiz 1 - START
+		//-----------------------------------------------------------
+		vQuiz = new QuizView();
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
+		boolean quizOn = true;
+		vQuiz.startQuiz(1); //First quiz!
+		while(quizOn) { 
+			// Answer is A. 
+			if (vQuiz.Answer.equals("A")) {
+				model.player.addPoints(100);
+				quizOn = false;
+			}
+			else if (vQuiz.Answer.equals("B") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+				model.player.addPoints(-50);
+				vQuiz.panel.add(vQuiz.wrong);
+			}
+			vQuiz.update();
+		}
+		vQuiz.resetFrame();
+		
+		//Go to Map 
+		//------------------------------------------------------------			
+		vMap = new MapView();
+		vMap.legnum=2;
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
+		vMap.addKeyListener(this);
+		vMap.showMap(false);
+		vMap.resetFrame();
+
 		//FoodGame - START
 		//------------------------------------------------------------
 		vFood = new FoodGameView();
@@ -159,10 +163,37 @@ public class Controller implements KeyListener,ActionListener {
 			vFood.update();
 			timer--;
 		}
-		model.player.addPoints(1000);
-	}
-	
-	public void playFlappy() {
+		model.player.addPoints(1000);		
+		
+		//Quiz 2 - START
+		//-----------------------------------------------------------
+		vQuiz = new QuizView();
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
+		quizOn = true;
+		vQuiz.startQuiz(2); //Second quiz!
+		while(quizOn) {  
+			// Answer is B. 
+			if (vQuiz.Answer.equals("B")) {
+				model.player.addPoints(100);
+				quizOn = false;
+			}
+			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+				model.player.addPoints(-50);
+				vQuiz.panel.add(vQuiz.wrong);
+			}
+			vQuiz.update();
+		}
+		vQuiz.resetFrame();
+		
+		//Go to Map 
+		//------------------------------------------------------------			
+		vMap = new MapView();
+		vMap.legnum=3;
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
+		vMap.addKeyListener(this);
+		vMap.showMap(false);
+		vMap.resetFrame();
+		
 		//FlappyBird - START
 		//-------------------------------------------------------------
 		vFlappy = new FlappyBirdView();
@@ -170,8 +201,8 @@ public class Controller implements KeyListener,ActionListener {
 		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight());
 		startFlappyBird(vFlappy.isTutorial);
-		int startingX = mFlappy.player.xloc;
-		int startingY = mFlappy.player.yloc;
+		startingX = mFlappy.player.xloc;
+		startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
 			mFlappy.updateFlappyBirdGameState(startingX, startingY, vFlappy.isTutorial);
 			vFlappy.update();
@@ -188,84 +219,39 @@ public class Controller implements KeyListener,ActionListener {
 			mFlappy.updateFlappyBirdGameState(startingX, startingY, vFlappy.isTutorial);
 			vFlappy.update();
 		}
-		model.player.addPoints(1000);
-	}
-	
-	public void takeQuiz(int number) {
-		boolean quizOn = true;
-		if(number == 1) {
-			//Quiz 1 - START
-			//-----------------------------------------------------------
-			vQuiz = new QuizView();
-			mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
-			vQuiz.startQuiz(number); //First quiz!
-			while(quizOn) { 
-				// Answer is A. 
-				if (vQuiz.Answer.equals("A")) {
-					model.player.addPoints(100);
-					quizOn = false;
-				}
-				else if (vQuiz.Answer.equals("B") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
-					model.player.addPoints(-50);
-					vQuiz.panel.add(vQuiz.wrong);
-				}
-				vQuiz.update();
+		model.player.addPoints(1000);		
+		
+		//Quiz 3 - START
+		//-----------------------------------------------------------
+		vQuiz = new QuizView();
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
+		quizOn = true;
+		vQuiz.startQuiz(3); //Last quiz!
+		while(quizOn) {  
+			// Answer is C. 
+			if (vQuiz.Answer.equals("C")) {
+				model.player.addPoints(100);
+				quizOn = false;
 			}
-			vQuiz.resetFrame();
-		}
-		else if(number == 2) {
-			//Quiz 2 - START
-			//-----------------------------------------------------------
-			vQuiz = new QuizView();
-			mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
-			quizOn = true;
-			vQuiz.startQuiz(number); //Second quiz!
-			while(quizOn) {  
-				// Answer is B. 
-				if (vQuiz.Answer.equals("B")) {
-					model.player.addPoints(100);
-					quizOn = false;
-				}
-				else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
-					model.player.addPoints(-50);
-					vQuiz.panel.add(vQuiz.wrong);
-				}
-				vQuiz.update();
+			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("B") || vQuiz.Answer.equals("D")) {
+				model.player.addPoints(-50);
+				vQuiz.panel.add(vQuiz.wrong);
 			}
-			vQuiz.resetFrame();
+			vQuiz.update();
 		}
-		else {
-			//Quiz 3 - START
-			//-----------------------------------------------------------
-			vQuiz = new QuizView();
-			mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
-			quizOn = true;
-			vQuiz.startQuiz(number); //Last quiz!
-			while(quizOn) {  
-				// Answer is C. 
-				if (vQuiz.Answer.equals("C")) {
-					model.player.addPoints(100);
-					quizOn = false;
-				}
-				else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("B") || vQuiz.Answer.equals("D")) {
-					model.player.addPoints(-50);
-					vQuiz.panel.add(vQuiz.wrong);
-				}
-				vQuiz.update();
-			}
-			vQuiz.resetFrame();
-		}
-	}
-	
-	public void seeMap(int number) {
+		vQuiz.resetFrame();
+		
 		//Go to Map 
-		//------------------------------------------------------------	
-		vMap = new MapView();
-		vMap.legnum = number;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
-		vMap.addKeyListener(this);
-		vMap.showMap(false);
+		//------------------------------------------------------------
+		vMap.legnum=4;
+		vMap.showMap(true);
 		vMap.resetFrame();
+		
+	}
+	public static void main(String[] args) throws InterruptedException{
+		// makes the controller and calls the start method onto it. This starts the game.
+		Controller c = new Controller();
+		c.start();
 	}
 	
 	public void keyPressed(KeyEvent e){

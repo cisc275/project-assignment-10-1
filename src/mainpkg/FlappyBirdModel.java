@@ -73,8 +73,7 @@ public class FlappyBirdModel extends Model {
 		if(collision(player, objectives.get(0))) {
 			// if you hit the top, the game finishes
 			isPlaying = false;
-		}
-		
+		}	
 	}
 	
 	public void createObstacles(boolean isOsprey, int count) {

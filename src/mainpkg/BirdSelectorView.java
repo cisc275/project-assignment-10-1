@@ -19,13 +19,10 @@ public class BirdSelectorView extends View{
 	
 	public BirdSelectorView(){
 		super();
-		//NHSelection = createImage("GamePictures/BirdSelect/NorthernHarrier.jpg");
-		//OspreySelection = createImage("GamePictures/BirdSelect/Osprey.jpg");
 		Selection = createImage("GamePictures/BirdSelect/Background.jpg");
 	}
 	
 	public void startBirdSelection() {
-	//	frame.requestFocus();
 		frame.paint(getGraphics());
 		JTextArea title = new JTextArea("Select a bird.");
 		this.leftbutton = new JButton();
@@ -42,11 +39,6 @@ public class BirdSelectorView extends View{
 		ImageIcon Osprey = new ImageIcon("GamePictures/BirdSelect/Osprey.jpg");
 		ImageIcon NH = new ImageIcon("GamePictures/BirdSelect/NorthernHarrier2.jpg");
 		
-		//Set size and location of buttons here
-		//this.leftbutton.setSize(500,100);
-	    //this.leftbutton.setLocation(frameWidth/4, frameHeight/4);
-	    //this.rightbutton.setSize(500,100);
-	    //this.rightbutton.setLocation(frameWidth - (frameWidth/2), frameHeight - (frameHeight/2));
 		this.leftbutton.setSize(frameWidth/2, frameHeight);
 		this.leftbutton.setLocation(0,0);
 		this.rightbutton.setSize(frameWidth/2,frameHeight);

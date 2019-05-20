@@ -51,9 +51,10 @@ public class FoodGameView extends View {
 			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 			if (isTutorial) {
 				g.drawImage(arrowKeys, frameWidth*88/100, frameHeight*1/100, frameWidth*1/10, frameHeight*1/10, this);
-				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*14/100, frameWidth*1/10, frameHeight*1/10, this);	
+				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*16/100, frameWidth*1/10, frameHeight*1/10, this);	
 				g.setFont(new Font("Times New Roman", Font.BOLD, 26));
-				g.drawString("Space to collect fish!", frameWidth*86/100, frameHeight*15/100);
+				g.drawString("Space to collect the food!", frameWidth*84/100, frameHeight*15/100);
+				g.drawString("Only 20 seconds!!", frameWidth*84/100, frameHeight*18/100);
 			}
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
