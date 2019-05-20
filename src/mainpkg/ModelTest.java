@@ -14,7 +14,7 @@ public class ModelTest {
 		int fw = 500;
 		int fh = 325;
 		
-		Model myModel = new Model(fw, fh, 0);
+		Model myModel = new Model(fw, fh);
 		GameObject myObj1 = new Obstacle(100, 100, 250, 200, 0, 0,10);
 		GameObject myObj2 = new Obstacle(100,100,250,0,0,0,10);
 		GameObject myObj3 = new Obstacle(100,100,250,325,0,0,10);
@@ -35,7 +35,7 @@ public class ModelTest {
 		assertTrue("Collision between player and objective" ,myModel.collision(player, myObj4));
 		
 		//Testing startFrogger
-		FroggerModel fModel = new FroggerModel(fw, fh, 0);
+		FroggerModel fModel = new FroggerModel(fw, fh);
 		assertFalse("myModel will not be playing before calling startFrogger", fModel.isPlaying);
 		fModel.startFrogger();
 		assertTrue("Should now be playing", fModel.isPlaying);
@@ -51,7 +51,7 @@ public class ModelTest {
 		assertFalse("Is playing should be false again", fModel.isPlaying);
 		
 		//Testing startFoodGame
-		FoodGameModel gModel = new FoodGameModel(fw, fh, 0);
+		FoodGameModel gModel = new FoodGameModel(fw, fh);
 		gModel.startFoodGame();
 		assertTrue("back to isPlaying", gModel.isPlaying);
 		assertEquals("player should have new player values. Just checking height (70)", 70, gModel.getPlayer().height);
@@ -83,7 +83,7 @@ public class ModelTest {
 		
 		
 		//FlappyBird Testing
-		FlappyBirdModel bModel = new FlappyBirdModel(fw, fh, 0);
+		FlappyBirdModel bModel = new FlappyBirdModel(fw, fh);
 		//bModel.startFlappyBird();
 		assertTrue("isPlaying back to true.", bModel.isPlaying);
 		assertEquals("Check player width value", 50, bModel.getPlayer().width);
@@ -91,14 +91,14 @@ public class ModelTest {
 		
 		startingX = 0;
 		startingY = 100;
-		bModel.updateFlappyBirdGameState(startingX, startingY);
+		bModel.updateFlappyBirdGameState(startingX, startingY, false);
 		assertEquals("yloc after one iteration when nothing is pressed", 58, bModel.getPlayer().yloc);
 		
 		player = bModel.getPlayer();
 		player.xloc = fw-20;
 		player.yloc = fh/2;
 		bModel.setPlayer(player);
-		bModel.updateFlappyBirdGameState(startingX, startingY);
+		bModel.updateFlappyBirdGameState(startingX, startingY, false);
 		assertFalse("Collision should occur, thus isPlaying returns to false", bModel.isPlaying);
 		
 		

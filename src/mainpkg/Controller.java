@@ -29,7 +29,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public Controller(){
 		view = new View();
-		model = new Model(view.getWidth(), view.getWidth(), 0);
+		model = new Model(view.getWidth(), view.getWidth());
 		
 		bind(KeyEvent.VK_ENTER, Key.enter);
 		bind(KeyEvent.VK_UP, Key.up);
@@ -50,7 +50,7 @@ public class Controller implements KeyListener,ActionListener {
 
 		System.out.println("start bird selection");
 		vBird = new BirdSelectorView();
-		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
+		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight());
 		mBird.needInput = true;
 		vBird.startBirdSelection();
 		vBird.leftbutton.addActionListener(new ActionListener() {
@@ -81,7 +81,7 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("map is showing");
 		vMap = new MapView();
 		vMap.legnum = 1;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
 		vMap.addKeyListener(this);
 		vMap.showMap(false);
 		vMap.resetFrame();
@@ -96,7 +96,7 @@ public class Controller implements KeyListener,ActionListener {
 		vFrogger = new FroggerView();
 		vFrogger.isTutorial = true;
 		vFrogger.addKeyListener(this);
-		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
+		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight());
 		startFrogger(vFrogger.isTutorial);
 		int startingX = mFrogger.player.xloc;
 		int startingY = mFrogger.player.yloc;
@@ -111,7 +111,7 @@ public class Controller implements KeyListener,ActionListener {
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
-		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
+		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight());
 		startFrogger(vFrogger.isTutorial);
 		while(mFrogger.isPlaying) {
 			mFrogger.updateFroggerState(startingX, startingY, vFrogger.isTutorial);
@@ -130,7 +130,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//System.out.println("Quiz 1");
 		vQuiz = new QuizView();
-		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
 		boolean quizOn = true;
 		vQuiz.startQuiz(1); //First quiz!
 		
@@ -156,7 +156,7 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("map is showing");
 		vMap = new MapView();
 		vMap.legnum=2;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
 		vMap.addKeyListener(this);
 		vMap.showMap(false);
 		vMap.resetFrame();
@@ -168,7 +168,7 @@ public class Controller implements KeyListener,ActionListener {
 		vFood = new FoodGameView();
 		vFood.isTutorial = true;
 		vFood.addKeyListener(this);
-		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
+		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight());
 		startFoodGame(vFood.isTutorial);
 		int timer = 5000;
 		while(mFood.isPlaying){
@@ -182,7 +182,7 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("start foodGame");
 		vFood = new FoodGameView();
 		vFood.addKeyListener(this);
-		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
+		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight());
 		startFoodGame(vFood.isTutorial);
 		timer = 200;
 		while(mFood.isPlaying){
@@ -203,7 +203,7 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//System.out.println("Quiz 2");
 		vQuiz = new QuizView();
-		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
 		quizOn = true;
 		vQuiz.startQuiz(2); //Second quiz!
 		
@@ -228,7 +228,7 @@ public class Controller implements KeyListener,ActionListener {
 		//System.out.println("map is showing");
 		vMap = new MapView();
 		vMap.legnum=3;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight());
 		vMap.addKeyListener(this);
 		vMap.showMap(false);
 		vMap.resetFrame();
@@ -239,24 +239,25 @@ public class Controller implements KeyListener,ActionListener {
 		vFlappy = new FlappyBirdView();
 		vFlappy.isTutorial = true;
 		vFlappy.addKeyListener(this);
-		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
-		startFlappyBird(true);
+		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight());
+		startFlappyBird(vFlappy.isTutorial);
 		startingX = mFlappy.player.xloc;
 		startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
-			mFlappy.updateFlappyBirdGameState(startingX, startingY);
+			mFlappy.updateFlappyBirdGameState(startingX, startingY, vFlappy.isTutorial);
 			vFlappy.update();
 		}
 		
+		vFlappy.isTutorial = false;
 		//System.out.println("Start flappy");
 		vFlappy = new FlappyBirdView();
 		vFlappy.addKeyListener(this);
-		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
-		startFlappyBird(false);
+		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight());
+		startFlappyBird(vFlappy.isTutorial);
 		startingX = mFlappy.player.xloc;
 		startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
-			mFlappy.updateFlappyBirdGameState(startingX, startingY);
+			mFlappy.updateFlappyBirdGameState(startingX, startingY, vFlappy.isTutorial);
 			vFlappy.update();
 		}
 		//vFlappy.delete();
@@ -268,7 +269,7 @@ public class Controller implements KeyListener,ActionListener {
 		//-----------------------------------------------------------
 		System.out.println("Quiz 3");
 		vQuiz = new QuizView();
-		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight());
 		quizOn = true;
 		vQuiz.startQuiz(3); //Last quiz!
 		

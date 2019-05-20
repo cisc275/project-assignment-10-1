@@ -17,10 +17,9 @@ public class Model {
 	public boolean isPlaying = false;
 	public boolean needInput = false;
 	
-	public Model(int fw, int fh, int s){
+	public Model(int fw, int fh){
 		frameWidth=fw;
 		frameHeight=fh;
-		score=s;
 	}
 
 	public boolean wallCollision(GameObject o) { //Returns true if a game object collides with the wall

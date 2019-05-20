@@ -7,8 +7,8 @@ public class FroggerModel extends Model {
 
 	private final int lostPoints = 5;
 	
-	public FroggerModel(int fw, int fh, int s) {
-		super(fw, fh, s);
+	public FroggerModel(int fw, int fh) {
+		super(fw, fh);
 		// TODO Auto-generated constructor stub
 	}
 

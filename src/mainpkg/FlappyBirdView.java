@@ -31,11 +31,9 @@ public class FlappyBirdView extends View {
 		gameObjects = new ArrayList<GameObject>();
 		gameObjects.add(player);
 		for(Objective o: objectives){
-			System.out.println("added");
 			gameObjects.add(o);
 		}
 		for(Obstacle o: obstacles) {
-			System.out.println("added");
 			gameObjects.add(o);
 		}
 	}
@@ -46,9 +44,9 @@ public class FlappyBirdView extends View {
 		if (!gameObjects.isEmpty()) {
 			if (isTutorial) {
 				g.setFont(new Font("Times New Roman", Font.BOLD, 26));
-				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*14/100, frameWidth*1/10, frameHeight*1/10, this);
-				g.drawString("Space to flap!", frameWidth*86/100, frameHeight*15/100);
-				g.drawString("Make it to the end", frameWidth*86/100, frameHeight*17/100);
+				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*11/100, frameWidth*1/10, frameHeight*1/10, this);
+				g.drawString("Space to flap!", frameWidth*86/100, frameHeight*9/100);
+				g.drawString("Make it to the nest", frameWidth*86/100, frameHeight*12/100);
 			}
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
@@ -69,9 +67,9 @@ public class FlappyBirdView extends View {
 				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
-		//if(!Tutorial) {
+		if(!isTutorial) {
 			g.setFont(new Font("Times New Roman", Font.BOLD, 48));
 			g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*16/100), frameHeight*7/100);
-		//}
+		}
 	}
 }

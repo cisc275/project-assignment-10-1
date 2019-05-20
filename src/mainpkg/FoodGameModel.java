@@ -10,8 +10,8 @@ public class FoodGameModel extends Model {
 	private int foodHeight = frameHeight - (frameHeight/7);	
 	
 	
-	public FoodGameModel(int fw, int fh, int s) {
-		super(fw, fh, s);
+	public FoodGameModel(int fw, int fh) {
+		super(fw, fh);
 		// TODO Auto-generated constructor stub
 	}
 	

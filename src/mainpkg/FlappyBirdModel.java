@@ -6,8 +6,8 @@ public class FlappyBirdModel extends Model {
 	
 	private final int lostPoints = 10;
 
-	public FlappyBirdModel(int fw, int fh, int s) {
-		super(fw, fh, s);
+	public FlappyBirdModel(int fw, int fh) {
+		super(fw, fh);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -49,7 +49,7 @@ public class FlappyBirdModel extends Model {
 	
 	//Updates the FlappyBirdGameState with starting x and y locations.
 	//If player collides, will reset player back to starting coordinates
-	public void updateFlappyBirdGameState(int startingX, int startingY) {
+	public void updateFlappyBirdGameState(int startingX, int startingY, boolean isTutorial) {
 		if(Key.space.isDown) {
 			player.yloc-=80;
 		}
@@ -61,7 +61,9 @@ public class FlappyBirdModel extends Model {
 			// sets player back to beginning if they hit a wall or obstacle
 			player.xloc = startingX;
 			player.yloc = startingY;
-			player.addPoints(-lostPoints);
+			if(!isTutorial) {
+				player.addPoints(-lostPoints);
+			}
 		}
 		if(wallCollision(player)) {
 			//No lost points for hitting wall
@@ -88,7 +90,7 @@ public class FlappyBirdModel extends Model {
 		
 		//all obstacles
 		for(int i = 0; i < count; i++) {
-			xLoc += 9*xBuffer+pWidth;
+			xLoc += 10*xBuffer+pWidth;
 			spacerY = (int)(Math.random()*3 + 1);
 			int oHeight = pHeight + spacerY*(frameHeight/rows);
 			obstacles.add(new Obstacle(pWidth, oHeight , xLoc, yBuffer, 0, 0, lostPoints));
