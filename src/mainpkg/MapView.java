@@ -40,6 +40,8 @@ public class MapView extends View {
 			else{
 				g.drawImage(OspreyEnd,0,0,frameWidth,frameHeight,this);
 				g.drawImage(Win,frameWidth/2,frameHeight/2,frameWidth/4,frameHeight/4,this);
+				g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+				g.drawString("Score: " + Model.player.getPoints(), (frameWidth/2)-frameWidth*30/100, (frameHeight/2));
 			}
 		}
 		else{
@@ -55,11 +57,11 @@ public class MapView extends View {
 			else{
 				g.drawImage(NHEnd,0,0,frameWidth,frameHeight,this);
 				g.drawImage(Win,frameWidth/2,frameHeight/2,frameWidth/4,frameHeight/4,this);
+				g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+				g.drawString("Score: " + Model.player.getPoints(), (frameWidth/2)-frameWidth*15/100, frameWidth/2);
 				
 			}
 		}
-		g.setFont(new Font("Times New Roman", Font.BOLD, 48));
-		g.drawString("Score: " + Model.player.getPoints(), (frameWidth/2)+frameWidth*4/10, (frameWidth/2)+frameHeight*2/10);
 	}
 }
 		
