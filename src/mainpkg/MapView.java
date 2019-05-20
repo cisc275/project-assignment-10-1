@@ -17,7 +17,7 @@ public class MapView extends View {
 		// the map screen up for 5 seconds.
 		long tEnd = System.currentTimeMillis();
 		frame.setVisible(true);
-		long tStart = tEnd + 4*1000;
+		long tStart = tEnd + 3*1000;
 		while(tStart > tEnd) {
 			tStart -= 1000;
 			Thread.sleep(1000);

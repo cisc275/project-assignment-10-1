@@ -119,7 +119,6 @@ public class FroggerModel extends Model {
 		for(int i = 0; i < count; i++) {
 			yLoc -= pHeight + 2*ybuffer;
 			int speed = (int)(Math.random()*50 + 15);
-			System.out.println(speed);
 			int x = rx.nextInt(frameWidth-oWidth);
 			obstacles.add(new Obstacle(oWidth, pHeight, x, yLoc, frameWidth/speed, 0, lostPoints));
 		}

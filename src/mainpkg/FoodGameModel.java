@@ -53,7 +53,7 @@ public class FoodGameModel extends Model {
 	
 	//updates the state of the FoodGame
 	//Handles player movement/food retrieval
-	public void updateFoodGameState(int timer){
+	public void updateFoodGameState(int timer, boolean isTutorial){
 		
 		int x = player.xloc;
 		int y = player.yloc;
@@ -65,7 +65,12 @@ public class FoodGameModel extends Model {
 		else {
 			if (Key.space.isDown) {
 				player.dive(foodHeight);
-				eatFood();
+				if(!isTutorial) {
+					eatFood();
+				}
+				else {
+					timer = eatFoodTutorial(timer);
+				}
 			}
 			if (Key.left.isDown)
 				player.xJump(false,frameWidth);
@@ -79,11 +84,6 @@ public class FoodGameModel extends Model {
 			player.xloc = x;
 			player.yloc = y;
 		}
-		
-		
-
-		//System.out.println(player.xloc + ", " + player.yloc);
-
 	}
 	
 	//Assigns points to player when food is eaten
@@ -102,6 +102,27 @@ public class FoodGameModel extends Model {
 		}
 	}
 	
+	//Ends tutorial when objective is eaten
+	public int eatFoodTutorial(int timer) {
+		Iterator<Objective> objIt = objectives.iterator();
+		Objective o;
+		boolean flag = false;
+		while(objIt.hasNext()) {
+			o = objIt.next();
+			if(collision(o, player)) {
+				objectives.remove(o); 
+				flag = true;
+				break;
+			}
+		}
+		if(flag) {
+			return 0;
+		}
+		else {
+			return timer;
+		}
+	}
+	
 	//Creates the objectives
 	public void createFish(int amount) {
 		int rows = 9;
@@ -114,7 +135,8 @@ public class FoodGameModel extends Model {
 		Random rx = new Random();
 		for(int i = 0; i < amount; i++) {
 			int x = rx.nextInt(frameWidth-pWidth);
-			objectives.add(new Objective(pWidth, pHeight, x, foodHeight, frameWidth/100, 0, false, 10));
+			int speed = (int)(Math.random()*60 + 15);
+			objectives.add(new Objective(pWidth/2, pHeight/2, x, foodHeight, frameWidth/speed, 0, false, 10));
 		}
 	}
 	

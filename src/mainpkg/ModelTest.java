@@ -58,27 +58,27 @@ public class ModelTest {
 		
 		//Keytesting
 		Key.space.isDown = true;
-		gModel.updateFoodGameState(1);
+		gModel.updateFoodGameState(1, false);
 		Key.space.isDown = false;
 		
-		gModel.updateFoodGameState(1);
+		gModel.updateFoodGameState(1, false);
 		
 		Key.left.isDown = true;
-		gModel.updateFoodGameState(1);
+		gModel.updateFoodGameState(1, false);
 		Key.left.isDown = false;
 		
 		Key.right.isDown = true;
-		gModel.updateFoodGameState(1);
+		gModel.updateFoodGameState(1, false);
 		Key.right.isDown = false;
 		
 		//Testing updateFoodGameState
-		gModel.updateFoodGameState(1);
+		gModel.updateFoodGameState(1, false);
 		player = gModel.getPlayer();
 		assertEquals("Point value should be 1 after collection food", 1, gModel.getPlayer().getPoints());
 		
 		player.yloc = 200;
 		gModel.setPlayer(player);
-		gModel.updateFoodGameState(1);
+		gModel.updateFoodGameState(1, false);
 		assertFalse("isPlaying should now be false again.", gModel.isPlaying);
 		
 		
