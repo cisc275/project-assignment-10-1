@@ -26,6 +26,14 @@ public class QuizView extends View {
 	public String Answer = "";
 	public JPanel panel;
 	
+	public double BUTTON_WIDTH = frameWidth/5;
+	public double BUTTON_HEIGHT = frameHeight/16;
+	public double TOP_ROW = (frameHeight/2) - (BUTTON_HEIGHT/2);
+	public double BOTTOM_ROW = (frameHeight/2) + (BUTTON_HEIGHT/2);
+	public double LEFT_COL = (frameWidth/2) - (BUTTON_WIDTH/2);
+	public double RIGHT_COL = (frameWidth/2) + (BUTTON_WIDTH/2);
+	
+	
 	public void changeAnswer(String Answer) {
 		this.Answer = Answer;
 	}
@@ -80,8 +88,8 @@ public class QuizView extends View {
 			
 			Q = new JLabel("What is a threat to Northern Harrier as they traverse Delaware?");
 			
-			A = new JButton("Drones");
-			B = new JButton("Foxes");
+			A = new JButton("Foxes");
+			B = new JButton("Drones");
 			C = new JButton("Predatory whales");
 			D = new JButton("Deadly nightshade");
 				
@@ -146,32 +154,32 @@ public class QuizView extends View {
 		panel = new JPanel();
 		panel.setLayout(null);
 		
-		A.setSize(500,150);
-		A.setLocation(frameWidth/2-500, frameHeight/2-150 );
+		A.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
+		A.setLocation((int)LEFT_COL, (int)TOP_ROW );
 		
-		B.setSize(500,150);
-		B.setLocation(frameWidth/2, frameHeight/2-150 );
+		B.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
+		B.setLocation((int)RIGHT_COL, (int)TOP_ROW  );
 		
-		C.setSize(500,150);
-		C.setLocation(frameWidth/2-500, frameHeight/2 );
+		C.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
+		C.setLocation((int)LEFT_COL, (int)BOTTOM_ROW  );
 		
-		D.setSize(500,150);
-		D.setLocation(frameWidth/2, frameHeight/2 );
+		D.setSize((int)BUTTON_WIDTH, (int)BUTTON_HEIGHT);
+		D.setLocation((int)RIGHT_COL, (int)BOTTOM_ROW  );
 		
-		Q.setSize(frameWidth,150);
+		Q.setSize((int)frameWidth, (int)BUTTON_HEIGHT);
 		Q.setLocation(frameWidth/3, frameHeight/4);
 		
 		
-		wrong.setSize(frameWidth,150);
+		wrong.setSize(frameWidth,(int)BUTTON_HEIGHT);
 		wrong.setLocation(frameWidth/3, 3*frameHeight/4);
 		
 		//May want to change these sizes based on length of question/answers
-		A.setFont(new Font("Arial", Font.PLAIN, 50));
-		B.setFont(new Font("Arial", Font.PLAIN, 50));
-		C.setFont(new Font("Arial", Font.PLAIN, 50));
-		D.setFont(new Font("Arial", Font.PLAIN, 50));
-		Q.setFont(new Font("Arial", Font.PLAIN, 50));
-		wrong.setFont(new Font("Arial", Font.PLAIN, 50));
+		A.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
+		B.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
+		C.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
+		D.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
+		Q.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
+		wrong.setFont(new Font("Arial", Font.PLAIN, (int)frameWidth/50));
 		
 		
 		
