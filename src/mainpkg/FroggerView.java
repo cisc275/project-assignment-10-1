@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class FroggerView extends View {
-	
+	public boolean isTutorial = false;
 
 	
 	public FroggerView(){
@@ -14,6 +14,7 @@ public class FroggerView extends View {
 			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads animation frames for the player facing left
 			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads the animation frames for the player facing right
 		}
+		arrowKeys = createImage("GamePictures/TutorialPics/arrowkeys.png");
 		if(isOsprey){
 			Background = createImage("GamePictures/Backgrounds/Frogger/OspreyBackground.jpg"); //Loads the osprey frogger background
 			planeLeft = createImage("GamePictures/Obstacles/AirplaneLeft.png"); //Loads the image for the airplane moving to the left
@@ -44,6 +45,11 @@ public class FroggerView extends View {
 		picNum=(picNum+1)%10; //Cycles through the frame numbers
 		checkDirect();
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
+		if (isTutorial) {
+			g.drawImage(arrowKeys, frameWidth*88/100, frameHeight*2/100, frameWidth*1/10, frameHeight*1/10, this);
+			g.drawString("Arrow Keys to move.", frameWidth*88/100,frameHeight*15/100);
+			g.drawString("Get to the top!", frameWidth*88/100, frameHeight*17/100);
+		}
 		if (!gameObjects.isEmpty()) { //Makes sure there are objects in the game
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
