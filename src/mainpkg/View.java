@@ -95,16 +95,6 @@ public class View extends JPanel{
 		requestFocus();
 	}
 	
-//	public void loadImages(Objective o){
-//		
-//	}
-//	public void loadImages(Obstacle o){
-//		
-//	}
-//	public void loadImages(Player p){
-//		
-//	}
-//	
 	public void update(){ //updates the visual state of the game
 		try {
 			frame.repaint();
