@@ -47,6 +47,15 @@ public class Model {
 		}
 		return false;
 	}
+	public boolean playerAndObjectiveCollision(){
+		for(Objective o: objectives){
+			if(collision(player,o)){
+				player.addPoints(o.getPoints());
+				return true;
+			}
+		}
+		return false;
+	}
 	public boolean collision(GameObject g1, GameObject g2){ //General collision function between two game objects
 		int x1Low = g1.xloc;
 		int x2Low = g2.xloc;
