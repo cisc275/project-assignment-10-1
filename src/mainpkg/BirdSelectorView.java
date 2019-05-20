@@ -28,14 +28,19 @@ public class BirdSelectorView extends View{
 	//	frame.requestFocus();
 		frame.paint(getGraphics());
 		JTextArea title = new JTextArea("Select a bird.");
-		this.leftbutton = new JButton("Osprey");
-		this.rightbutton = new JButton("Northern Harrier");
+		this.leftbutton = new JButton();
+		this.rightbutton = new JButton();
+		this.leftbutton.setHorizontalTextPosition(JButton.CENTER);
+		this.leftbutton.setVerticalTextPosition(JButton.CENTER);
 		
 		this.leftbutton.setFont(new Font("Arial", Font.PLAIN, 50));
 		this.rightbutton.setFont(new Font("Arial", Font.PLAIN, 50));
 		
 		JPanel panel = new JPanel(new GridLayout(1, 2));
 		panel.setLayout(null);
+		
+		ImageIcon Osprey = new ImageIcon("GamePictures/BirdSelect/Osprey.jpg");
+		ImageIcon NH = new ImageIcon("GamePictures/BirdSelect/NorthernHarrier2.jpg");
 		
 		//Set size and location of buttons here
 		//this.leftbutton.setSize(500,100);
@@ -46,8 +51,8 @@ public class BirdSelectorView extends View{
 		this.leftbutton.setLocation(0,0);
 		this.rightbutton.setSize(frameWidth/2,frameHeight);
 		this.rightbutton.setLocation(frameWidth/2,0);
-		this.leftbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/Osprey.jpg"));
-	    this.rightbutton.setIcon(new ImageIcon("GamePictures/BirdSelect/NorthernHarrier2.jpg"));
+		this.leftbutton.setIcon(new ImageIcon(Osprey.getImage().getScaledInstance(frameWidth/2, frameHeight, java.awt.Image.SCALE_SMOOTH)));
+	    this.rightbutton.setIcon(new ImageIcon(NH.getImage().getScaledInstance(frameWidth/2, frameHeight, java.awt.Image.SCALE_SMOOTH)));
 		panel.add(leftbutton);
 		panel.add(rightbutton);
 		frame.add(panel);
