@@ -38,8 +38,12 @@ public class Model {
 
 	public boolean playerAndObstacleCollision() { //Returns true if a player object collides with an obstacle object
 		for(Obstacle o : obstacles) {
-			if(collision(player, o))
-					return true;
+			if(collision(player, o)){
+				player.addPoints(o.getPoints());
+				return true;
+			}
+				
+					
 		}
 		return false;
 	}
