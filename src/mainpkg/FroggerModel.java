@@ -75,7 +75,7 @@ public class FroggerModel extends Model {
 		obstacles = new ArrayList<Obstacle>();
 		
 		//row 0
-		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0, 0);
+		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0);
 		
 		//row 3
 		yLoc -= 5*(pHeight + 2*ybuffer);

@@ -81,9 +81,10 @@ public class Controller implements KeyListener,ActionListener {
 		//------------------------------------------------------------	
 		//System.out.println("map is showing");
 		vMap = new MapView();
+		vMap.legnum = 1;
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
-		vMap.showMap(false,1);
+		vMap.showMap(false);
 		vMap.resetFrame();
 		//Go to Map - START
 		//------------------------------------------------------------
@@ -104,7 +105,7 @@ public class Controller implements KeyListener,ActionListener {
 			mFrogger.updateFroggerState(startingX, startingY);
 			vFrogger.update();
 		}
-		vFrogger.delete();
+		//vFrogger.delete();
 		vFrogger.resetFrame();
 		
 		
@@ -117,7 +118,7 @@ public class Controller implements KeyListener,ActionListener {
 			mFrogger.updateFroggerState(startingX, startingY);
 			vFrogger.update();
 		}
-		vFrogger.delete();
+		//vFrogger.delete();
 		vFrogger.resetFrame();
 		//System.out.println("end of frogger");
 		
@@ -152,9 +153,10 @@ public class Controller implements KeyListener,ActionListener {
 		//------------------------------------------------------------			
 		//System.out.println("map is showing");
 		vMap = new MapView();
+		vMap.legnum=2;
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
-		vMap.showMap(false,2);
+		vMap.showMap(false);
 		vMap.resetFrame();
 
 		
@@ -173,7 +175,7 @@ public class Controller implements KeyListener,ActionListener {
 			timer--;
 			System.out.println(timer);
 		}
-		vFood.delete();
+		//vFood.delete();
 		//System.out.println("end foodGame");
 		
 		
@@ -209,9 +211,10 @@ public class Controller implements KeyListener,ActionListener {
 		//------------------------------------------------------------			
 		//System.out.println("map is showing");
 		vMap = new MapView();
+		vMap.legnum=3;
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
-		vMap.showMap(false,3);
+		vMap.showMap(false);
 		vMap.resetFrame();
 		
 		//FlappyBird - START
@@ -227,7 +230,7 @@ public class Controller implements KeyListener,ActionListener {
 			mFlappy.updateFlappyBirdGameState(startingX, startingY);
 			vFlappy.update();
 		}
-		vFlappy.delete();
+		//vFlappy.delete();
 		//System.out.println("end flappy");
 		
 		
@@ -261,7 +264,9 @@ public class Controller implements KeyListener,ActionListener {
 		//Go to Map 
 		//------------------------------------------------------------
 		//System.out.println("map is showing");
-		vMap.showMap(true,0);
+		vMap.legnum=4;
+		vMap.showMap(true);
+		
 		vMap.resetFrame();
 		Player.totalPoints=0;
 		
