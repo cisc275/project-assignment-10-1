@@ -57,6 +57,7 @@ public class View extends JPanel{
 	static BufferedImage OspreyEnd;
 	static BufferedImage NHEnd;
 	static BufferedImage Win;
+  static BufferedImage arrowKeys;
 	protected boolean isRight=true;
 	
 
