@@ -35,6 +35,23 @@ public class FoodGameModel extends Model {
 		createFish(5);
 	}
 	
+	public void startFoodGameTutorial() {
+		Random rand = new Random();
+		obstacles = null;
+		objectives = new ArrayList<Objective>();
+		isPlaying = true;
+		int rows = 9;
+		int columns = 9;
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
+		int vel = rand.nextInt(xbuffer);
+		int pHeight = frameHeight/rows - 2*ybuffer;
+		int pWidth = frameWidth/columns - 2*xbuffer;
+		flyHeight = ybuffer;
+		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0);
+		createFish(1);
+	}
+	
 	//updates the state of the FoodGame
 	//Handles player movement/food retrieval
 	public void updateFoodGameState(int timer){

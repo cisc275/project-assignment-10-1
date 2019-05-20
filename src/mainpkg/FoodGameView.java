@@ -7,11 +7,13 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class FoodGameView extends View {
-
+	public boolean isTutorial = false;
 	
 	
 	public FoodGameView() {
 		super();
+		arrowKeys = createImage("GamePictures/TutorialPics/leftright.png");
+		spaceBar = createImage("GamePictures/TutorialPics/spacebar.jpg");
 		for(int i=0; i<10; i++){
 			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing right
 			playerLeft[i] = createImage("GamePictures/PlayerAnimation/NHSideRight/Frame"+Integer.toString(i)+".png"); //Loads all of the player images facing left
@@ -47,6 +49,11 @@ public class FoodGameView extends View {
 		checkDirect();
 		if (!gameObjects.isEmpty()) {
 			g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
+			if (isTutorial) {
+				g.drawImage(arrowKeys, frameWidth*88/100, frameHeight*2/100, frameWidth*1/10, frameHeight*1/10, this);
+				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*14/100, frameWidth*1/10, frameHeight*1/10, this);	
+				g.drawString("Space to collect fish!", frameWidth*88/100, frameHeight*25/100);
+			}
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
 					if(isRight){
