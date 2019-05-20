@@ -180,33 +180,33 @@ public class View extends JPanel{
     	}
 	
   
-  protected void delete(){
-	  for(int i=0;i<10;i++){
-		  playerRight[i]=null;
-		  playerLeft[i]=null;
-		  foxLeft[i]=null;
-		  foxRight[i]=null;
-	  }
-	  AmericaMap1 = null;
-	  AmericaMap2= null;
-	  AmericaMap3= null;
-		DelawareMap1= null;
-		DelawareMap2= null;
-		DelawareMap3= null;
-		Background= null;
-		mountain= null;
-		drone= null;
-		powerLine= null;
-		planeRight= null;
-		planeLeft= null;
-		tree= null;
-		for(int i=0; i<5;i++){
-			mouseRight[i]=null;
-			mouseLeft[i]=null;
-		}
-		fishLeft = null;
-		fishRight = null;
-		
-  }
-	
+//  protected void delete(){
+//	  for(int i=0;i<10;i++){
+//		  playerRight[i]=null;
+//		  playerLeft[i]=null;
+//		  foxLeft[i]=null;
+//		  foxRight[i]=null;
+//	  }
+//	  AmericaMap1 = null;
+//	  AmericaMap2= null;
+//	  AmericaMap3= null;
+//		DelawareMap1= null;
+//		DelawareMap2= null;
+//		DelawareMap3= null;
+//		Background= null;
+//		mountain= null;
+//		drone= null;
+//		powerLine= null;
+//		planeRight= null;
+//		planeLeft= null;
+//		tree= null;
+//		for(int i=0; i<5;i++){
+//			mouseRight[i]=null;
+//			mouseLeft[i]=null;
+//		}
+//		fishLeft = null;
+//		fishRight = null;
+//		
+//  }
+//	
 }
