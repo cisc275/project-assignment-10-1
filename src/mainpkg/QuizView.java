@@ -42,7 +42,7 @@ public class QuizView extends View {
 		
 		wrong = new JLabel("Wrong answer, please try again!");
 
-		//Set Quizzes (I imagine all of our questions can be hardcoded here easily, just replace strings appropriately)
+		//Set Quizzes
 		
 		
 		//OSPREY QUESTIONS --------------------------------------

@@ -24,7 +24,7 @@ public class FroggerModel extends Model {
 		int oWidth = pWidth + 2*(frameWidth/collums);
 		obstacles = new ArrayList<Obstacle>();
 		//row 0
-		player = new Player(pWidth, pHeight, frameWidth/2, yLoc, 0, 0);
+		player = new Player(pWidth, pHeight, frameWidth/2, yLoc, 0, 0, Model.player.getPoints());
 		
 		// row 1
 		yLoc -= pHeight + 2*ybuffer;
@@ -75,7 +75,7 @@ public class FroggerModel extends Model {
 		obstacles = new ArrayList<Obstacle>();
 		
 		//row 0
-		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0);
+		player = new Player(pWidth, pHeight, xbuffer+(4*pWidth), yLoc, 0, 0, Model.player.getPoints());
 		
 		//row 3
 		yLoc -= 5*(pHeight + 2*ybuffer);
@@ -88,6 +88,9 @@ public class FroggerModel extends Model {
 	//Updates the FroggerState, if collision is detected returns player back to starting coordinates
 	public void updateFroggerState(int startingX, int startingY) {
 	
+		int x = player.xloc;
+		int y = player.yloc;
+		
 		if(Key.up.isDown) player.yJump(true,frameHeight);
 		if(Key.left.isDown) player.xJump(false,frameWidth);
 		if(Key.right.isDown) player.xJump(true,frameWidth);
@@ -95,10 +98,16 @@ public class FroggerModel extends Model {
 		
 		updateFroggerObstacles();
 		
-		if(wallCollision(player) || playerAndObstacleCollision()) {
-			// moves player back to beginning if they hit a wall or an obstacle
+		if(playerAndObstacleCollision()) {
+			// moves player back to beginning if they hit an obstacle
 			player.xloc = startingX;
 			player.yloc = startingY;
+			player.addPoints(lostPoints);
+		}
+		if(wallCollision(player)) {
+			// no points lost for running into wall
+			player.xloc = x;
+			player.yloc = y;
 		}
 		
 		if(froggerEnd()) {

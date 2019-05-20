@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -46,9 +47,10 @@ public class FroggerView extends View {
 		checkDirect();
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (isTutorial) {
+			g.setFont(new Font("Times New Roman", Font.BOLD, 26));
 			g.drawImage(arrowKeys, frameWidth*88/100, frameHeight*2/100, frameWidth*1/10, frameHeight*1/10, this);
-			g.drawString("Arrow Keys to move.", frameWidth*88/100,frameHeight*15/100);
-			g.drawString("Get to the top!", frameWidth*88/100, frameHeight*17/100);
+			g.drawString("Arrow Keys to move.", frameWidth*86/100,frameHeight*15/100);
+			g.drawString("Get to the top!", frameWidth*86/100, frameHeight*17/100);
 		}
 		if (!gameObjects.isEmpty()) { //Makes sure there are objects in the game
 			for (GameObject o : gameObjects) {
@@ -88,7 +90,12 @@ public class FroggerView extends View {
 						
 					}
 				}
+				
 			}
+		}
+		if(!isTutorial) {
+			g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+			g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*16/100), frameHeight*7/100);
 		}
 	}
 }

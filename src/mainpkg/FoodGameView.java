@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -56,9 +57,6 @@ public class FoodGameView extends View {
 					}
 					
 				}
-				else if(o instanceof Obstacle){
-					
-				}
 				else{
 					if(isOsprey){ //Checks to see what bird player is playing as
 						if(o.xvel>0){
@@ -81,5 +79,7 @@ public class FoodGameView extends View {
 				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
+		g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+		g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*16/100), frameHeight*7/100);
 	}
 }

@@ -45,177 +45,179 @@ public class Controller implements KeyListener,ActionListener {
 		// loops so that you stay within a game while isPlaying is true.
 		
 		view.addKeyListener(this);
-		
 		//BirdSelection - START
 		//---------------------------------------------------------
 
-		System.out.println("start bird selection");
-		vBird = new BirdSelectorView();
-		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
-		mBird.needInput = true;
-		vBird.startBirdSelection();
-		vBird.leftbutton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				View.isOsprey = true;
-				mBird.needInput = false;
-			}
-		});
-
-		vBird.rightbutton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				View.isOsprey = false;
-				mBird.needInput = false;
-			}
-		});
-		while(mBird.needInput) {
-			//update model and view
-			//wait for user to select bird
-			vBird.update();
-			//if(Key.enter.isDown) //move this to model or have it call a method
-				//mBird.needInput = false;
-		}
-		vBird.resetFrame();
-		//System.out.println("end of bird selection");
-	
-		//Go to Map 
-		//------------------------------------------------------------	
-		//System.out.println("map is showing");
-		vMap = new MapView();
-		vMap.legnum = 1;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
-		vMap.addKeyListener(this);
-		vMap.showMap(false);
-		vMap.resetFrame();
-		//Go to Map - START
-		//------------------------------------------------------------
-		
-		
-		
-		//Frogger - START
-		//------------------------------------------------------------
-		System.out.println("Start of frogger tutorial");
-		vFrogger = new FroggerView();
-		vFrogger.isTutorial = true;
-		vFrogger.addKeyListener(this);
-		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
-		startFrogger(true);
-		int startingX = mFrogger.player.xloc;
-		int startingY = mFrogger.player.yloc;
-		while(mFrogger.isPlaying) {
-			mFrogger.updateFroggerState(startingX, startingY);
-			vFrogger.update();
-		}
-		//vFrogger.delete();
-		vFrogger.resetFrame();
-		
-		
-		System.out.println("start of frogger");
-		vFrogger = new FroggerView();
-		vFrogger.addKeyListener(this);
-		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
-		startFrogger(false);
-		while(mFrogger.isPlaying) {
-			mFrogger.updateFroggerState(startingX, startingY);
-			vFrogger.update();
-		}
-		//vFrogger.delete();
-		vFrogger.resetFrame();
-		//System.out.println("end of frogger");
-		
-		
-
-		//Quiz 1 - START
-		//-----------------------------------------------------------
-		
-		
-		//System.out.println("Quiz 1");
-		vQuiz = new QuizView();
-		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
-		boolean quizOn = true;
-		vQuiz.startQuiz(1); //First quiz!
-		
-		while(quizOn) { // Answer is A. Will expand this so that it's more obvious when you answer incorrectly
-			if (vQuiz.Answer.equals("A")) {
-				quizOn = false;
-			}
-			else if (vQuiz.Answer.equals("B") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
-				vQuiz.panel.add(vQuiz.wrong);
-			}
-			vQuiz.update();
-		}
-		
-		vQuiz.resetFrame();
-		//System.out.println("end of quiz");
-		
-		
-		
-		//Go to Map 
-		//------------------------------------------------------------			
-		//System.out.println("map is showing");
-		vMap = new MapView();
-		vMap.legnum=2;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
-		vMap.addKeyListener(this);
-		vMap.showMap(false);
-		vMap.resetFrame();
-
-		
-		//FoodGame - START
-		//------------------------------------------------------------
-		//System.out.println("start foodGame");
-		vFood = new FoodGameView();
-		vFood.addKeyListener(this);
-		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
-		startFoodGame();
-		int timer = 450;
-		while(mFood.isPlaying){
-			mFood.updateFoodGameState(timer);
-			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
-			vFood.update();
-			timer--;
-			System.out.println(timer);
-		}
-		//vFood.delete();
-		//System.out.println("end foodGame");
-		
-		
-		
-		//Quiz 2 - START
-		//-----------------------------------------------------------
-		
-		
-		//System.out.println("Quiz 2");
-		vQuiz = new QuizView();
-		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
-		quizOn = true;
-		vQuiz.startQuiz(2); //Second quiz!
-		
-		while(quizOn) {  // Answer is B. Will expand this so that it's more obvious when you answer incorrectly
-			if (vQuiz.Answer.equals("B")) {
-				quizOn = false;
-			}
-			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
-				vQuiz.panel.add(vQuiz.wrong);
-			}
-			
-			vQuiz.update();
-			}
-		
-		vQuiz.resetFrame();
-		//System.out.println("end of quiz");
-		
-
-		
-		
-		//Go to Map 
-		//------------------------------------------------------------			
-		//System.out.println("map is showing");
-		vMap = new MapView();
-		vMap.legnum=3;
-		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
-		vMap.addKeyListener(this);
-		vMap.showMap(false);
-		vMap.resetFrame();
+//		System.out.println("start bird selection");
+//		vBird = new BirdSelectorView();
+//		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
+//		mBird.needInput = true;
+//		vBird.startBirdSelection();
+//		vBird.leftbutton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				View.isOsprey = true;
+//				mBird.needInput = false;
+//			}
+//		});
+//
+//		vBird.rightbutton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				View.isOsprey = false;
+//				mBird.needInput = false;
+//			}
+//		});
+//		while(mBird.needInput) {
+//			//update model and view
+//			//wait for user to select bird
+//			vBird.update();
+//			//if(Key.enter.isDown) //move this to model or have it call a method
+//				//mBird.needInput = false;
+//		}
+//		vBird.resetFrame();
+//		//System.out.println("end of bird selection");
+//	
+//		//Go to Map 
+//		//------------------------------------------------------------	
+//		//System.out.println("map is showing");
+//		vMap = new MapView();
+//		vMap.legnum = 1;
+//		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+//		vMap.addKeyListener(this);
+//		vMap.showMap(false);
+//		vMap.resetFrame();
+//		//Go to Map - START
+//		//------------------------------------------------------------
+//		
+//		
+//		
+//		//Frogger - START
+//		//------------------------------------------------------------
+//		System.out.println("Start of frogger tutorial");
+//		vFrogger = new FroggerView();
+//		vFrogger.isTutorial = true;
+//		vFrogger.addKeyListener(this);
+//		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
+//		startFrogger(true);
+//		int startingX = mFrogger.player.xloc;
+//		int startingY = mFrogger.player.yloc;
+//		while(mFrogger.isPlaying) {
+//			mFrogger.updateFroggerState(startingX, startingY);
+//			vFrogger.update();
+//		}
+//		//vFrogger.delete();
+//		vFrogger.resetFrame();
+//		
+//		
+//		System.out.println("start of frogger");
+//		vFrogger = new FroggerView();
+//		vFrogger.addKeyListener(this);
+//		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
+//		startFrogger(false);
+//		while(mFrogger.isPlaying) {
+//			mFrogger.updateFroggerState(startingX, startingY);
+//			vFrogger.update();
+//		}
+//		//vFrogger.delete();
+//		model.player.addPoints(1000);
+//		vFrogger.resetFrame();
+//		//System.out.println("end of frogger");
+//		
+//		
+//
+//		//Quiz 1 - START
+//		//-----------------------------------------------------------
+//		
+//		
+//		//System.out.println("Quiz 1");
+//		vQuiz = new QuizView();
+//		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+//		boolean quizOn = true;
+//		vQuiz.startQuiz(1); //First quiz!
+//		
+//		while(quizOn) { // Answer is A. Will expand this so that it's more obvious when you answer incorrectly
+//			if (vQuiz.Answer.equals("A")) {
+//				model.player.addPoints(100);
+//				quizOn = false;
+//			}
+//			else if (vQuiz.Answer.equals("B") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+//				model.player.addPoints(-50);
+//				vQuiz.panel.add(vQuiz.wrong);
+//			}
+//			vQuiz.update();
+//		}
+//		
+//		vQuiz.resetFrame();
+//		//System.out.println("end of quiz");
+//		
+//		
+//		
+//		//Go to Map 
+//		//------------------------------------------------------------			
+//		//System.out.println("map is showing");
+//		vMap = new MapView();
+//		vMap.legnum=2;
+//		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+//		vMap.addKeyListener(this);
+//		vMap.showMap(false);
+//		vMap.resetFrame();
+//
+//		
+//		//FoodGame - START
+//		//------------------------------------------------------------
+//		//System.out.println("start foodGame");
+//		vFood = new FoodGameView();
+//		vFood.addKeyListener(this);
+//		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
+//		startFoodGame();
+//		int timer = 300;
+//		while(mFood.isPlaying){
+//			mFood.updateFoodGameState(timer);
+//			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
+//			vFood.update();
+//			timer--;
+//			System.out.println(timer);
+//		}
+//		//vFood.delete();
+//		//System.out.println("end foodGame");
+//		model.player.addPoints(1000);
+//		
+//		
+//		
+//		//Quiz 2 - START
+//		//-----------------------------------------------------------
+//		
+//		
+//		//System.out.println("Quiz 2");
+//		vQuiz = new QuizView();
+//		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+//		quizOn = true;
+//		vQuiz.startQuiz(2); //Second quiz!
+//		
+//		while(quizOn) {  // Answer is B. Will expand this so that it's more obvious when you answer incorrectly
+//			if (vQuiz.Answer.equals("B")) {
+//				model.player.addPoints(100);
+//				quizOn = false;
+//			}
+//			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+//				model.player.addPoints(-50);
+//				vQuiz.panel.add(vQuiz.wrong);
+//			}
+//			
+//			vQuiz.update();
+//		}
+//		
+//		vQuiz.resetFrame();
+//		//System.out.println("end of quiz");
+//		
+//		//Go to Map 
+//		//------------------------------------------------------------			
+//		//System.out.println("map is showing");
+//		vMap = new MapView();
+//		vMap.legnum=3;
+//		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
+//		vMap.addKeyListener(this);
+//		vMap.showMap(false);
+//		vMap.resetFrame();
 		
 		//FlappyBird - START
 		//-------------------------------------------------------------
@@ -224,42 +226,40 @@ public class Controller implements KeyListener,ActionListener {
 		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
 		startFlappyBird();
-		startingX = mFlappy.player.xloc;
-		startingY = mFlappy.player.yloc;
+		int startingX = mFlappy.player.xloc;
+		int startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
 			mFlappy.updateFlappyBirdGameState(startingX, startingY);
 			vFlappy.update();
 		}
 		//vFlappy.delete();
+		model.player.addPoints(1000);
 		//System.out.println("end flappy");
 		
 		
-		//Quiz 3 - START
-		//-----------------------------------------------------------
-		
-		
-		System.out.println("Quiz 3");
-		vQuiz = new QuizView();
-		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
-		quizOn = true;
-		vQuiz.startQuiz(3); //Last quiz!
-		
-		while(quizOn) {  // Answer is C. Will expand this so that it's more obvious when you answer incorrectly
-			if (vQuiz.Answer.equals("C")) {
-				quizOn = false;
-			}
-			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("B") || vQuiz.Answer.equals("D")) {
-				vQuiz.panel.add(vQuiz.wrong);
-			}
-			
-			vQuiz.update();
-			}
-		
-		vQuiz.resetFrame();
-		//System.out.println("end of quiz");
-		
-		
-		
+//		//Quiz 3 - START
+//		//-----------------------------------------------------------
+//		System.out.println("Quiz 3");
+//		vQuiz = new QuizView();
+//		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
+//		quizOn = true;
+//		vQuiz.startQuiz(3); //Last quiz!
+//		
+//		while(quizOn) {  // Answer is C. Will expand this so that it's more obvious when you answer incorrectly
+//			if (vQuiz.Answer.equals("C")) {
+//				model.player.addPoints(100);
+//				quizOn = false;
+//			}
+//			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("B") || vQuiz.Answer.equals("D")) {
+//				model.player.addPoints(-50);
+//				vQuiz.panel.add(vQuiz.wrong);
+//			}
+//			
+//			vQuiz.update();
+//		}
+//		
+//		vQuiz.resetFrame();
+//		//System.out.println("end of quiz");
 		
 		//Go to Map 
 		//------------------------------------------------------------
@@ -326,7 +326,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public void startFlappyBird() {
 		//runs view and model for flappy game
-		mFlappy.startFlappyBird();
+		mFlappy.startFlappyBird(View.isOsprey);
 		vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
 	}
 }
