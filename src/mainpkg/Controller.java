@@ -170,13 +170,12 @@ public class Controller implements KeyListener,ActionListener {
 		vFood.addKeyListener(this);
 		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
 		startFoodGame(true);
-		int timer = 100;
+		int timer = 50;
 		while(mFood.isPlaying){
 			mFood.updateFoodGameState(timer);
 			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 			vFood.update();
 			timer--;
-			System.out.println(timer);
 		}
 		
 		//System.out.println("start foodGame");
@@ -190,7 +189,6 @@ public class Controller implements KeyListener,ActionListener {
 			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 			vFood.update();
 			timer--;
-			System.out.println(timer);
 		}
 		//vFood.delete();
 		//System.out.println("end foodGame");

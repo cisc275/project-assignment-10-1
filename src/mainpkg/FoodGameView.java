@@ -86,7 +86,9 @@ public class FoodGameView extends View {
 				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
-		g.setFont(new Font("Times New Roman", Font.BOLD, 48));
-		g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*16/100), frameHeight*7/100);
+		if(!isTutorial) {
+			g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+			g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*10/100), frameHeight*7/100);
+		}
 	}
 }

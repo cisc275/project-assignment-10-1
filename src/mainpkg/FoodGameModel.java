@@ -48,7 +48,7 @@ public class FoodGameModel extends Model {
 		int pHeight = frameHeight/rows - 2*ybuffer;
 		int pWidth = frameWidth/columns - 2*xbuffer;
 		flyHeight = ybuffer;
-		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0);
+		player = new Player(pWidth,pHeight,4*pWidth,flyHeight,0,0, Model.player.getPoints());
 		createFish(1);
 	}
 	
