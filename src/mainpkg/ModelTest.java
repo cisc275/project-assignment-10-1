@@ -43,11 +43,11 @@ public class ModelTest {
 		//Testing updateFroggerState
 		int startingX = 600;
 		int startingY = 1000;
-		fModel.updateFroggerState(startingX, startingY);
+		fModel.updateFroggerState(startingX, startingY, false);
 		assertTrue("isPlaying still true, froggerEnd() shouldn't pass", fModel.isPlaying);
 		player.height = 201;
 		fModel.setPlayer(player);
-		fModel.updateFroggerState(startingX, startingY);
+		fModel.updateFroggerState(startingX, startingY, false);
 		assertFalse("Is playing should be false again", fModel.isPlaying);
 		
 		//Testing startFoodGame

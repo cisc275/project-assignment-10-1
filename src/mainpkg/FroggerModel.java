@@ -1,6 +1,7 @@
 package mainpkg;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class FroggerModel extends Model {
 
@@ -21,57 +22,24 @@ public class FroggerModel extends Model {
 		int pWidth = frameWidth/collums - xbuffer*2;
 		int pHeight = frameHeight/rows - ybuffer*2;
 		int yLoc = frameHeight - (ybuffer+pHeight);
-		int oWidth = pWidth + 2*(frameWidth/collums);
+		
 		obstacles = new ArrayList<Obstacle>();
-		//row 0
 		player = new Player(pWidth, pHeight, frameWidth/2, yLoc, 0, 0, Model.player.getPoints());
 		
-		// row 1
-		yLoc -= pHeight + 2*ybuffer;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, 0, 0, lostPoints));
-		obstacles.add(new Obstacle(oWidth, pHeight, (frameWidth - oWidth) - xbuffer, yLoc, 0, 0, lostPoints));
+		createObstacles(6);
 		
-		// row 2
-		yLoc -= pHeight + 2*ybuffer;
-		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/100, 0, lostPoints));
-		
-		//row 3
-		yLoc -= pHeight + 2*ybuffer;
-		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/50, 0, lostPoints));
-		
-		//row 4
-		yLoc -= pHeight + 2*ybuffer;
-		oWidth = pWidth*4;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/200, 0, lostPoints));
-		
-		//row 5
-		yLoc -= pHeight + 2*ybuffer;
-		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/15, 0, lostPoints));
-		
-		//row 6
-		yLoc -= pHeight + 2*ybuffer;
-		oWidth = pWidth*3;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/30, 0, lostPoints));
-		
-		//row 7
-		yLoc -= pHeight + 2*ybuffer;
-		oWidth = pWidth;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/75, 0, lostPoints));
 	}
 	
-	public void startFroggerTutorial(int width, int height) {
+	public void startFroggerTutorial() {
 		isPlaying = true;
-		int xbuffer = width/100;
-		int ybuffer = height/100;
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
 		int collums = 9;
 		int rows = 9;
-		int pWidth = width/collums - xbuffer*2;
-		int pHeight = height/rows - ybuffer*2;
-		int yLoc = height - (ybuffer+pHeight);
-		int oWidth = pWidth + 2*(width/collums);
+		int pWidth = frameWidth/collums - xbuffer*2;
+		int pHeight = frameHeight/rows - ybuffer*2;
+		int yLoc = frameHeight - (ybuffer+pHeight);
+		int oWidth = pWidth + 2*(frameWidth/collums);
 		obstacles = new ArrayList<Obstacle>();
 		
 		//row 0
@@ -80,13 +48,13 @@ public class FroggerModel extends Model {
 		//row 3
 		yLoc -= 5*(pHeight + 2*ybuffer);
 		oWidth = pWidth*2;
-		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/50, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, frameWidth/50, 0, lostPoints));
 		
 		
 	}
 	
 	//Updates the FroggerState, if collision is detected returns player back to starting coordinates
-	public void updateFroggerState(int startingX, int startingY) {
+	public void updateFroggerState(int startingX, int startingY, boolean isTutorial) {
 	
 		int x = player.xloc;
 		int y = player.yloc;
@@ -102,7 +70,9 @@ public class FroggerModel extends Model {
 			// moves player back to beginning if they hit an obstacle
 			player.xloc = startingX;
 			player.yloc = startingY;
-			player.addPoints(-lostPoints);
+			if(!isTutorial) {
+				player.addPoints(-lostPoints);
+			}
 		}
 		if(wallCollision(player)) {
 			// no points lost for running into wall
@@ -128,6 +98,30 @@ public class FroggerModel extends Model {
 		for(Obstacle o : obstacles) {
 			o.move();
 			if(wallCollision(o)) o.xvel *= -1;
+		}
+	}
+	
+	public void createObstacles(int count) {
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
+		int collums = 9;
+		int rows = 9;
+		int pWidth = frameWidth/collums - xbuffer*2;
+		int pHeight = frameHeight/rows - ybuffer*2;
+		int yLoc = frameHeight - (ybuffer+pHeight);
+		int oWidth = pWidth*2;
+		
+		yLoc -= pHeight + 2*ybuffer;
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(oWidth, pHeight, (frameWidth - oWidth) - xbuffer, yLoc, 0, 0, lostPoints));	
+		
+		Random rx = new Random();
+		for(int i = 0; i < count; i++) {
+			yLoc -= pHeight + 2*ybuffer;
+			int speed = (int)(Math.random()*50 + 15);
+			System.out.println(speed);
+			int x = rx.nextInt(frameWidth-oWidth);
+			obstacles.add(new Obstacle(oWidth, pHeight, x, yLoc, frameWidth/speed, 0, lostPoints));
 		}
 	}
 	

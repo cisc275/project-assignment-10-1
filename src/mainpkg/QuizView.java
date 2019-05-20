@@ -89,7 +89,7 @@ public class QuizView extends View {
 			Q = new JLabel("What is a threat to Northern Harrier as they traverse Delaware?");
 			
 			A = new JButton("Foxes");
-			B = new JButton("Drones");
+			B = new JButton("Sheep");
 			C = new JButton("Predatory whales");
 			D = new JButton("Deadly nightshade");
 				

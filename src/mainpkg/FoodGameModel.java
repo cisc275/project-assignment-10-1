@@ -44,7 +44,6 @@ public class FoodGameModel extends Model {
 		int columns = 9;
 		int xbuffer = frameWidth/100;
 		int ybuffer = frameHeight/100;
-		int vel = rand.nextInt(xbuffer);
 		int pHeight = frameHeight/rows - 2*ybuffer;
 		int pWidth = frameWidth/columns - 2*xbuffer;
 		flyHeight = ybuffer;
@@ -105,10 +104,17 @@ public class FoodGameModel extends Model {
 	
 	//Creates the objectives
 	public void createFish(int amount) {
+		int rows = 9;
+		int columns = 9;
+		int xbuffer = frameWidth/100;
+		int ybuffer = frameHeight/100;
+		int pHeight = frameHeight/rows - 2*ybuffer;
+		int pWidth = frameWidth/columns - 2*xbuffer;
+		
 		Random rx = new Random();
 		for(int i = 0; i < amount; i++) {
-			int x = rx.nextInt(frameWidth);
-			objectives.add(new Objective(50, 50, x, foodHeight, 50, 0, false, 10));
+			int x = rx.nextInt(frameWidth-pWidth);
+			objectives.add(new Objective(pWidth, pHeight, x, foodHeight, frameWidth/100, 0, false, 10));
 		}
 	}
 	

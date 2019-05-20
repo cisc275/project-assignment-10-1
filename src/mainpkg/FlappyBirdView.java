@@ -45,9 +45,10 @@ public class FlappyBirdView extends View {
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (!gameObjects.isEmpty()) {
 			if (isTutorial) {
+				g.setFont(new Font("Times New Roman", Font.BOLD, 26));
 				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*14/100, frameWidth*1/10, frameHeight*1/10, this);
-				g.drawString("Space to flap!", frameWidth*88/100, frameHeight*25/100);
-				g.drawString("Make it to the end", frameWidth*88/100, frameHeight*28/100);
+				g.drawString("Space to flap!", frameWidth*86/100, frameHeight*15/100);
+				g.drawString("Make it to the end", frameWidth*86/100, frameHeight*17/100);
 			}
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
@@ -70,7 +71,7 @@ public class FlappyBirdView extends View {
 		}
 		//if(!Tutorial) {
 			g.setFont(new Font("Times New Roman", Font.BOLD, 48));
-			g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*10/100), frameHeight*7/100);
+			g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*16/100), frameHeight*7/100);
 		//}
 	}
 }

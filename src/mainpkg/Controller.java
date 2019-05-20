@@ -97,24 +97,24 @@ public class Controller implements KeyListener,ActionListener {
 		vFrogger.isTutorial = true;
 		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
-		startFrogger(true);
+		startFrogger(vFrogger.isTutorial);
 		int startingX = mFrogger.player.xloc;
 		int startingY = mFrogger.player.yloc;
 		while(mFrogger.isPlaying) {
-			mFrogger.updateFroggerState(startingX, startingY);
+			mFrogger.updateFroggerState(startingX, startingY, vFrogger.isTutorial);
 			vFrogger.update();
 		}
 		//vFrogger.delete();
 		vFrogger.resetFrame();
-		
+		vFrogger.isTutorial = false;
 		
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
-		startFrogger(false);
+		startFrogger(vFrogger.isTutorial);
 		while(mFrogger.isPlaying) {
-			mFrogger.updateFroggerState(startingX, startingY);
+			mFrogger.updateFroggerState(startingX, startingY, vFrogger.isTutorial);
 			vFrogger.update();
 		}
 		//vFrogger.delete();
@@ -347,7 +347,7 @@ public class Controller implements KeyListener,ActionListener {
 	public void startFrogger(boolean tutorial) {
 		//runs view and model for frogger game
 		if (tutorial == true) {
-			mFrogger.startFroggerTutorial(view.getWidth(), view.getHeight());
+			mFrogger.startFroggerTutorial();
 			vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
 		}
 		else {
