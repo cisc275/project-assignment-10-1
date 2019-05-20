@@ -13,7 +13,7 @@ public class FlappyBirdModel extends Model {
 
 	//Takes width and height to set buffers
 	//begins FlappyBird game
-	public void startFlappyBird(int width, int height) {
+	public void startFlappyBird() {
 		isPlaying = true;
 		int xBuffer = width/100;
 		int yBuffer = height/100;
@@ -31,6 +31,8 @@ public class FlappyBirdModel extends Model {
 		//obstacle 1
 		int xLoc = 12*xBuffer+pWidth;
 		int oHeight = pHeight + 3*(height/rows);
+		obstacles.add(new Obstacle(pWidth, oHeight , xLoc, yBuffer, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, oHeight , xLoc, frameHeight-oHeight, 0, 0, lostPoints));
 		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
@@ -39,25 +41,25 @@ public class FlappyBirdModel extends Model {
 		xLoc += 12*xBuffer+pWidth;
 		oHeight = pHeight + 2*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
-		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//obstacle 3
 		xLoc += 12*xBuffer+pWidth;
 		oHeight = pHeight + 3*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
-		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//obstacle 4
 		xLoc += 12*xBuffer+pWidth;
 		oHeight = pHeight + 2*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
-		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//obstacle 5
 		xLoc += 12*xBuffer+pWidth;
 		oHeight = pHeight + 3*(height/rows);
 		obstacles.add(new Obstacle(pWidth, oHeight, xLoc, yBuffer, 0, 0, lostPoints));
-		obstacles.add(new Obstacle(pWidth, height-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
+		obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-spacing, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
 		
 		//finish
 		obstacles.add(new Obstacle(pWidth, frameHeight-frameHeight/2+pHeight, frameWidth-pWidth-xBuffer, frameHeight-frameHeight/2, 0,0,lostPoints));

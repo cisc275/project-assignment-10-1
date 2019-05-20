@@ -48,7 +48,8 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//BirdSelection - START
 		//---------------------------------------------------------
-		//System.out.println("start bird selection");
+
+		System.out.println("start bird selection");
 		vBird = new BirdSelectorView();
 		mBird = new BirdSelectorModel(vBird.getWidth(), vBird.getHeight(), 0);
 		mBird.needInput = true;
@@ -157,6 +158,7 @@ public class Controller implements KeyListener,ActionListener {
 		vMap.addKeyListener(this);
 		vMap.showMap(false);
 		vMap.resetFrame();
+
 		
 		//FoodGame - START
 		//------------------------------------------------------------
@@ -165,10 +167,13 @@ public class Controller implements KeyListener,ActionListener {
 		vFood.addKeyListener(this);
 		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
 		startFoodGame();
+		int timer = 450;
 		while(mFood.isPlaying){
-			mFood.updateFoodGameState();
+			mFood.updateFoodGameState(timer);
 			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 			vFood.update();
+			timer--;
+			System.out.println(timer);
 		}
 		//vFood.delete();
 		//System.out.println("end foodGame");
@@ -265,7 +270,9 @@ public class Controller implements KeyListener,ActionListener {
 		vMap.resetFrame();
 		Player.totalPoints=0;
 		
+
 		//System.out.println("END OF GAME");
+
 	}
 	public static void main(String[] args) throws InterruptedException{
 		// makes the controller and calls the start method onto it. This starts the game.
@@ -320,7 +327,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public void startFlappyBird() {
 		//runs view and model for flappy game
-		mFlappy.startFlappyBird(view.getWidth(), view.getHeight());
+		mFlappy.startFlappyBird();
 		vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
 	}
 }
