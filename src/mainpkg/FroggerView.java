@@ -1,7 +1,12 @@
 package mainpkg;
 
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class FroggerView extends View {
@@ -31,6 +36,7 @@ public class FroggerView extends View {
 				foxLeft[i] = createImage("GamePictures/Obstacles/FoxLeftPNG/Frame"+Integer.toString(i)+".png");
 			}
 		}
+		
 	}
 	
 	public void startFrogger(Player player, ArrayList<Obstacle> obstacles) { //Creates a composite arraylist of all game objects
@@ -41,6 +47,7 @@ public class FroggerView extends View {
 		}
 	}
 	public void paint(Graphics g){
+		
 		picNum=(picNum+1)%10; //Cycles through the frame numbers
 		checkDirect();
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer

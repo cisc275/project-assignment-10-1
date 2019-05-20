@@ -4,10 +4,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.*;
 
+import javax.swing.JButton;
 
-public class Controller implements KeyListener,ActionListener {
+
+public class Controller implements KeyListener,ActionListener,java.io.Serializable {
 
 	private Model model;
 	private View view;
@@ -26,6 +32,7 @@ public class Controller implements KeyListener,ActionListener {
 	public HashMap<Integer, Key> keyBindings = new HashMap<Integer, Key>();
 	public static boolean other[] = new boolean[256];
 	private boolean isRight=true;
+	private String filename = "file.ser";
 	
 	public Controller(){
 		view = new View();
@@ -38,6 +45,7 @@ public class Controller implements KeyListener,ActionListener {
 		bind(KeyEvent.VK_DOWN, Key.down);
 		bind(KeyEvent.VK_SPACE, Key.space);
 	}
+	
 	
 	public void start() throws InterruptedException{
 		// main method for running game. Starts all the views and models for each game.
@@ -115,6 +123,28 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//System.out.println("Quiz 1");
 		vQuiz = new QuizView();
+		vQuiz.Save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					FileOutputStream file = new FileOutputStream("file.ser");
+					ObjectOutputStream out = new ObjectOutputStream(file);
+					
+					out.writeObject(model);
+					
+					out.close();
+					file.close();
+					
+					System.out.println("Serialized");
+				}
+				
+				catch(IOException ex) 
+				{ 
+					System.out.println("IOException is caught"); 
+				} 
+			}
+		});
+		
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
 		boolean quizOn = true;
 		vQuiz.startQuiz(1); //First quiz!
@@ -166,6 +196,28 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//System.out.println("Quiz 2");
 		vQuiz = new QuizView();
+		vQuiz.Save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					FileOutputStream file = new FileOutputStream("file.ser");
+					ObjectOutputStream out = new ObjectOutputStream(file);
+					
+					out.writeObject(model);
+					
+					out.close();
+					file.close();
+					
+					System.out.println("Serialized");
+				}
+				
+				catch(IOException ex) 
+				{ 
+					System.out.println("IOException is caught"); 
+				} 
+			}
+		});
+		
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
 		quizOn = true;
 		vQuiz.startQuiz(2); //Second quiz!
@@ -219,6 +271,29 @@ public class Controller implements KeyListener,ActionListener {
 		
 		System.out.println("Quiz 3");
 		vQuiz = new QuizView();
+		
+		vQuiz.Save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				try {
+					FileOutputStream file = new FileOutputStream("file.ser");
+					ObjectOutputStream out = new ObjectOutputStream(file);
+					
+					out.writeObject(model);
+					
+					out.close();
+					file.close();
+					
+					System.out.println("Serialized");
+				}
+				
+				catch(IOException ex) 
+				{ 
+					System.out.println("IOException is caught"); 
+				} 
+			}
+		});
+		
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
 		quizOn = true;
 		vQuiz.startQuiz(3); //Last quiz!

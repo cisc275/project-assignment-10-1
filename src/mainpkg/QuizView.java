@@ -11,7 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.JOptionPane;
 
@@ -25,6 +26,7 @@ public class QuizView extends View {
 	public JButton D;
 	public String Answer = "";
 	public JPanel panel;
+	public JButton Save = new JButton("Save");
 	
 	public int BUTTON_WIDTH = frameWidth/5;
 	public int BUTTON_HEIGHT = frameHeight/16;
@@ -163,12 +165,15 @@ public class QuizView extends View {
 		C.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 		C.setLocation(LEFT_COL, BOTTOM_ROW  );
 		
-		D.setSize(BUTTON_WIDTH, (int)BUTTON_HEIGHT);
+		D.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
 		D.setLocation(RIGHT_COL, BOTTOM_ROW  );
 		
 		Q.setSize(frameWidth, BUTTON_HEIGHT);
 		Q.setLocation(0, TOP_ROW - BUTTON_HEIGHT);
 		Q.setHorizontalAlignment(JLabel.CENTER);
+		
+		Save.setSize(BUTTON_WIDTH, BUTTON_HEIGHT);
+		Save.setLocation(0,0);
 		
 		
 		wrong.setSize(frameWidth,BUTTON_HEIGHT);
@@ -183,6 +188,7 @@ public class QuizView extends View {
 		D.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
 		Q.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
 		wrong.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
+		Save.setFont(new Font("Arial", Font.PLAIN, frameWidth/50));
 		
 		
 		
@@ -194,6 +200,7 @@ public class QuizView extends View {
 		panel.add(B);
 		panel.add(C);
 		panel.add(D);
+		panel.add(Save);
 		
 		frame.add(panel);
 		frame.setVisible(true);

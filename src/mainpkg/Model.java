@@ -1,7 +1,9 @@
 package mainpkg;
 
 import java.util.*;
-public class Model {
+import java.io.Serializable;
+
+public class Model implements java.io.Serializable {
 	protected int frameWidth;
 	protected int frameHeight;
 	protected int score;

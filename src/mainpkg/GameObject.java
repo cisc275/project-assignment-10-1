@@ -1,8 +1,9 @@
 package mainpkg;
 
 import java.awt.Color;
+import java.io.Serializable;
 
-public abstract class GameObject {
+public abstract class GameObject implements java.io.Serializable {
 	protected int width;
 	protected int height;
 	protected int xloc;

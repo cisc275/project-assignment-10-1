@@ -1,8 +1,9 @@
 package mainpkg;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public enum Scenes {
+public enum Scenes implements java.io.Serializable{
 	SCENE1,
 	SCENE2,
 	SCENE3;

@@ -2,6 +2,7 @@ package mainpkg;
 
 
 import java.awt.BorderLayout;
+import java.io.Serializable;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,11 +17,12 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
 @SuppressWarnings("serial")
-public class View extends JPanel{
+public class View extends JPanel implements java.io.Serializable{
 	
 	private Dimension screensize = Toolkit.getDefaultToolkit().getScreenSize();
 	protected int frameWidth = screensize.width; //TODO: have this adjust per display
@@ -62,6 +64,8 @@ public class View extends JPanel{
 	protected boolean isRight=true;
 	
 
+	
+
 	protected ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 
 	
@@ -84,12 +88,13 @@ public class View extends JPanel{
 		mouseLeft = new BufferedImage[5];
 		mouseRight = new BufferedImage[5];
 		
+
 		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
 		frame.setBackground(Color.gray);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(frameWidth, frameHeight);
+		frame.setSize(frameWidth, frameHeight);	
 		frame.setVisible(true);
 		frame.setFocusable(false);
 		requestFocus();
