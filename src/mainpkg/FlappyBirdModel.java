@@ -23,7 +23,7 @@ public class FlappyBirdModel extends Model {
 		int pHeight = frameHeight/rows - 2*yBuffer;
 		int yLoc = 50;
 		
-		player = new Player(pWidth, pHeight, xBuffer, yLoc, 0, 0, Model.player.getPoints());
+		player = new Player(pWidth, pHeight, xBuffer, frameHeight*2/10, 0, 0, Model.player.getPoints());
 		objectives = new ArrayList<Objective>();
 		obstacles = new ArrayList<Obstacle>();
 		
@@ -65,27 +65,26 @@ public class FlappyBirdModel extends Model {
 		int rows = 10;
 		int pWidth = frameWidth/columns - 2*xBuffer;
 		int pHeight = frameHeight/rows - 2*yBuffer;
-		int yLoc = 50;
-		int spacing = pHeight*8;
+		int spacing = frameHeight*1/3;
 		int xLoc = 0;
 		int spacerY = 0;
 		
 		//all obstacles
-		for(int i = 0; i < 5; i++) {
-			xLoc += 12*xBuffer+pWidth;
+		for(int i = 0; i < 4; i++) {
+			xLoc += 9*xBuffer+pWidth;
 			spacerY = (int)(Math.random()*3 + 1);
 			int oHeight = pHeight + spacerY*(frameHeight/rows);
 			obstacles.add(new Obstacle(pWidth, oHeight , xLoc, yBuffer, 0, 0, lostPoints));
-			obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-spacing-yBuffer, xLoc, oHeight+pHeight+spacing+yBuffer, 0, 0, lostPoints));
+			obstacles.add(new Obstacle(pWidth, frameHeight-oHeight-yBuffer, xLoc, oHeight+spacing+yBuffer, 0, 0, lostPoints));
 		}
 		
 		//finish
 		if(isOsprey) {
-			obstacles.add(new Obstacle(pWidth, frameHeight-frameHeight/2, frameWidth-pWidth-xBuffer, frameHeight-(frameHeight/2)+pHeight+yBuffer, 0,0,lostPoints));
+			obstacles.add(new Obstacle(pWidth, frameHeight-frameHeight/2-yBuffer, frameWidth-pWidth-xBuffer, frameHeight-(spacing+yBuffer+pHeight), 0,0,lostPoints));
 			objectives.add(new Objective(pWidth, pHeight, frameWidth-pWidth-xBuffer, frameHeight/2, 0, 0, false, 0));
 		}
 		else {
-			objectives.add(new Objective(pWidth, pHeight, frameWidth-pWidth-xBuffer, frameHeight-pHeight-yBuffer, 0,0, false, 0));
+			objectives.add(new Objective(pWidth, pHeight, frameWidth-pWidth-xBuffer, frameHeight-pHeight-yBuffer-spacerY, 0,0, false, 0));
 		}
 	}
 }
