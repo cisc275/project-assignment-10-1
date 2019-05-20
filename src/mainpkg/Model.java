@@ -9,7 +9,7 @@ public class Model {
 	protected ArrayList<Obstacle> obstacles;
 	protected ArrayList<Objective> objectives;
 
-	protected Player player;
+	protected static Player player = new Player(0,0,0,0,0,0,0);
 //	private boolean playLeft=false;
 //	private boolean playRight=false;
 //	private boolean playUp=false;

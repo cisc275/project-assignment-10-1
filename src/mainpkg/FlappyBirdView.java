@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
@@ -60,5 +61,7 @@ public class FlappyBirdView extends View {
 				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
+		g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+		g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*12/100), frameHeight*7/100);
 	}
 }

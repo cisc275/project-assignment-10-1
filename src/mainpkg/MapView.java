@@ -1,6 +1,7 @@
 package mainpkg;
 
 
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JTextArea;
@@ -16,11 +17,7 @@ public class MapView extends View {
 		// the map screen up for 5 seconds.
 		long tEnd = System.currentTimeMillis();
 		frame.setVisible(true);
-		long tStart = tEnd + 5*1000;
-		if(isEnd) {
-			JTextArea end = new JTextArea("You Win!!!!!!");
-			frame.add(end);
-		}
+		long tStart = tEnd + 4*1000;
 		while(tStart > tEnd) {
 			tStart -= 1000;
 			Thread.sleep(1000);
@@ -61,6 +58,8 @@ public class MapView extends View {
 				
 			}
 		}
-		}
+		g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+		g.drawString("Score: " + Model.player.getPoints(), (frameWidth/2)+frameWidth*4/10, (frameWidth/2)+frameHeight*2/10);
+	}
 }
 		

@@ -45,7 +45,6 @@ public class Controller implements KeyListener,ActionListener {
 		// loops so that you stay within a game while isPlaying is true.
 		
 		view.addKeyListener(this);
-		
 		//BirdSelection - START
 		//---------------------------------------------------------
 
@@ -119,6 +118,7 @@ public class Controller implements KeyListener,ActionListener {
 			vFrogger.update();
 		}
 		//vFrogger.delete();
+		model.player.addPoints(1000);
 		vFrogger.resetFrame();
 		//System.out.println("end of frogger");
 		
@@ -136,9 +136,11 @@ public class Controller implements KeyListener,ActionListener {
 		
 		while(quizOn) { // Answer is A. Will expand this so that it's more obvious when you answer incorrectly
 			if (vQuiz.Answer.equals("A")) {
+				model.player.addPoints(100);
 				quizOn = false;
 			}
 			else if (vQuiz.Answer.equals("B") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+				model.player.addPoints(-50);
 				vQuiz.panel.add(vQuiz.wrong);
 			}
 			vQuiz.update();
@@ -192,6 +194,7 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		//vFood.delete();
 		//System.out.println("end foodGame");
+		model.player.addPoints(1000);
 		
 		
 		
@@ -207,20 +210,19 @@ public class Controller implements KeyListener,ActionListener {
 		
 		while(quizOn) {  // Answer is B. Will expand this so that it's more obvious when you answer incorrectly
 			if (vQuiz.Answer.equals("B")) {
+				model.player.addPoints(100);
 				quizOn = false;
 			}
 			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("C") || vQuiz.Answer.equals("D")) {
+				model.player.addPoints(-50);
 				vQuiz.panel.add(vQuiz.wrong);
 			}
 			
 			vQuiz.update();
-			}
+		}
 		
 		vQuiz.resetFrame();
 		//System.out.println("end of quiz");
-		
-
-		
 		
 		//Go to Map 
 		//------------------------------------------------------------			
@@ -246,13 +248,12 @@ public class Controller implements KeyListener,ActionListener {
 			vFlappy.update();
 		}
 		//vFlappy.delete();
+		model.player.addPoints(1000);
 		//System.out.println("end flappy");
 		
 		
 		//Quiz 3 - START
 		//-----------------------------------------------------------
-		
-		
 		System.out.println("Quiz 3");
 		vQuiz = new QuizView();
 		mQuiz = new QuizModel(vQuiz.getWidth(), vQuiz.getHeight(), 0);
@@ -261,20 +262,19 @@ public class Controller implements KeyListener,ActionListener {
 		
 		while(quizOn) {  // Answer is C. Will expand this so that it's more obvious when you answer incorrectly
 			if (vQuiz.Answer.equals("C")) {
+				model.player.addPoints(100);
 				quizOn = false;
 			}
 			else if (vQuiz.Answer.equals("A") || vQuiz.Answer.equals("B") || vQuiz.Answer.equals("D")) {
+				model.player.addPoints(-50);
 				vQuiz.panel.add(vQuiz.wrong);
 			}
 			
 			vQuiz.update();
-			}
+		}
 		
 		vQuiz.resetFrame();
 		//System.out.println("end of quiz");
-		
-		
-		
 		
 		//Go to Map 
 		//------------------------------------------------------------
@@ -347,7 +347,7 @@ public class Controller implements KeyListener,ActionListener {
 	
 	public void startFlappyBird() {
 		//runs view and model for flappy game
-		mFlappy.startFlappyBird();
+		mFlappy.startFlappyBird(View.isOsprey);
 		vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
 	}
 }

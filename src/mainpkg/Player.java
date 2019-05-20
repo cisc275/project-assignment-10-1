@@ -6,7 +6,7 @@ public class Player extends GameObject{
 	private int totalPoints;
 	
 	//Player constructor, initializes all relevant variables.
-	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel) {
+	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel, int totalPoints) {
 		super(width, height, xloc, yloc, xvel, yvel);
 		this.totalPoints = totalPoints;
 	}
@@ -33,7 +33,6 @@ public class Player extends GameObject{
 	public void dive(int targetHeight) {
 		yloc = targetHeight;
 	}
-
 	
 	//Retrieves player points
 	@Override
