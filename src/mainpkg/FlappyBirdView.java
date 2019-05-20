@@ -1,5 +1,6 @@
 package mainpkg;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class FlappyBirdView extends View {
 			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing right animation
 					}
 		if(isOsprey){
-			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/OspreyFoodGame.jpg"); //Loads the osprey flappy bird game background image
+			Background = createImage("GamePictures/Backgrounds/FoodAndFlappy/forest.png"); //Loads the osprey flappy bird game background image
 			tree = createImage("GamePictures/Obstacles/Tree2.png"); //Loads the tree image for the obstacles
 			
 		}
@@ -24,7 +25,6 @@ public class FlappyBirdView extends View {
 			powerLine = createImage("GamePictures/Obstacles/PowerLine.png"); //Loads the power line image for the obstacles
 		}
 		nest = createImage("GamePictures/Objectives/Nest.png"); //Loads the image of the nest 
-		twig = createImage("GamePictures/Objectives/Twig.png"); //Loads the image of the twig
 	}
 
 	public void startFlappyBird(Player player, ArrayList<Objective> objectives, ArrayList<Obstacle> obstacles) { //Creates a composite arraylist of all gameobjects at the start of the game
@@ -43,14 +43,15 @@ public class FlappyBirdView extends View {
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (!gameObjects.isEmpty()) {
 			if (isTutorial) {
-				g.setFont(new Font("Times New Roman", Font.BOLD, 26));
+				g.setFont(new Font("Times New Roman", Font.PLAIN, 26));
+				g.setColor(Color.WHITE);
 				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*11/100, frameWidth*1/10, frameHeight*1/10, this);
 				g.drawString("Space to flap!", frameWidth*86/100, frameHeight*9/100);
 				g.drawString("Make it to the nest", frameWidth*86/100, frameHeight*12/100);
 			}
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
-					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this); //Draws the player, cycling through the frames to make it animated
+					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this); //Draws the player, cycling through the frames to make it animated				
 				}
 				else if(o instanceof Obstacle){
 					if(isOsprey){ //Checks to see what bird the person is playing as
@@ -63,12 +64,12 @@ public class FlappyBirdView extends View {
 				else{
 					g.drawImage(nest, o.xloc, o.yloc,o.width,o.height, this); //Draw the objective as the nest
 				}
-				//g.setColor(o.getColor());
-				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
+
 			}
 		}
 		if(!isTutorial) {
 			g.setFont(new Font("Times New Roman", Font.BOLD, 48));
+			g.setColor(Color.WHITE);
 			g.drawString("Score: " + Model.player.getPoints(), frameWidth-(frameWidth*16/100), frameHeight*7/100);
 		}
 	}

@@ -50,7 +50,6 @@ public class Player extends GameObject{
 		totalPoints += p;
 	}
 	
-	//Alpha only
 	public Color getColor() {
 		return Color.blue;
 	}

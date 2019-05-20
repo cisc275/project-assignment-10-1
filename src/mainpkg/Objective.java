@@ -20,13 +20,9 @@ public class Objective extends GameObject{
 	public void setPoints(int p) {
 		points = p;
 	}
-	public boolean isSuper() {
-		return superPower;
-	}
-	public void toggleSuper() {
-		superPower = superPower ^ true;
-	}
+	@Override
 	public Color getColor() {
-		return Color.green;
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

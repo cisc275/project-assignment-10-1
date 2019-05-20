@@ -118,8 +118,6 @@ public class View extends JPanel{
 				else{
 					
 				}
-				//g.setColor(o.getColor());
-				//g.fillRect(o.xloc, o.yloc, o.width, o.height);
 			}
 		}
 	}
@@ -137,19 +135,13 @@ public class View extends JPanel{
 		frame.getContentPane().removeAll();
     	frame.getContentPane().add(this);
     	frame.setBackground(Color.gray);
-    	//frame.getContentPane().setBackground(Color.gray);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	frame.setSize(frameWidth, frameHeight);
     	frame.setVisible(true);
     	frame.setFocusable(false);
     	frame.dispose();
     	requestFocus();
-//		CardLayout layout = new CardLayout();
-//		this.setLayout(layout);
-//		this.add(new JPanel(), " ");
-//		layout.next(this);
-//		requestFocus();
-    	//setOpaque(false);
+
 	}
 	public void checkDirect(){
 		if(Key.left.isDown){
@@ -169,35 +161,4 @@ public class View extends JPanel{
     	}
     	return null;
     	}
-	
-  
-//  protected void delete(){
-//	  for(int i=0;i<10;i++){
-//		  playerRight[i]=null;
-//		  playerLeft[i]=null;
-//		  foxLeft[i]=null;
-//		  foxRight[i]=null;
-//	  }
-//	  AmericaMap1 = null;
-//	  AmericaMap2= null;
-//	  AmericaMap3= null;
-//		DelawareMap1= null;
-//		DelawareMap2= null;
-//		DelawareMap3= null;
-//		Background= null;
-//		mountain= null;
-//		drone= null;
-//		powerLine= null;
-//		planeRight= null;
-//		planeLeft= null;
-//		tree= null;
-//		for(int i=0; i<5;i++){
-//			mouseRight[i]=null;
-//			mouseLeft[i]=null;
-//		}
-//		fishLeft = null;
-//		fishRight = null;
-//		
-//  }
-//	
 }
