@@ -87,14 +87,27 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//Frogger - START
 		//------------------------------------------------------------
+		System.out.println("Start of frogger tutorial");
+		vFrogger = new FroggerView();
+		vFrogger.isTutorial = true;
+		vFrogger.addKeyListener(this);
+		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
+		startFrogger(true);
+		int startingX = mFrogger.player.xloc;
+		int startingY = mFrogger.player.yloc;
+		while(mFrogger.isPlaying) {
+			mFrogger.updateFroggerState(startingX, startingY);
+			vFrogger.update();
+		}
+		vFrogger.delete();
+		vFrogger.resetFrame();
+		
 		
 		System.out.println("start of frogger");
 		vFrogger = new FroggerView();
 		vFrogger.addKeyListener(this);
 		mFrogger = new FroggerModel(vFrogger.getWidth(), vFrogger.getHeight(), 0);
-		startFrogger();
-		int startingX = mFrogger.player.xloc;
-		int startingY = mFrogger.player.yloc;
+		startFrogger(false);
 		while(mFrogger.isPlaying) {
 			mFrogger.updateFroggerState(startingX, startingY);
 			vFrogger.update();
@@ -284,10 +297,16 @@ public class Controller implements KeyListener,ActionListener {
 		vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
 	}
 	
-	public void startFrogger() {
+	public void startFrogger(boolean tutorial) {
 		//runs view and model for frogger game
-		mFrogger.startFrogger(view.getWidth(), view.getHeight());
-		vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
+		if (tutorial == true) {
+			mFrogger.startFroggerTutorial(view.getWidth(), view.getHeight());
+			vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
+		}
+		else {
+			mFrogger.startFrogger(view.getWidth(), view.getHeight());
+			vFrogger.startFrogger(mFrogger.getPlayer(), mFrogger.getObstacles());
+		}
 	}
 	
 	public void startFlappyBird() {

@@ -56,6 +56,7 @@ public class View extends JPanel{
 	BufferedImage nest;
 	BufferedImage twig;
 	BufferedImage Selection;
+	static BufferedImage arrowKeys;
 	protected boolean isRight=true;
 	
 

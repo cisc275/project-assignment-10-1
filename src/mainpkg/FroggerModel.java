@@ -62,6 +62,29 @@ public class FroggerModel extends Model {
 		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/75, 0, lostPoints));
 	}
 	
+	public void startFroggerTutorial(int width, int height) {
+		isPlaying = true;
+		int xbuffer = width/100;
+		int ybuffer = height/100;
+		int collums = 9;
+		int rows = 9;
+		int pWidth = width/collums - xbuffer*2;
+		int pHeight = height/rows - ybuffer*2;
+		int yLoc = height - (ybuffer+pHeight);
+		int oWidth = pWidth + 2*(width/collums);
+		obstacles = new ArrayList<Obstacle>();
+		
+		//row 0
+		player = new Player(pWidth, pHeight, xbuffer, yLoc, 0, 0, 0);
+		
+		//row 3
+		yLoc -= 5*(pHeight + 2*ybuffer);
+		oWidth = pWidth*2;
+		obstacles.add(new Obstacle(oWidth, pHeight, xbuffer, yLoc, width/50, 0, lostPoints));
+		
+		
+	}
+	
 	//Updates the FroggerState, if collision is detected returns player back to starting coordinates
 	public void updateFroggerState(int startingX, int startingY) {
 	
