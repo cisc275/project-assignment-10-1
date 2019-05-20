@@ -50,13 +50,13 @@ public class QuizView extends View {
 		
 		if (quiznum == 1) { // Frogger game question
 			
-			Q = new JLabel("What is a threat to Osprey while they migrate?");
+			Q = new JLabel("Where does the Osprey begin its migration pattern from?");
 
 			
-			A = new JButton("Air traffic");
-			B = new JButton("Foxes");
-			C = new JButton("Predatory whales");
-			D = new JButton("Deadly nightshade");
+			A = new JButton("South America");
+			B = new JButton("Canada");
+			C = new JButton("Galapagos Islands");
+			D = new JButton("Europe");
 				
 		}
 		

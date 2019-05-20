@@ -30,35 +30,33 @@ public class View extends JPanel{
 	protected int picNum;
 	protected int picNum2;
 	protected static boolean isOsprey;
-	BufferedImage[] playerRight;
-	BufferedImage[] playerLeft;
-	BufferedImage AmericaMap1;
-	BufferedImage AmericaMap2;
-	BufferedImage AmericaMap3;
-	BufferedImage DelawareMap1;
-	BufferedImage DelawareMap2;
-	BufferedImage DelawareMap3;
-	BufferedImage Background;
-	BufferedImage mountain;
-	BufferedImage drone;
-	BufferedImage powerLine;
-	BufferedImage planeRight;
-	BufferedImage planeLeft;
-	BufferedImage tree;
-	BufferedImage crowLeft;
-	BufferedImage crowRight;
-	BufferedImage[] mouseLeft;
-	BufferedImage[] mouseRight;
-	BufferedImage[] foxRight;
-	BufferedImage[] foxLeft;
-	BufferedImage fishLeft;
-	BufferedImage fishRight;
-	BufferedImage nest;
-	BufferedImage twig;
-	BufferedImage Selection;
-	BufferedImage OspreyEnd;
-	BufferedImage NHEnd;
-	BufferedImage Win;
+	static BufferedImage[] playerRight;
+	static BufferedImage[] playerLeft;
+	static BufferedImage AmericaMap1;
+	static BufferedImage AmericaMap2;
+	static BufferedImage AmericaMap3;
+	static BufferedImage DelawareMap1;
+	static BufferedImage DelawareMap2;
+	static BufferedImage DelawareMap3;
+	static BufferedImage Background;
+	static BufferedImage mountain;
+	static BufferedImage drone;
+	static BufferedImage powerLine;
+	static BufferedImage planeRight;
+	static BufferedImage planeLeft;
+	static BufferedImage tree;
+	static BufferedImage[] mouseLeft;
+	static BufferedImage[] mouseRight;
+	static BufferedImage[] foxRight;
+	static BufferedImage[] foxLeft;
+	static BufferedImage fishLeft;
+	static BufferedImage fishRight;
+	static BufferedImage nest;
+	static BufferedImage twig;
+	static BufferedImage Selection;
+	static BufferedImage OspreyEnd;
+	static BufferedImage NHEnd;
+	static BufferedImage Win;
 	protected boolean isRight=true;
 	
 
@@ -201,12 +199,13 @@ public class View extends JPanel{
 		planeRight= null;
 		planeLeft= null;
 		tree= null;
-		crowLeft= null;
-		crowRight= null;
 		for(int i=0; i<5;i++){
 			mouseRight[i]=null;
 			mouseLeft[i]=null;
 		}
+		fishLeft = null;
+		fishRight = null;
+		
   }
 	
 }
