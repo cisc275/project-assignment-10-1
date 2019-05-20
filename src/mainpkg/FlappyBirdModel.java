@@ -27,7 +27,24 @@ public class FlappyBirdModel extends Model {
 		objectives = new ArrayList<Objective>();
 		obstacles = new ArrayList<Obstacle>();
 		
-		createObstacles(isOsprey);
+		createObstacles(isOsprey, 4);
+	}
+	
+	public void startFlappyBirdTutorial(boolean isOsprey) {
+		isPlaying = true;
+		int xBuffer = frameWidth/100;
+		int yBuffer = frameHeight/100;
+		int columns = 10;
+		int rows = 10;
+		int pWidth = frameWidth/columns - 2*xBuffer;
+		int pHeight = frameHeight/rows - 2*yBuffer;
+		int yLoc = 50;
+		
+		player = new Player(pWidth, pHeight, xBuffer, frameHeight*2/10, 0, 0, Model.player.getPoints());
+		objectives = new ArrayList<Objective>();
+		obstacles = new ArrayList<Obstacle>();
+		
+		createObstacles(isOsprey, 1);
 	}
 	
 	//Updates the FlappyBirdGameState with starting x and y locations.
@@ -58,7 +75,7 @@ public class FlappyBirdModel extends Model {
 		
 	}
 	
-	public void createObstacles(boolean isOsprey) {
+	public void createObstacles(boolean isOsprey, int count) {
 		int xBuffer = frameWidth/100;
 		int yBuffer = frameHeight/100;
 		int columns = 10;
@@ -70,7 +87,7 @@ public class FlappyBirdModel extends Model {
 		int spacerY = 0;
 		
 		//all obstacles
-		for(int i = 0; i < 4; i++) {
+		for(int i = 0; i < count; i++) {
 			xLoc += 9*xBuffer+pWidth;
 			spacerY = (int)(Math.random()*3 + 1);
 			int oHeight = pHeight + spacerY*(frameHeight/rows);

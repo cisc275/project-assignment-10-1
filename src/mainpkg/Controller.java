@@ -236,11 +236,24 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//FlappyBird - START
 		//-------------------------------------------------------------
+		//tutorial
+		vFlappy = new FlappyBirdView();
+		vFlappy.isTutorial = true;
+		vFlappy.addKeyListener(this);
+		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
+		startFlappyBird(true);
+		startingX = mFlappy.player.xloc;
+		startingY = mFlappy.player.yloc;
+		while(mFlappy.isPlaying){
+			mFlappy.updateFlappyBirdGameState(startingX, startingY);
+			vFlappy.update();
+		}
+		
 		//System.out.println("Start flappy");
 		vFlappy = new FlappyBirdView();
 		vFlappy.addKeyListener(this);
 		mFlappy = new FlappyBirdModel(vFlappy.getframeWidth(), vFlappy.getframeHeight(), 0);
-		startFlappyBird();
+		startFlappyBird(false);
 		startingX = mFlappy.player.xloc;
 		startingY = mFlappy.player.yloc;
 		while(mFlappy.isPlaying){
@@ -345,9 +358,15 @@ public class Controller implements KeyListener,ActionListener {
 		}
 	}
 	
-	public void startFlappyBird() {
+	public void startFlappyBird(boolean tutorial) {
 		//runs view and model for flappy game
-		mFlappy.startFlappyBird(View.isOsprey);
-		vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
+		if (tutorial) {
+			mFlappy.startFlappyBirdTutorial(View.isOsprey);
+			vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
+		}
+		else {
+			mFlappy.startFlappyBird(View.isOsprey);
+			vFlappy.startFlappyBird(mFlappy.getPlayer(), mFlappy.getObjectives(), mFlappy.getObstacles());
+		}
 	}
 }

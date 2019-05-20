@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class FlappyBirdView extends View {
+	public boolean isTutorial = false;
 	
 	public FlappyBirdView(){
 		super();
+		spaceBar = createImage("GamePictures/TutorialPics/spacebar.jpg");
 		for(int i=0; i<10; i++){
 			playerRight[i] = createImage("GamePictures/PlayerAnimation/NHSideLeft/Frame"+Integer.toString(i)+".png"); //Loads the frames for the player facing right animation
 					}
@@ -42,6 +44,11 @@ public class FlappyBirdView extends View {
 		picNum=(picNum+1)%10; //Cycles through frame numbers
 		g.drawImage(Background, 0, 0, frameWidth, frameHeight, this); //Draws the background on the bottom layer
 		if (!gameObjects.isEmpty()) {
+			if (isTutorial) {
+				g.drawImage(spaceBar, frameWidth*88/100, frameHeight*14/100, frameWidth*1/10, frameHeight*1/10, this);
+				g.drawString("Space to flap!", frameWidth*88/100, frameHeight*25/100);
+				g.drawString("Make it to the end", frameWidth*88/100, frameHeight*28/100);
+			}
 			for (GameObject o : gameObjects) {
 				if(o instanceof Player){
 					g.drawImage(playerRight[picNum], o.xloc, o.yloc, o.width, o.height, this); //Draws the player, cycling through the frames to make it animated
