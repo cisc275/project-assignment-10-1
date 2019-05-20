@@ -162,12 +162,27 @@ public class Controller implements KeyListener,ActionListener {
 		
 		//FoodGame - START
 		//------------------------------------------------------------
+		//tutorial
+		vFood = new FoodGameView();
+		vFood.isTutorial = true;
+		vFood.addKeyListener(this);
+		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
+		startFoodGame(true);
+		int timer = 100;
+		while(mFood.isPlaying){
+			mFood.updateFoodGameState(timer);
+			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
+			vFood.update();
+			timer--;
+			System.out.println(timer);
+		}
+		
 		//System.out.println("start foodGame");
 		vFood = new FoodGameView();
 		vFood.addKeyListener(this);
 		mFood = new FoodGameModel(vFood.getframeWidth(), vFood.getframeHeight(), 0);
-		startFoodGame();
-		int timer = 450;
+		startFoodGame(false);
+		timer = 200;
 		while(mFood.isPlaying){
 			mFood.updateFoodGameState(timer);
 			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
@@ -306,10 +321,16 @@ public class Controller implements KeyListener,ActionListener {
 	public void bind(Integer keyCode, Key key) {
 		keyBindings.put(keyCode, key);
 	}
-	public void startFoodGame(){
+	public void startFoodGame(boolean tutorial){
 		//runs view and model for food game
-		mFood.startFoodGame();
-		vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
+		if (tutorial) {
+			mFood.startFoodGameTutorial();
+			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
+		}
+		else {
+			mFood.startFoodGame();
+			vFood.foodGame(mFood.getPlayer(), mFood.getObjectives());
+		}
 	}
 	
 	public void startFrogger(boolean tutorial) {
