@@ -3,14 +3,13 @@ package mainpkg;
 import java.awt.Color;
 
 public class Player extends GameObject{
-	private int totalPoints;
+	static int totalPoints=0;
 	public int froggerStartX;
 	public int froggerStartY;
 	
 	//Player constructor, initializes all relevant variables.
-	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel, int totalPoints) {
+	public Player(int width, int height, int xloc, int yloc, int xvel, int yvel) {
 		super(width, height, xloc, yloc, xvel, yvel);
-		this.totalPoints = totalPoints;
 		froggerStartX = xloc;
 		froggerStartY = yloc;
 	}

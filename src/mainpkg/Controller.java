@@ -75,15 +75,19 @@ public class Controller implements KeyListener,ActionListener {
 		}
 		vBird.resetFrame();
 		//System.out.println("end of bird selection");
-		
+	
 		//Go to Map 
 		//------------------------------------------------------------	
 		//System.out.println("map is showing");
 		vMap = new MapView();
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
-		vMap.showMap(false);
+		vMap.showMap(false,1);
 		vMap.resetFrame();
+		//Go to Map - START
+		//------------------------------------------------------------
+		
+		
 		
 		//Frogger - START
 		//------------------------------------------------------------
@@ -149,7 +153,7 @@ public class Controller implements KeyListener,ActionListener {
 		vMap = new MapView();
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
-		vMap.showMap(false);
+		vMap.showMap(false,2);
 		vMap.resetFrame();
 		
 		//FoodGame - START
@@ -202,7 +206,7 @@ public class Controller implements KeyListener,ActionListener {
 		vMap = new MapView();
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
-		vMap.showMap(false);
+		vMap.showMap(false,3);
 		vMap.resetFrame();
 		
 		//FlappyBird - START
@@ -252,9 +256,9 @@ public class Controller implements KeyListener,ActionListener {
 		//Go to Map 
 		//------------------------------------------------------------
 		//System.out.println("map is showing");
-		vMap.showMap(true);
+		vMap.showMap(true,0);
 		vMap.resetFrame();
-		
+		Player.totalPoints=0;
 		
 		//System.out.println("END OF GAME");
 	}

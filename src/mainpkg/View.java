@@ -30,33 +30,34 @@ public class View extends JPanel{
 	protected int picNum;
 	protected int picNum2;
 	protected static boolean isOsprey;
-	BufferedImage[] playerRight;
-	BufferedImage[] playerLeft;
-	BufferedImage AmericaMap1;
-	BufferedImage AmericaMap2;
-	BufferedImage AmericaMap3;
-	BufferedImage DelawareMap1;
-	BufferedImage DelawareMap2;
-	BufferedImage DelawareMap3;
-	BufferedImage Background;
-	BufferedImage mountain;
-	BufferedImage drone;
-	BufferedImage powerLine;
-	BufferedImage planeRight;
-	BufferedImage planeLeft;
-	BufferedImage tree;
-	BufferedImage crowLeft;
-	BufferedImage crowRight;
-	BufferedImage[] mouseLeft;
-	BufferedImage[] mouseRight;
-	BufferedImage[] foxRight;
-	BufferedImage[] foxLeft;
-	BufferedImage fishLeft;
-	BufferedImage fishRight;
-	BufferedImage nest;
-	BufferedImage twig;
-	BufferedImage Selection;
-	static BufferedImage arrowKeys;
+	static BufferedImage[] playerRight;
+	static BufferedImage[] playerLeft;
+	static BufferedImage AmericaMap1;
+	static BufferedImage AmericaMap2;
+	static BufferedImage AmericaMap3;
+	static BufferedImage DelawareMap1;
+	static BufferedImage DelawareMap2;
+	static BufferedImage DelawareMap3;
+	static BufferedImage Background;
+	static BufferedImage mountain;
+	static BufferedImage drone;
+	static BufferedImage powerLine;
+	static BufferedImage planeRight;
+	static BufferedImage planeLeft;
+	static BufferedImage tree;
+	static BufferedImage[] mouseLeft;
+	static BufferedImage[] mouseRight;
+	static BufferedImage[] foxRight;
+	static BufferedImage[] foxLeft;
+	static BufferedImage fishLeft;
+	static BufferedImage fishRight;
+	static BufferedImage nest;
+	static BufferedImage twig;
+	static BufferedImage Selection;
+	static BufferedImage OspreyEnd;
+	static BufferedImage NHEnd;
+	static BufferedImage Win;
+  static BufferedImage arrowKeys;
 	protected boolean isRight=true;
 	
 
@@ -70,14 +71,18 @@ public class View extends JPanel{
 		playerLeft= new BufferedImage[10];
 		foxRight = new BufferedImage[10];
 		foxLeft = new BufferedImage[10];
-		//mouseLeft = new BufferedImage[10];
-		//mouseRight = new BufferedImage[10];
-		AmericaMap1 = createImage("GamePictures/Maps/America/Blank.jpg");
-		AmericaMap2 = createImage("GamePictures/Maps/America/AfterGame1.jpg");
-		AmericaMap3 = createImage("GamePictures/Maps/America/AfterGame2.jpg");
+		AmericaMap1 = createImage("GamePictures/Maps/America/Blank2.jpg");
+		AmericaMap2 = createImage("GamePictures/Maps/America/Leg1.jpg");
+		AmericaMap3 = createImage("GamePictures/Maps/America/Leg2.jpg");
 		DelawareMap1 = createImage("GamePictures/Maps/Delaware/Blank.jpg");
 		DelawareMap2 = createImage("GamePictures/Maps/Delaware/AfterGame1.jpg");
 		DelawareMap3 = createImage("GamePictures/Maps/Delaware/AfterGame2.jpg");
+		OspreyEnd = createImage("GamePictures/EndScreens/Osprey.jpg");
+		NHEnd = createImage("GamePictures/EndScreens/NH.jpg");
+		Win = createImage("GamePictures/EndScreens/uwin.png");
+		mouseLeft = new BufferedImage[5];
+		mouseRight = new BufferedImage[5];
+		
 		
 		frame = new JFrame();
 		frame.getContentPane().add(this);
@@ -179,7 +184,29 @@ public class View extends JPanel{
 	  for(int i=0;i<10;i++){
 		  playerRight[i]=null;
 		  playerLeft[i]=null;
+		  foxLeft[i]=null;
+		  foxRight[i]=null;
 	  }
+	  AmericaMap1 = null;
+	  AmericaMap2= null;
+	  AmericaMap3= null;
+		DelawareMap1= null;
+		DelawareMap2= null;
+		DelawareMap3= null;
+		Background= null;
+		mountain= null;
+		drone= null;
+		powerLine= null;
+		planeRight= null;
+		planeLeft= null;
+		tree= null;
+		for(int i=0; i<5;i++){
+			mouseRight[i]=null;
+			mouseLeft[i]=null;
+		}
+		fishLeft = null;
+		fishRight = null;
+		
   }
 	
 }
