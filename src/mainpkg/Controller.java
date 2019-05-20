@@ -80,7 +80,7 @@ public class Controller implements KeyListener,ActionListener {
 		//------------------------------------------------------------	
 		//System.out.println("map is showing");
 		vMap = new MapView();
-		vMap.legnum= 1;
+		vMap.legnum = 1;
 		mMap = new MapModel(vMap.getframeWidth(), vMap.getframeHeight(), 0);
 		vMap.addKeyListener(this);
 		vMap.showMap(false);
@@ -117,7 +117,7 @@ public class Controller implements KeyListener,ActionListener {
 			mFrogger.updateFroggerState(startingX, startingY);
 			vFrogger.update();
 		}
-		vFrogger.delete();
+		//vFrogger.delete();
 		vFrogger.resetFrame();
 		//System.out.println("end of frogger");
 		
