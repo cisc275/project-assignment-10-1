@@ -11,7 +11,7 @@ public class MapView extends View {
 	public int legnum;
 	
 	
-	public void showMap(boolean isEnd) throws InterruptedException {
+	public void showMap(boolean isEnd) {
 		// Map shown inbetween games. Works by grabbing the system time in milliseconds,
 		// adding 5000, and then counting down 1 second every second. Effectively keeping
 		// the map screen up for 5 seconds.
@@ -20,7 +20,12 @@ public class MapView extends View {
 		long tStart = tEnd + 3*1000;
 		while(tStart > tEnd) {
 			tStart -= 1000;
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		}
 	}
