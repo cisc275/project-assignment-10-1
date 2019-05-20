@@ -102,7 +102,7 @@ public class FroggerModel extends Model {
 			// moves player back to beginning if they hit an obstacle
 			player.xloc = startingX;
 			player.yloc = startingY;
-			player.addPoints(lostPoints);
+			player.addPoints(-lostPoints);
 		}
 		if(wallCollision(player)) {
 			// no points lost for running into wall
