@@ -24,30 +24,16 @@ public class Player extends GameObject{
 	
 	//Moves player in yDirection when called in various games
 	public void yJump(boolean isUp, int fheight){
-		int buffer = fheight/100; 
+		int buffer = fheight/100;  
 		yvel = height + 2*buffer; 
 		if(isUp) yvel *= -1;
 		move();
 		yvel = 0;
 	}
 	
-	//Moves player down or up to the targetHeight parameter
-	public void dive(int targetHeight, boolean goingDown) {
-		if(goingDown) {
-			while(yloc < targetHeight) {
-				yvel += 200;
-				move();
-				System.out.println(yloc);
-				yvel = 0;
-			}
-		}
-		else {
-			while(yloc > targetHeight) {
-				yvel -= targetHeight * 0.01;
-				move();
-				yvel = 0;
-			}
-		}
+	//Moves player down to the targetHeight parameter
+	public void dive(int targetHeight) {
+		yloc = targetHeight;
 	}
 
 	

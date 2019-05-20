@@ -8,6 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class FoodGameModel extends Model {
 
 	private int flyHeight; 
+	private int foodHeight = frameHeight - (frameHeight/7);
 	
 	public FoodGameModel(int fw, int fh, int s) {
 		super(fw, fh, s);
@@ -37,22 +38,17 @@ public class FoodGameModel extends Model {
 	//updates the state of the FoodGame
 	//Handles player movement/food retrieval
 	public void updateFoodGameState(){
-
+		
 		int x = player.xloc;
 		int y = player.yloc;
 		updateFoodObjectives();
-		int speed = objectives.get(0).xvel;
 		
-		if(player.yloc == frameHeight) {
-			player.dive(flyHeight, false);
-			//startAnimation(speed);
+		if(player.yloc == foodHeight) {
+			player.dive(flyHeight);
 		}
 		else {
 			if (Key.space.isDown) {
-				//stopAnimation();
-				System.out.println("Space bar press recieved");
-				player.dive(frameHeight, true);
-				System.out.println("Player should be at bottom");
+				player.dive(foodHeight);
 				eatFood();
 			}
 			if (Key.left.isDown)
@@ -68,7 +64,6 @@ public class FoodGameModel extends Model {
 			player.yloc = y;
 		}
 		
-		//System.out.println(player.xloc + ", " + player.yloc);
 	}
 	
 	//Assigns points to player when food is eaten
@@ -82,6 +77,7 @@ public class FoodGameModel extends Model {
 				player.addPoints(o.getPoints());
 				objectives.remove(o); 
 				createFish(1);
+				break;
 			}
 		}
 	}
@@ -91,9 +87,7 @@ public class FoodGameModel extends Model {
 		Random rx = new Random();
 		for(int i = 0; i < amount; i++) {
 			int x = rx.nextInt(frameWidth);
-			int y = ThreadLocalRandom.current().nextInt((frameHeight-300), frameHeight);
-			//System.out.println(y);
-			objectives.add(new Objective(50, 50, x, y, 50, 0, false, 10));
+			objectives.add(new Objective(50, 50, x, foodHeight, 50, 0, false, 10));
 		}
 	}
 	
